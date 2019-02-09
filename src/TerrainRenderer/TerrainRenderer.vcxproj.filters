@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>3. Stdafx / Resources %28Client%29</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>3. Stdafx / Resources %28Client%29</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainRenderer.h">
+      <Filter>1. Source Codes %28Client%29</Filter>
+    </ClInclude>
+    <ClInclude Include="plug_client.h">
+      <Filter>4. Plug Source Codes %28Client%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>3. Stdafx / Resources %28Client%29</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>1. Source Codes %28Client%29</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainRenderer.cpp">
+      <Filter>1. Source Codes %28Client%29</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="1. Source Codes %28Client%29">
+      <UniqueIdentifier>{8ae4a2ad-453b-4820-bdcf-ee83ad5e238c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2. Shader Codes %28Client%29">
+      <UniqueIdentifier>{0d3d59e7-aa03-4730-990c-a6f68e778ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3. Stdafx / Resources %28Client%29">
+      <UniqueIdentifier>{f13cce82-2028-4d84-959d-8365bf0bb2a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4. Plug Source Codes %28Client%29">
+      <UniqueIdentifier>{a509bc32-2a13-472e-a5c2-67b9daa792fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
