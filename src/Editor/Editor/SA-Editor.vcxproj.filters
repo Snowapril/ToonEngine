@@ -13,6 +13,9 @@
     <Filter Include="3. Lua Source Codes %28Editor%29\Lua Scripts">
       <UniqueIdentifier>{11e0c833-435f-4d47-a572-dbe51851d971}</UniqueIdentifier>
     </Filter>
+    <Filter Include="4. Config %28Editor%29">
+      <UniqueIdentifier>{85c9d1ff-2cb5-4552-89fe-035d55563904}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

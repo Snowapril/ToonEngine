@@ -2,18 +2,38 @@
 #define SINGLETON_H
 
 #include "NonCopyable.h"
-#include <memory>
 
 template <typename Type>
 class Singleton : public NonCopyable 
 {
 private:
-	static std::shared_ptr<Type> instance;
+	static Type *instance = nullptr;
 public:
-	static Type const&	getConstInstance  (void) { return *instance;			}
-	static Type&		getMutableInstance(void) { return *instance;			}
-	static bool			isDestroyed		  (void) { return instance == nullptr;	}
-	static void			destroyInstance	  (void) { instance.reset();			}
+	static Type const&	getConstInstance  (void);
+	static Type&		getMutableInstance(void);
+	static bool			isDestroyed		  (void) { return instance == nullptr;			}
+	static void			destroyInstance(void)	 { delete instance; instance = nullptr; }
+private: 
+	// to prevent the constructor of singleton from being called from any place.
+	Singleton() = default; 
 };
+
+template <typename Type>
+Type const&	Singleton<Type>::getConstInstance(void)
+{
+	if (instance == nullptr)
+		instance = new Type();
+
+	return instance;
+}
+
+template <typename Type>
+Type& Singleton<Type>::getMutableInstance(void)
+{
+	if (instance == nullptr)
+		instance = new Type();
+
+	return instance;
+}
 
 #endif //SINGLETON_HPP
