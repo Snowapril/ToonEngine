@@ -19,7 +19,7 @@ public:
 	PoolAllocator();
 private:
 	Allocator alloc;
-
+	
 };
 
 template < typename Type, std::size_t N, typename Allocator >
