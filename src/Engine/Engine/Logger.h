@@ -1,32 +1,57 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <spdlog/spdlog.h>
-#include <memory>
+#include "ToonHeaderPrefix.h"
 #include "Singleton.h"
+#include <spdlog/spdlog.h>
+#include <string>
+#include <memory>
 
-class Logger : public Singleton<Logger> 
+namespace Toon
 {
-private:
-	std::shared_ptr<spdlog::logger> console;
-public:
-	void initLogger(spdlog::level::level_enum logLevel);
-	std::shared_ptr<spdlog::logger>	getConsole() const;
+	class Logger : public Singleton<Logger>
+	{
+	private:
+		std::unique_ptr<spdlog::logger> console;
+	public:
+		Logger();
+		~Logger();
+		
+		void infoMessage	( std::string const & msg ) const;
+		void warnMessage	( std::string const & msg ) const;
+		void errorMessage	( std::string const & msg ) const;
+
+		template < typename... Args >
+		void infoMessage( char const * fmt, Args&&... args ) const;
+		template < typename... Args >
+		void warnMessage( char const * fmt, Args&&... args ) const;
+		template < typename... Args >
+		void errorMessage( char const * fmt, Args&&... args ) const;
+	public:
+		static Logger const&	getConstInstance	(void);
+		static Logger &			getMutableInstance	(void);
+		static bool				isDestroyed			(void) { return instance == nullptr; }
+	};
+
+	template < typename... Args >
+	void Logger::infoMessage( char const * fmt, Args&&... args ) const
+	{
+		console->info( fmt, std::forward<Args>(args)... );
+	}
+
+	template < typename... Args >
+	void Logger::warnMessage( char const * fmt, Args&&... args ) const
+	{
+		console->warn( fmt, std::forward<Args>(args)... );
+	}
+
+	template < typename... Args >
+	void Logger::errorMessage( char const * fmt, Args&&... args ) const
+	{
+		console->error( fmt, std::forward<Args>(args)... );
+	}
 };
 
-#ifdef _DEBUG
-#define INIT_LOGGER() ( Logger::getMutableInstance().initLogger(spdlog::level::trace))
-#else
-#define INIT_LOGGER() ( Logger::getMutableInstance().initLogger(spdlog::level::warn))
-#endif
-
-#ifdef _DEBUG
-#define INFO_LOG(format, ...)  (Logger::getConstInstance().getConsole()->info((format), __VA_ARGS__))
-#else
-#define INFO_LOG(format, ...) 
-#endif
-
-#define ERROR_LOG(format, ...) ( Logger::getConstInstance().getConsole()->error((format), __VA_ARGS__))
-
+#include "ToonHeaderPostfix.h"
 
 #endif

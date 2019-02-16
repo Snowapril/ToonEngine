@@ -87,8 +87,9 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Create</PrecompiledHeader>
-      <AdditionalOptions>/d1reportTime /GR- </AdditionalOptions>
+      <AdditionalOptions> /GR- </AdditionalOptions>
       <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)common\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)lib;$(SolutionDir)common\lib</AdditionalLibraryDirectories>
@@ -121,6 +122,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <AdditionalOptions>/d1reportTime /GR- </AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -164,7 +166,12 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="Util.h" />
+    <ClInclude Include="ToonExceptions.h" />
+    <ClInclude Include="ToonHeaderPostfix.h" />
+    <ClInclude Include="ToonHeaderPrefix.h" />
+    <ClInclude Include="ToonPrerequisites.h" />
+    <ClInclude Include="ToonString.h" />
+    <ClInclude Include="ToonUtil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

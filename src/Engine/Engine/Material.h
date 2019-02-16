@@ -1,11 +1,14 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-class Material 
+namespace Toon
 {
-private:
-public:
-public:
+	class Material
+	{
+	private:
+	public:
+	public:
+	};
 };
 
 #endif

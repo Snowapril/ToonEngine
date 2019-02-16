@@ -3,42 +3,45 @@
 #include <GLFX/glfx.h>
 #include "Logger.h"
 
-Effect::Effect()
+namespace Toon
 {
-	effect = glfxGenEffect();
-}
-
-Effect::~Effect()
-{
-	glfxDeleteEffect(effect);
-}
-
-int Effect::compileProgram(const char * effectFilePath, const char * programName) const
-{
-	bool bParsingSuccess = glfxParseEffectFromFile(effect, effectFilePath);
-	if (!bParsingSuccess)
+	Effect::Effect()
 	{
-		handleGLFXError();
-		return -1;
+		effect = glfxGenEffect();
 	}
 
-	int program = glfxCompileProgram(effect, programName);
-	if (program == -1)
+	Effect::~Effect()
 	{
-		handleGLFXError();
-		return -1;
+		glfxDeleteEffect(effect);
 	}
-	
-	return program;
-}
 
-const char* Effect::getProgramName(int programIndex) const
-{
-	return glfxGetProgramName(effect, programIndex);
-}
+	int Effect::compileProgram( const char * effectFilePath, const char * programName ) const
+	{
+		bool bParsingSuccess = glfxParseEffectFromFile( effect, effectFilePath );
+		if (!bParsingSuccess)
+		{
+			handleGLFXError();
+			return -1;
+		}
 
-void Effect::handleGLFXError(void) const
-{
-	std::string errorLog = glfxGetEffectLog(effect);
-	INFO_LOG("GLFX error log : {}", errorLog);
-}
+		int program = glfxCompileProgram( effect, programName );
+		if (program == -1)
+		{
+			handleGLFXError();
+			return -1;
+		}
+
+		return program;
+	}
+
+	const char* Effect::getProgramName( int programIndex ) const
+	{
+		return glfxGetProgramName( effect, programIndex );
+	}
+
+	void Effect::handleGLFXError(void) const
+	{
+		std::string errorLog = glfxGetEffectLog(effect);
+		Logger::getConstInstance().errorMessage(errorLog);
+	}
+};

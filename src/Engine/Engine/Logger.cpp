@@ -4,16 +4,47 @@
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/basic_file_sink.h>
 
-std::shared_ptr<Logger> Singleton<Logger>::instance(new Logger());
-
-void Logger::initLogger(spdlog::level::level_enum logLevel)
+namespace Toon
 {
-	auto sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-	console = std::make_shared<spdlog::logger>("setup", sink);
-	console->set_level(logLevel);
-}
+	template <> Logger* Singleton<Logger>::instance = nullptr;
 
-std::shared_ptr<spdlog::logger> Logger::getConsole() const
-{
-	return console;
-}
+	Logger::Logger()
+	{
+		auto sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+		console = std::make_unique<spdlog::logger>("setup", sink);
+		
+		console->set_level(spdlog::level::err);
+	}
+
+	Logger::~Logger()
+	{
+		Logger::getConstInstance().infoMessage("[Singleton] Logger instnace is released");
+		console.reset();
+	}
+
+	void Logger::infoMessage(std::string const & msg) const
+	{
+		console->info(msg);
+	}
+
+	void Logger::warnMessage(std::string const & msg) const
+	{
+		console->warn(msg);
+	}
+
+	void Logger::errorMessage(std::string const & msg) const
+	{
+		console->error(msg);
+	}
+
+	Logger const & Logger::getConstInstance(void)
+	{
+		return *instance;
+	}
+
+	Logger & Logger::getMutableInstance(void)
+	{
+		return *instance;
+	}
+
+};

@@ -3,21 +3,24 @@
 
 #include <glm/vec3.hpp>
 
-class Camera 
+namespace Toon
 {
-private:
-	glm::vec3	position;
-	glm::vec3	direction;
-	float		speed;
-public:
-	Camera();
-	Camera(const Camera&);
-	Camera(Camera&&);
-	~Camera();
-	Camera& operator=(const Camera&);
-	Camera& operator=(Camera&&);
+	class Camera
+	{
+	private:
+		glm::vec3	position;
+		glm::vec3	direction;
+		float		speed;
+	public:
+		Camera();
+		Camera(Camera const &);
+		Camera(Camera&&);
+		~Camera();
+		Camera& operator=(Camera const &);
+		Camera& operator=(Camera&&);
 
-	void processInput(int key, int button);
+		void processInput( int key, int button );
+	};
 };
 
 #endif

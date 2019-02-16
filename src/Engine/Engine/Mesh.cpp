@@ -1,78 +1,81 @@
 #include "stdafx.h"
 #include "Mesh.h"
 
-Mesh::Mesh(const Mesh& other)
-	: positions(other.positions), normals(other.normals), uvs(other.uvs), indices(other.indices)
+namespace Toon
 {
-}
-
-Mesh & Mesh::operator=(const Mesh& other)
-{
-	if (this != &other)
+	Mesh::Mesh(Mesh const & other)
+		: positions(other.positions), normals(other.normals), uvs(other.uvs), indices(other.indices)
 	{
-		positions	= other.positions;
-		normals		= other.normals;
-		uvs			= other.uvs;
-		indices		= other.indices;
 	}
 
-	return *this;
-}
-
-Mesh::Mesh(Mesh&& other)
-	: positions(move(other.positions)), normals(move(other.normals)), uvs(move(other.uvs)), indices(move(other.indices))
-{
-}
-
-Mesh & Mesh::operator=(Mesh&& other)
-{
-	if (this != &other)
+	Mesh & Mesh::operator=(Mesh const & other)
 	{
-		positions	= move(other.positions);
-		normals		= move(other.normals  );
-		uvs			= move(other.uvs	  );
-		indices		= move(other.indices  );
+		if (this != &other)
+		{
+			positions	= other.positions;
+			normals		= other.normals;
+			uvs			= other.uvs;
+			indices		= other.indices;
+		}
+
+		return *this;
 	}
 
-	return *this;
-}
+	Mesh::Mesh(Mesh&& other)
+		: positions(move(other.positions)), normals(move(other.normals)), uvs(move(other.uvs)), indices(move(other.indices))
+	{
+	}
 
-std::size_t Mesh::getNumVertices(void) const
-{
-	return std::size_t();
-}
+	Mesh & Mesh::operator=(Mesh&& other)
+	{
+		if (this != &other)
+		{
+			positions	= move(other.positions);
+			normals		= move(other.normals);
+			uvs			= move(other.uvs);
+			indices		= move(other.indices);
+		}
 
-float const* Mesh::getPositions(void) const
-{
-	return hasPositions() ? &(positions[0].x) : nullptr;
-}
+		return *this;
+	}
 
-float const* Mesh::getNormals(void) const
-{
-	return hasNormals() ? &(normals[0].x) : nullptr;
-}
+	std::size_t Mesh::getNumVertices(void) const
+	{
+		return std::size_t();
+	}
 
-float const* Mesh::getUVs(void) const
-{
-	return hasUVs() ? &(uvs[0].x) : nullptr;
-}
+	float const* Mesh::getPositions(void) const
+	{
+		return hasPositions() ? &(positions[0].x) : nullptr;
+	}
 
-std::size_t Mesh::getNumTriangles(void) const
-{
-	return static_cast<std::size_t>( indices.size() / 3 );
-}
+	float const* Mesh::getNormals(void) const
+	{
+		return hasNormals() ? &(normals[0].x) : nullptr;
+	}
 
-bool Mesh::hasPositions(void) const
-{
-	return !positions.empty();
-}
+	float const* Mesh::getUVs(void) const
+	{
+		return hasUVs() ? &(uvs[0].x) : nullptr;
+	}
 
-bool Mesh::hasNormals(void) const
-{
-	return !normals.empty();
-}
+	std::size_t Mesh::getNumTriangles(void) const
+	{
+		return static_cast<std::size_t>( indices.size() * 0.3333333f );
+	}
 
-bool Mesh::hasUVs(void) const
-{
-	return !uvs.empty();
-}
+	bool Mesh::hasPositions(void) const
+	{
+		return !positions.empty();
+	}
+
+	bool Mesh::hasNormals(void) const
+	{
+		return !normals.empty();
+	}
+
+	bool Mesh::hasUVs(void) const
+	{
+		return !uvs.empty();
+	}
+};

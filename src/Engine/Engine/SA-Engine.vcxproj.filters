@@ -91,9 +91,6 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK\PhysX">
       <UniqueIdentifier>{2132913e-8d75-4e37-ac97-fb4c2fcba98c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK\Boost">
-      <UniqueIdentifier>{8ff740cc-d615-4db0-8cf4-986e30c2b545}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\LinearAllocator">
       <UniqueIdentifier>{1017dc90-9ca1-461d-8b90-b3c49a88fc6a}</UniqueIdentifier>
     </Filter>
@@ -197,9 +194,6 @@
     <ClInclude Include="Camera.h">
       <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Util.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
-    </ClInclude>
     <ClInclude Include="Obfuscator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\AntiHack</Filter>
     </ClInclude>
@@ -211,6 +205,24 @@
     </ClInclude>
     <ClInclude Include="StackAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\StackAllocator</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonExceptions.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonPrerequisites.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonString.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonHeaderPrefix.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonHeaderPostfix.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonUtil.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

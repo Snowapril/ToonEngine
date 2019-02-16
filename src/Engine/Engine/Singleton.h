@@ -1,39 +1,58 @@
 #ifndef SINGLETON_H
 #define SINGLETON_H
 
-#include "NonCopyable.h"
+// referencing on Ogre engine
 
-template <typename Type>
-class Singleton : public NonCopyable 
+#include "ToonHeaderPrefix.h"
+#include "ToonHeaderPrefix.h"
+#include "NonCopyable.h"
+#include "ToonExceptions.h"
+
+namespace Toon
 {
-private:
-	static Type *instance = nullptr;
-public:
-	static Type const&	getConstInstance  (void);
-	static Type&		getMutableInstance(void);
-	static bool			isDestroyed		  (void) { return instance == nullptr;			}
-	static void			destroyInstance(void)	 { delete instance; instance = nullptr; }
-private: 
-	// to prevent the constructor of singleton from being called from any place.
-	Singleton() = default; 
+	template <typename Type>
+	class Singleton : public NonCopyable
+	{
+	protected:
+		static Type * instance;
+	public:
+		static Type const&	getConstInstance	(void);
+		static Type&		getMutableInstance	(void);
+		static bool			isDestroyed			(void) { return instance == nullptr; }
+	public:
+		Singleton();
+		~Singleton();
+	};
+
+	template <typename Type>
+	Singleton< Type >::Singleton()
+	{
+		ToonAssert( "The instance is already allocated", instance == nullptr );
+		instance = static_cast<Type*>(this);
+	}
+
+	template <typename Type>
+	Singleton< Type >::~Singleton()
+	{
+		assert(instance != nullptr);
+		instance = nullptr;
+	}
+
+	template <typename Type>
+	Type const&	Singleton<Type>::getConstInstance(void)
+	{
+		assert(instance != nullptr);
+		return *instance;
+	}
+
+	template <typename Type>
+	Type& Singleton<Type>::getMutableInstance(void)
+	{
+		assert(instance != nullptr);
+		return *instance;
+	}
 };
 
-template <typename Type>
-Type const&	Singleton<Type>::getConstInstance(void)
-{
-	if (instance == nullptr)
-		instance = new Type();
-
-	return instance;
-}
-
-template <typename Type>
-Type& Singleton<Type>::getMutableInstance(void)
-{
-	if (instance == nullptr)
-		instance = new Type();
-
-	return instance;
-}
+#include "ToonHeaderPostfix.h"
 
 #endif //SINGLETON_HPP

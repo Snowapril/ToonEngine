@@ -1,69 +1,90 @@
 #include "stdafx.h"
 #include "Timer.h"
+#include "Logger.h"
 
-Timer::Timer()
-	: startTime(), currentTime(), pausedTime(), deltaTime(), bPaused(false)
+namespace Toon
 {
-}
+	template <> Timer* Singleton<Timer>::instance = nullptr;
 
-void Timer::tick(void)
-{
-	using namespace std::chrono;
-
-	auto previousTime	= currentTime;
-	currentTime			= high_resolution_clock::now();
-	auto elapsedTime	= duration_cast<duration<double>>(currentTime - previousTime).count();
-	
-	if (bPaused)
+	Timer::Timer()
+		: startTime(), currentTime(), pausedTime(), deltaTime(), bPaused(false)
 	{
-		pausedTime += elapsedTime;
-		deltaTime	= 0.0;
-	}
-	else
-	{
-		deltaTime	= elapsedTime;
 	}
 
-	if (deltaTime < 0.0) deltaTime = 0.0;
-}
+	Timer::~Timer()
+	{
+		Logger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released" );
+	}
 
-void Timer::start(void)
-{
-	if (bPaused) bPaused = false;
-}
+	void Timer::tick(void)
+	{
+		using namespace std::chrono;
 
-void Timer::reset(void)
-{
-	startTime	= (currentTime = std::chrono::high_resolution_clock::now());
-	bPaused		= false;
-	deltaTime	= 0.0;
-	pausedTime	= 0.0;
-}
+		auto previousTime = currentTime;
+		currentTime = high_resolution_clock::now();
+		auto elapsedTime = duration_cast< duration<double> >( currentTime - previousTime ).count();
 
-void Timer::pause(void)
-{
-	if (!bPaused) bPaused = true; 
-}
+		if (bPaused)
+		{
+			pausedTime += elapsedTime;
+			deltaTime = 0.0;
+		}
+		else
+		{
+			deltaTime = elapsedTime;
+		}
 
-bool Timer::isOnGoing(void) const
-{
-	return !bPaused;
-}
+		if (deltaTime < 0.0) deltaTime = 0.0;
+	}
 
-bool Timer::isPaused(void) const
-{
-	return  bPaused;
-}
+	void Timer::start(void)
+	{
+		if (bPaused) bPaused = false;
+	}
 
-float Timer::getDeltaTime(void) const
-{
-	return static_cast<float>(deltaTime);
-}
+	void Timer::reset(void)
+	{
+		startTime	= ( currentTime = std::chrono::high_resolution_clock::now() );
+		bPaused		= false	;
+		deltaTime	= 0.0	;
+		pausedTime	= 0.0	;
+	}
 
-float Timer::getTotalTime(void) const
-{
-	using namespace std::chrono;
-	auto wholeDuration	= duration_cast<duration<double>>(currentTime - startTime).count();
-	
-	return static_cast<float>(wholeDuration - pausedTime);
-}
+	void Timer::pause(void)
+	{
+		if (!bPaused) bPaused = true;
+	}
+
+	bool Timer::isOnGoing(void) const
+	{
+		return !bPaused;
+	}
+
+	bool Timer::isPaused(void) const
+	{
+		return  bPaused;
+	}
+
+	float Timer::getDeltaTime(void) const
+	{
+		return static_cast<float>(deltaTime);
+	}
+
+	float Timer::getTotalTime(void) const
+	{
+		using namespace std::chrono;
+		auto wholeDuration = duration_cast< duration<double> >( currentTime - startTime ).count();
+
+		return static_cast<float>( wholeDuration - pausedTime );
+	}
+
+	Timer const & Timer::getConstInstance(void)
+	{
+		return *instance;
+	}
+
+	Timer & Timer::getMutableInstance(void)
+	{
+		return *instance;
+	}
+};

@@ -1,15 +1,18 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-enum class TextureInfo : unsigned int
+namespace Toon
 {
-	R8G8B8A8 = 0,
-};
+	enum class TextureInfo : unsigned int
+	{
+		R8G8B8A8 = 0,
+	};
 
-class Texture
-{
-private:
-public:
+	class Texture
+	{
+	private:
+	public:
+	};
 };
 
 #endif
