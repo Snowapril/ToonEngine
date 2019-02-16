@@ -14,12 +14,13 @@ namespace Toon
 	class StackAllocator : public NonCopyable
 	{
 	public:
-		using allocator_type	= std::allocator_traits<Allocator>::allocator_type;
-		using value_type		= std::allocator_traits<Allocator>::value_type;
-		using pointer			= std::allocator_traits<Allocator>::pointer;
-		using const_pointer		= std::allocator_traits<Allocator>::const_pointer;
-		using difference_type	= std::allocator_traits<Allocator>::difference_type;
-		using size_type			= std::allocator_traits<Allocator>::size_type;
+		using allocator_type	= typename std::allocator_traits<Allocator>::allocator_type;
+		using value_type		= typename std::allocator_traits<Allocator>::value_type;
+		using pointer			= typename std::allocator_traits<Allocator>::pointer;
+		using const_pointer		= typename std::allocator_traits<Allocator>::const_pointer;
+		using difference_type	= typename std::allocator_traits<Allocator>::difference_type;
+		using size_type			= typename std::allocator_traits<Allocator>::size_type;
+		using allocator_impl    = typename std::allocator_traits<Allocator>;
 	public:
 		StackAllocator();
 
@@ -28,7 +29,7 @@ namespace Toon
 		template < typename Type >
 		void destroy(void);
 	private:
-		Allocator	alloc;
+		std::allocator_traits<Allocator> alloc;
 		char		*beginPtr;
 		char		*offsetPtr;
 		char		*endPtr;
@@ -39,7 +40,8 @@ namespace Toon
 	{
 		beginPtr	= alloc.allocate(N, 0);
 		offsetPtr	= beginPtr;
-		endPtr		= beginPtr + N;
+		endPtr		= beginPtr + N;]
+		
 	}
 
 	template < std::size_t N, typename Allocator >
