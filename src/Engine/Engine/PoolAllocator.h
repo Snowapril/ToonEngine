@@ -19,6 +19,7 @@ namespace Toon
 		using size_type			= std::allocator_traits<Allocator>::size_type;
 	public:
 		PoolAllocator();
+		~PoolAllocator();
 	private:
 		Allocator alloc;
 		// rbtree tree; this can be replaced by std::map or std::multimap
@@ -29,8 +30,14 @@ namespace Toon
 	{
 
 	}
+
+	template < typename Type, std::size_t N, typename Allocator >
+	PoolAllocator< Type, N, Allocator >::~PoolAllocator()
+	{
+
+	}
 };
 
 #include "ToonHeaderPostfix.h"
-
+ 
 #endif // end of PoolAllocator

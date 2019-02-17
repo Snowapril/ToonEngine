@@ -194,9 +194,6 @@
     <ClInclude Include="Camera.h">
       <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Obfuscator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\AntiHack</Filter>
-    </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Material</Filter>
     </ClInclude>
@@ -223,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="ToonUtil.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Obfuscator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

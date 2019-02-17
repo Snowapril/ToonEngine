@@ -3,14 +3,13 @@
 
 #include "ToonHeaderPrefix.h"
 #include <allocators>
-#include <memory>
 #include "Noncopyable.h"
 #include <type_traits>
 #include <cassert>
 
 namespace Toon
 {
-	template < std::size_t N, typename Allocator = std::allocator<char> >
+	template < std::size_t Numbytes, typename Allocator = std::allocator<char> >
 	class StackAllocator : public NonCopyable
 	{
 	public:
@@ -20,7 +19,6 @@ namespace Toon
 		using const_pointer		= typename std::allocator_traits<Allocator>::const_pointer;
 		using difference_type	= typename std::allocator_traits<Allocator>::difference_type;
 		using size_type			= typename std::allocator_traits<Allocator>::size_type;
-		using allocator_impl    = typename std::allocator_traits<Allocator>;
 	public:
 		StackAllocator();
 
@@ -29,24 +27,23 @@ namespace Toon
 		template < typename Type >
 		void destroy(void);
 	private:
-		std::allocator_traits<Allocator> alloc;
+		Allocator	alloc;
 		char		*beginPtr;
 		char		*offsetPtr;
 		char		*endPtr;
 	};
 
-	template < std::size_t N, typename Allocator >
-	StackAllocator< N, Allocator >::StackAllocator()
+	template < std::size_t Numbytes, typename Allocator >
+	StackAllocator< Numbytes, Allocator >::StackAllocator()
 	{
-		beginPtr	= alloc.allocate(N, 0);
+		beginPtr	= alloc.allocate(Numbytes, 0);
 		offsetPtr	= beginPtr;
-		endPtr		= beginPtr + N;]
-		
+		endPtr		= beginPtr + Numbytes;
 	}
 
-	template < std::size_t N, typename Allocator >
+	template < std::size_t Numbytes, typename Allocator >
 	template < typename Type, typename... Args >
-	Type* StackAllocator< N, Allocator >::allocate( Args&&... args )
+	Type* StackAllocator< Numbytes, Allocator >::allocate( Args&&... args )
 	{
 		if ( offsetPtr == endPtr ) return nullptr;
 
@@ -56,10 +53,10 @@ namespace Toon
 
 		return instance;
 	}
-
-	template < std::size_t N, typename Allocator >
+	
+	template < std::size_t Numbytes, typename Allocator >
 	template < typename Type >
-	void StackAllocator< N, Allocator >::destroy(void)
+	void StackAllocator< Numbytes, Allocator >::destroy(void)
 	{
 		if ( offsetPtr == beginPtr ) return;
 
@@ -71,4 +68,4 @@ namespace Toon
 
 #include "ToonHeaderPostfix.h"
 
-#endif // end of PoolAllocator
+#endif // end of StackAllocator
