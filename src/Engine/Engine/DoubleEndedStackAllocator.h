@@ -14,16 +14,16 @@ namespace Toon
 		using size_type			= typename ::std::size_t;
 		using marker			= typename ::std::size_t;
 	public:
-		DoubleEndedStackAllocator( size_type size) ;
-		~DoubleEndedStackAllocator();
+		DoubleEndedStackAllocator( size_type size)  noexcept;
+		~DoubleEndedStackAllocator() noexcept;
 
-		void* allocateFront(size_type size);
-		void* allocateBack(size_type size);
-		marker getFrontMarker(void) const;
-		marker getBackMarker(void) const;
-		void freeToFrontMarker(marker mark);
-		void freeToBackMarker(marker mark);
-		void clear(void);
+		void* allocateFront(size_type size) noexcept;
+		void* allocateBack(size_type size) noexcept;
+		marker getFrontMarker(void) const noexcept;
+		marker getBackMarker(void) const noexcept;
+		void freeToFrontMarker(marker mark) noexcept;
+		void freeToBackMarker(marker mark) noexcept;
+		void clear(void) noexcept;
 	private:
 		char* beginPtr;
 		char* frontOffsetPtr;
@@ -31,7 +31,7 @@ namespace Toon
 		char* endPtr;
 	};
 	
-	DoubleEndedStackAllocator::DoubleEndedStackAllocator( size_type size)
+	DoubleEndedStackAllocator::DoubleEndedStackAllocator( size_type size) noexcept
 	{
 		beginPtr		= (char*)malloc(size);
 		frontOffsetPtr	= beginPtr;
@@ -39,13 +39,13 @@ namespace Toon
 		backOffsetPtr	= endPtr;
 	}
 
-	DoubleEndedStackAllocator::~DoubleEndedStackAllocator()
+	DoubleEndedStackAllocator::~DoubleEndedStackAllocator() noexcept
 	{
 		size_type size = endPtr - beginPtr;
 		free(beginPtr);
 	}
 
-	void * DoubleEndedStackAllocator::allocateFront(size_type size)
+	void * DoubleEndedStackAllocator::allocateFront(size_type size) noexcept
 	{
 		char* offsetPtr = frontOffsetPtr + size;
 		if (offsetPtr > backOffsetPtr) return nullptr;
@@ -56,7 +56,7 @@ namespace Toon
 		return allocated;
 	}
 
-	void * DoubleEndedStackAllocator::allocateBack(size_type size)
+	void * DoubleEndedStackAllocator::allocateBack(size_type size) noexcept
 	{
 		char* offsetPtr = backOffsetPtr - size;
 		if (offsetPtr < frontOffsetPtr) return nullptr;
@@ -67,29 +67,29 @@ namespace Toon
 		return allocated;
 	}
 
-	typename DoubleEndedStackAllocator::marker DoubleEndedStackAllocator::getFrontMarker(void) const
+	typename DoubleEndedStackAllocator::marker DoubleEndedStackAllocator::getFrontMarker(void) const noexcept
 	{
 		marker mark = static_cast<marker>(frontOffsetPtr - beginPtr);
 		return mark;
 	}
 
-	typename DoubleEndedStackAllocator::marker DoubleEndedStackAllocator::getBackMarker(void) const
+	typename DoubleEndedStackAllocator::marker DoubleEndedStackAllocator::getBackMarker(void) const noexcept
 	{
 		marker mark = static_cast<marker>(endPtr - backOffsetPtr);
 		return mark;
 	}
 
-	void DoubleEndedStackAllocator::freeToFrontMarker(marker mark)
+	void DoubleEndedStackAllocator::freeToFrontMarker(marker mark) noexcept
 	{
 		frontOffsetPtr = beginPtr + mark;
 	}
 
-	void DoubleEndedStackAllocator::freeToBackMarker(marker mark)
+	void DoubleEndedStackAllocator::freeToBackMarker(marker mark) noexcept
 	{
 		backOffsetPtr = endPtr - mark;
 	}
 
-	void DoubleEndedStackAllocator::clear(void)
+	void DoubleEndedStackAllocator::clear(void) noexcept
 	{
 		frontOffsetPtr	= beginPtr;
 		backOffsetPtr	= endPtr;

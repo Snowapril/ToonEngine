@@ -17,17 +17,17 @@ namespace Toon
 		using size_type			= typename std::size_t;
 		using address_type		= typename std::uintptr_t;
 	public:
-		PoolAllocator( size_type num, size_type alignment );
-		~PoolAllocator();
+		PoolAllocator( size_type num, size_type alignment ) noexcept;
+		~PoolAllocator() noexcept;
 		
-		Type* allocate(void);
+		Type* allocate(void) noexcept;
 		template <typename... Args, typename = std::enable_if_t<std::is_constructible_v<Type, Args...>> >
-		Type* allocate(Args&&... args);
-		void deallocate(Type* node);
+		Type* allocate(Args&&... args) noexcept;
+		void deallocate(Type* node) noexcept;
 
-		void sortFreeList(void); // this help PoolAllocator to return contiguous nodes.
+		void sortFreeList(void) noexcept; // this help PoolAllocator to return contiguous nodes.
 
-		bool empty(void) const
+		bool empty(void) const noexcept
 		{
 			return freeList.empty();
 		}
@@ -38,7 +38,7 @@ namespace Toon
 	};
 
 	template<typename Type>
-	PoolAllocator<Type>::PoolAllocator(size_type num, size_type alignment)
+	PoolAllocator<Type>::PoolAllocator(size_type num, size_type alignment) noexcept
 	{
 		size_type totalSize = sizeof(Type) * num + alignment;
 		beginPtr = (char*)malloc(totalSize);
@@ -60,7 +60,7 @@ namespace Toon
 	}
 
 	template<typename Type>
-	PoolAllocator<Type>::~PoolAllocator()
+	PoolAllocator<Type>::~PoolAllocator() noexcept
 	{
 		for (Type* node : freeList)
 			node->~Type();
@@ -71,21 +71,21 @@ namespace Toon
 	}
 
 	template<typename Type>
-	Type * PoolAllocator<Type>::allocate(void)
+	Type * PoolAllocator<Type>::allocate(void) noexcept
 	{
 		Type* retNode = freeList.pop_front();
 		return retNode;
 	}
 
 	template<typename Type>
-	void PoolAllocator<Type>::deallocate(Type * node)
+	void PoolAllocator<Type>::deallocate(Type * node) noexcept
 	{
 		node->~Type();
 		freeList.push_back(node);
 	}
 
 	template<typename Type>
-	void PoolAllocator<Type>::sortFreeList(void)
+	void PoolAllocator<Type>::sortFreeList(void) noexcept
 	{
 		freeList.sort([](Type* arg1, Type* arg2) {
 			return reinterpret_cast<address_type>(arg1) < reinterpret_cast<address_type>(arg2);
@@ -94,7 +94,7 @@ namespace Toon
 
 	template<typename Type>
 	template<typename... Args, typename = std::enable_if_t<std::is_constructible_v<Type, Args...>> >
-	Type * PoolAllocator<Type>::allocate(Args&&... args)
+	Type * PoolAllocator<Type>::allocate(Args&&... args) noexcept
 	{
 		Type* freeNode = freeList.front();
 		freeList.pop_front();
