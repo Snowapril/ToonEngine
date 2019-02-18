@@ -91,9 +91,6 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK\PhysX">
       <UniqueIdentifier>{2132913e-8d75-4e37-ac97-fb4c2fcba98c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\LinearAllocator">
-      <UniqueIdentifier>{1017dc90-9ca1-461d-8b90-b3c49a88fc6a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\PoolAllocator">
       <UniqueIdentifier>{b4f29d42-3356-4aaf-9003-37164e368af5}</UniqueIdentifier>
     </Filter>
@@ -111,6 +108,12 @@
     </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\UnitTest">
       <UniqueIdentifier>{fe205ae9-1bca-4bb0-9915-0c09fe62094a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\SingleFrameAllocator">
+      <UniqueIdentifier>{1017dc90-9ca1-461d-8b90-b3c49a88fc6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\DoubleBufferedAllocator">
+      <UniqueIdentifier>{c2b28a48-c13b-48cc-a0bf-7c288618f5d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -222,7 +225,16 @@
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
     </ClInclude>
     <ClInclude Include="Obfuscator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions</Filter>
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\AntiHack</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleEndedStackAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\StackAllocator</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleFrameAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\SingleFrameAllocator</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBufferedAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\DoubleBufferedAllocator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

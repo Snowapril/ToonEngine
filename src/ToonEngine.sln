@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor", "Editor\Editor\SA-
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine\SA-Engine.vcxproj", "{BFD1E5CD-0269-4FAE-A764-E47249E26D2B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TerrainRenderer", "TerrainRenderer\TerrainRenderer.vcxproj", "{99C224E1-69BD-4C57-959E-73CD4FC373DE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeformableSnow", "DeformableSnow\DeformableSnow.vcxproj", "{99C224E1-69BD-4C57-959E-73CD4FC373DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -90,6 +90,7 @@
       <AdditionalOptions> /GR- </AdditionalOptions>
       <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)common\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING;_CRT_NO_SECURE_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)lib;$(SolutionDir)common\lib</AdditionalLibraryDirectories>
@@ -123,6 +124,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
       <AdditionalOptions>/d1reportTime /GR- </AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING;_CRT_NO_SECURE_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -149,6 +151,8 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="DoubleBufferedAllocator.h" />
+    <ClInclude Include="DoubleEndedStackAllocator.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="FileSystem.h" />
     <ClInclude Include="Framebuffer.h" />
@@ -159,6 +163,7 @@
     <ClInclude Include="NonCopyable.h" />
     <ClInclude Include="Obfuscator.h" />
     <ClInclude Include="plug_engine.h" />
+    <ClInclude Include="SingleFrameAllocator.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="PoolAllocator.h" />
     <ClInclude Include="StackAllocator.h" />
