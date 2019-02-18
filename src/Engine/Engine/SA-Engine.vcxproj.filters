@@ -40,9 +40,6 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer">
       <UniqueIdentifier>{09da57c6-3eab-43b9-a67d-b9e81f467f95}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\2-Platform-Free\FileSystem">
-      <UniqueIdentifier>{cc8b6294-7c4d-4064-b907-8b3494d4bd0f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\2-Platform-Free\PlatformDetect">
       <UniqueIdentifier>{a29b517a-8400-4042-93b3-0016ce06b1d9}</UniqueIdentifier>
     </Filter>
@@ -115,6 +112,12 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\DoubleBufferedAllocator">
       <UniqueIdentifier>{c2b28a48-c13b-48cc-a0bf-7c288618f5d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\String">
+      <UniqueIdentifier>{575a79ea-c840-45b3-b46d-76abc34aa33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem">
+      <UniqueIdentifier>{cc8b6294-7c4d-4064-b907-8b3494d4bd0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -138,9 +141,6 @@
     <ClCompile Include="Logger.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
     </ClCompile>
-    <ClCompile Include="FileSystem.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\FileSystem</Filter>
-    </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
     </ClCompile>
@@ -149,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSystem.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,9 +178,6 @@
     </ClInclude>
     <ClInclude Include="Logger.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
-    </ClInclude>
-    <ClInclude Include="FileSystem.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\FileSystem</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
@@ -212,9 +212,6 @@
     <ClInclude Include="ToonPrerequisites.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
     </ClInclude>
-    <ClInclude Include="ToonString.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
-    </ClInclude>
     <ClInclude Include="ToonHeaderPrefix.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
     </ClInclude>
@@ -235,6 +232,12 @@
     </ClInclude>
     <ClInclude Include="DoubleBufferedAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\DoubleBufferedAllocator</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonString.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSystem.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
