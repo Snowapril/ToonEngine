@@ -16,6 +16,12 @@
     <Filter Include="4. Config %28Editor%29">
       <UniqueIdentifier>{85c9d1ff-2cb5-4552-89fe-035d55563904}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Source Codes %28Editor%29\GUI">
+      <UniqueIdentifier>{94b92c33-7cf3-4169-b46f-1f4b13c2c20a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Editor%29\Event">
+      <UniqueIdentifier>{a73a41ad-c5ec-41d8-a97f-5cfd46a7b227}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

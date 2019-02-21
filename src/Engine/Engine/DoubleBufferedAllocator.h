@@ -8,8 +8,11 @@
 
 namespace Toon
 {
-	template < std::size_t Numbytes >
-	class DoubleBufferedAllocator : public NonCopyable
+	template < ::std::size_t Numbytes, typename = typename ::std::enable_if_t<(Numbytes != 0)> >
+	class DoubleBufferedAllocator;
+
+	template < ::std::size_t Numbytes >
+	class DoubleBufferedAllocator<Numbytes> : public NonCopyable
 	{
 	public:
 		using size_type			= typename std::size_t;
@@ -33,14 +36,14 @@ namespace Toon
 	template<std::size_t Numbytes>
 	void * DoubleBufferedAllocator<Numbytes>::allocate(size_type size) noexcept
 	{
-		void* ptr = buffer[currentBufferIndex].allocate(size);
+		void* ptr = buffer[curBufferIndex].allocate(size);
 		return ptr;
 	}
 
 	template<std::size_t Numbytes>
 	void DoubleBufferedAllocator<Numbytes>::clearCurrentBuffer(void) noexcept
 	{
-		buffer[currentBufferIndex].clear();
+		buffer[curBufferIndex].clear();
 	}
 
 	template<std::size_t Numbytes>

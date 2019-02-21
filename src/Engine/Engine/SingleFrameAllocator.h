@@ -7,8 +7,11 @@
 
 namespace Toon
 {
-	template < std::size_t Numbytes >
-	class SingleFrameAllocator : public NonCopyable
+	template < ::std::size_t Numbytes, typename = typename ::std::enable_if_t<(Numbytes != 0)> >
+	class SingleFrameAllocator;
+
+	template < ::std::size_t Numbytes >
+	class SingleFrameAllocator<Numbytes> : public NonCopyable
 	{
 	public:
 		using size_type	= typename std::size_t;
@@ -24,7 +27,7 @@ namespace Toon
 		char* endPtr;
 	};
 
-	template<std::size_t Numbytes>
+	template<::std::size_t Numbytes>
 	SingleFrameAllocator<Numbytes>::SingleFrameAllocator() noexcept
 	{
 		beginPtr	= (char*)malloc(Numbytes);
@@ -32,13 +35,13 @@ namespace Toon
 		endPtr		= beginPtr + Numbytes;
 	}
 
-	template<std::size_t Numbytes>
+	template<::std::size_t Numbytes>
 	SingleFrameAllocator<Numbytes>::~SingleFrameAllocator() noexcept
 	{
 		free(beginPtr);
 	}
 
-	template<std::size_t Numbytes>
+	template<::std::size_t Numbytes>
 	void * SingleFrameAllocator<Numbytes>::allocate(size_type size) noexcept
 	{
 		if (offsetPtr + size > endPtr) return nullptr;
@@ -49,7 +52,7 @@ namespace Toon
 		return allocated;
 	}
 
-	template<std::size_t Numbytes>
+	template<::std::size_t Numbytes>
 	void SingleFrameAllocator<Numbytes>::clear(void) noexcept
 	{
 		offsetPtr = beginPtr;

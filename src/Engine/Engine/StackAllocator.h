@@ -22,7 +22,7 @@ namespace Toon
 		void* allocate( size_type size ) noexcept;
 		marker getMarker(void) const noexcept;
 		void freeToMarker( marker mark ) noexcept;
-		void clear(void);
+		void clear(void) noexcept;
 	private:
 		char		*beginPtr;
 		char		*offsetPtr;

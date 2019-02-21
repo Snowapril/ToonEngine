@@ -65,5 +65,7 @@ int main(void)
 	{
 		std::cout << arr[i] << std::endl;
 	}
+
+	
 	return 0;
 }
