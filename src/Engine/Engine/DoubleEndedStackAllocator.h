@@ -1,14 +1,14 @@
 #ifndef DOUBLE_ENDED_STACK_ALLOCATOR_H
 #define DOUBLE_ENDED_STACK_ALLOCATOR_H
 
-#include "NonCopyable.h"
+#include "ToonNoncopyable.h"
 #include <type_traits>
 #include <stack>
 #include <cstdlib>
 
 namespace Toon
 {
-	class DoubleEndedStackAllocator : public NonCopyable
+	class DoubleEndedStackAllocator : public ToonNoncopyable
 	{
 	public:
 		using size_type			= typename ::std::size_t;

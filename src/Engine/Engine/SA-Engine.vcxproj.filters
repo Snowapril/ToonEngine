@@ -114,35 +114,35 @@
     <ClCompile Include="main.cpp">
       <Filter>1. Source Codes %28Engine%29</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
-    </ClCompile>
-    <ClCompile Include="GBuffer.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
-    </ClCompile>
-    <ClCompile Include="Framebuffer.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="FileSystem.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
-    </ClCompile>
     <ClCompile Include="ToonTimer.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer</Filter>
     </ClCompile>
-    <ClCompile Include="AlignedAllocator.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
-    </ClCompile>
     <ClCompile Include="ToonLogger.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonGBuffer.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonFramebuffer.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonEffect.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonRoot.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonFilesystem.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonCamera.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonMesh.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonAlignedAllocator.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,36 +154,6 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>3. Stdafx / Resources %28Engine%29</Filter>
-    </ClInclude>
-    <ClInclude Include="Application.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
-    </ClInclude>
-    <ClInclude Include="GBuffer.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="Framebuffer.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Singleton.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="NonCopyable.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Material</Filter>
     </ClInclude>
     <ClInclude Include="ToonExceptions.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions</Filter>
@@ -203,9 +173,6 @@
     <ClInclude Include="ToonString.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String</Filter>
     </ClInclude>
-    <ClInclude Include="FileSystem.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
-    </ClInclude>
     <ClInclude Include="StackAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
     </ClInclude>
@@ -219,9 +186,6 @@
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
     </ClInclude>
     <ClInclude Include="DoubleBufferedAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
-    </ClInclude>
-    <ClInclude Include="AlignedAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
     </ClInclude>
     <ClInclude Include="ToonPlatform.h">
@@ -238,6 +202,42 @@
     </ClInclude>
     <ClInclude Include="ToonLogger.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonGBuffer.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonFramebuffer.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonEffect.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonRoot.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonSingleton.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonFilesystem.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonCamera.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonMaterial.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonMesh.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonTexture.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonAlignedAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonNoncopyable.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

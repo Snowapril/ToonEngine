@@ -6,7 +6,7 @@
 
 namespace Toon
 {
-	template <> ToonLogger* Singleton<ToonLogger>::instance = nullptr;
+	template <> ToonLogger* ToonSingleton<ToonLogger>::instance = nullptr;
 
 	ToonLogger::ToonLogger()
 	{

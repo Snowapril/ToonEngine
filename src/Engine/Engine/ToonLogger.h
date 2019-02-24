@@ -2,14 +2,14 @@
 #define LOGGER_H
 
 #include "ToonHeaderPrefix.h"
-#include "Singleton.h"
+#include "ToonSingleton.h"
 #include <spdlog/spdlog.h>
 #include <string>
 #include <memory>
 
 namespace Toon
 {
-	class ToonLogger : public Singleton<ToonLogger>
+	class ToonLogger : public ToonSingleton<ToonLogger>
 	{
 	private:
 		std::unique_ptr<spdlog::logger> console;

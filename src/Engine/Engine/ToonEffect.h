@@ -5,13 +5,13 @@
 
 namespace Toon
 {
-	class Effect
+	class ToonEffect
 	{
 	private:
 		int effect;
 	public:
-		Effect();
-		~Effect();
+		ToonEffect();
+		~ToonEffect();
 
 		int 		compileProgram( const char *effectFilePath, const char *programName ) const;
 		const char* getProgramName( int programIndex									) const;

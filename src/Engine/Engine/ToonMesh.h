@@ -1,14 +1,14 @@
-#ifndef MESH_H
-#define MESH_H
+#ifndef TOON_MESH_H
+#define TOON_MESH_H
 
-#include "Material.h"
+#include "ToonMaterial.h"
 #include <glm/vec3.hpp>
 #include <glm/vec2.hpp>
 #include <vector>
 
 namespace Toon
 {
-	class Mesh
+	class ToonMesh
 	{
 	private:
 		std::vector<glm::vec3>		positions;
@@ -16,11 +16,11 @@ namespace Toon
 		std::vector<glm::vec2>		uvs;
 		std::vector<unsigned int>	indices;
 	public:
-		Mesh() = default;
-		Mesh(Mesh const &);
-		Mesh& operator=(Mesh const &);
-		Mesh(Mesh&&);
-		Mesh& operator=(Mesh&&);
+		ToonMesh() = default;
+		ToonMesh(ToonMesh const &);
+		ToonMesh& operator=(ToonMesh const &);
+		ToonMesh(ToonMesh&&);
+		ToonMesh& operator=(ToonMesh&&);
 
 		std::size_t  getNumVertices	(void) const;
 		float const* getPositions	(void) const;

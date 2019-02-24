@@ -1,17 +1,17 @@
-#ifndef SINGLETON_H
-#define SINGLETON_H
+#ifndef TOON_SINGLETON_H
+#define TOON_SINGLETON_H
 
 // referencing on Ogre engine
 
 #include "ToonHeaderPrefix.h"
 #include "ToonHeaderPrefix.h"
-#include "NonCopyable.h"
+#include "ToonNoncopyable.h"
 #include "ToonExceptions.h"
 
 namespace Toon
 {
 	template <typename Type>
-	class Singleton : public NonCopyable
+	class ToonSingleton : public ToonNoncopyable
 	{
 	protected:
 		static Type * instance;
@@ -20,33 +20,33 @@ namespace Toon
 		static Type&		getMutableInstance	(void);
 		static bool			isDestroyed			(void) { return instance == nullptr; }
 	public:
-		Singleton();
-		~Singleton();
+		ToonSingleton();
+		~ToonSingleton();
 	};
 
 	template <typename Type>
-	Singleton< Type >::Singleton()
+	ToonSingleton< Type >::ToonSingleton()
 	{
 		ToonAssert( "The instance is already allocated", instance == nullptr );
 		instance = static_cast<Type*>(this);
 	}
 
 	template <typename Type>
-	Singleton< Type >::~Singleton()
+	ToonSingleton< Type >::~ToonSingleton()
 	{
 		assert(instance != nullptr);
 		instance = nullptr;
 	}
 
 	template <typename Type>
-	Type const&	Singleton<Type>::getConstInstance(void)
+	Type const&	ToonSingleton<Type>::getConstInstance(void)
 	{
 		assert(instance != nullptr);
 		return *instance;
 	}
 
 	template <typename Type>
-	Type& Singleton<Type>::getMutableInstance(void)
+	Type& ToonSingleton<Type>::getMutableInstance(void)
 	{
 		assert(instance != nullptr);
 		return *instance;
@@ -55,4 +55,4 @@ namespace Toon
 
 #include "ToonHeaderPostfix.h"
 
-#endif //SINGLETON_HPP
+#endif //TOON_SINGLETON_HPP

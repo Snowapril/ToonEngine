@@ -1,22 +1,22 @@
 #include "stdafx.h"
-#include "GBuffer.h"
+#include "ToonGBuffer.h"
 #include <GL/glew.h>
 
 namespace Toon
 {
-	GBuffer::~GBuffer()
+	ToonGBuffer::~ToonGBuffer()
 	{
 	}
 
-	bool GBuffer::initFramebuffer( int width, int height, FRAMEBUFFER_FLAG flag )
+	bool ToonGBuffer::initFramebuffer( int width, int height, ToonFramebufferFlag flag )
 	{
 		bufferSize = glm::ivec2(width, height);
 		return true;
 	}
 
-	void GBuffer::bindBuffer(void) const
+	void ToonGBuffer::bindBuffer(void) const
 	{
-		Framebuffer::bindBuffer();
+		ToonFramebuffer::bindBuffer();
 
 		for (int i = 0; i < colorTextures.size(); i++)
 		{

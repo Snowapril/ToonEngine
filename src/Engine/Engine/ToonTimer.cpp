@@ -1,22 +1,22 @@
 #include "stdafx.h"
-#include "Timer.h"
-#include "Logger.h"
+#include "ToonTimer.h"
+#include "ToonLogger.h"
 
 namespace Toon
 {
-	template <> Timer* Singleton<Timer>::instance = nullptr;
+	template <> ToonTimer* ToonSingleton<ToonTimer>::instance = nullptr;
 
-	Timer::Timer()
+	ToonTimer::ToonTimer()
 		: startTime(), currentTime(), pausedTime(), deltaTime(), bPaused(false)
 	{
 	}
 
-	Timer::~Timer()
+	ToonTimer::~ToonTimer()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released" );
+		ToonLogger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released" );
 	}
 
-	void Timer::tick(void)
+	void ToonTimer::tick(void)
 	{
 		using namespace std::chrono;
 
@@ -37,12 +37,12 @@ namespace Toon
 		if (deltaTime < 0.0) deltaTime = 0.0;
 	}
 
-	void Timer::start(void)
+	void ToonTimer::start(void)
 	{
 		if (bPaused) bPaused = false;
 	}
 
-	void Timer::reset(void)
+	void ToonTimer::reset(void)
 	{
 		startTime	= ( currentTime = std::chrono::high_resolution_clock::now() );
 		bPaused		= false	;
@@ -50,27 +50,27 @@ namespace Toon
 		pausedTime	= 0.0	;
 	}
 
-	void Timer::pause(void)
+	void ToonTimer::pause(void)
 	{
 		if (!bPaused) bPaused = true;
 	}
 
-	bool Timer::isOnGoing(void) const
+	bool ToonTimer::isOnGoing(void) const
 	{
 		return !bPaused;
 	}
 
-	bool Timer::isPaused(void) const
+	bool ToonTimer::isPaused(void) const
 	{
 		return  bPaused;
 	}
 
-	float Timer::getDeltaTime(void) const
+	float ToonTimer::getDeltaTime(void) const
 	{
 		return static_cast<float>(deltaTime);
 	}
 
-	float Timer::getTotalTime(void) const
+	float ToonTimer::getTotalTime(void) const
 	{
 		using namespace std::chrono;
 		auto wholeDuration = duration_cast< duration<double> >( currentTime - startTime ).count();
@@ -78,12 +78,12 @@ namespace Toon
 		return static_cast<float>( wholeDuration - pausedTime );
 	}
 
-	Timer const & Timer::getConstInstance(void)
+	ToonTimer const & ToonTimer::getConstInstance(void)
 	{
 		return *instance;
 	}
 
-	Timer & Timer::getMutableInstance(void)
+	ToonTimer & ToonTimer::getMutableInstance(void)
 	{
 		return *instance;
 	}

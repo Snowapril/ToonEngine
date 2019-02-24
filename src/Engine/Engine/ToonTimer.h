@@ -2,14 +2,14 @@
 #define TOON_TIMER_H
 
 #include "ToonHeaderPrefix.h"
-#include "Singleton.h"
+#include "ToonSingleton.h"
 #include <chrono>
 
 namespace Toon
 {
 	using time_point_t = std::chrono::time_point< std::chrono::high_resolution_clock >;
 
-	class ToonTimer : public Singleton< ToonTimer >
+	class ToonTimer : public ToonSingleton< ToonTimer >
 	{
 	private:
 		time_point_t	startTime	;

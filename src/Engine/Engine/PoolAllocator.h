@@ -4,14 +4,14 @@
 #include "ToonHeaderPrefix.h"
 #include <type_traits>
 #include <memory>
-#include "Noncopyable.h"
+#include "ToonNoncopyable.h"
 #include <list>
 #include <cstdlib>
 
 namespace Toon
 {
 	template < typename Type >
-	class PoolAllocator : public NonCopyable
+	class PoolAllocator : public ToonNoncopyable
 	{
 	public:
 		using size_type			= typename std::size_t;

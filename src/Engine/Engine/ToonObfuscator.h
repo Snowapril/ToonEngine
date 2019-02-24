@@ -1,5 +1,5 @@
-#ifndef OBFUSCATOR_H
-#define OBFUSCATOR_H
+#ifndef TOON_OBFUSCATOR_H
+#define TOON_OBFUSCATOR_H
 
 #include "ToonHeaderPrefix.h"
 /*

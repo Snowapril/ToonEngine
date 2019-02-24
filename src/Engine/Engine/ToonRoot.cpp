@@ -1,16 +1,16 @@
 #include "stdafx.h"
-#include "Application.h"
+#include "ToonRoot.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Logger.h"
-#include "Obfuscator.h"
-#include "Timer.h"
-#include "FileSystem.h"
+#include "ToonLogger.h"
+#include "ToonObfuscator.h"
+#include "ToonTimer.h"
+#include "ToonFileSystem.h"
 
 namespace Toon
 {
-	template <> Application* Singleton<Application>::instance = nullptr;
+	template <> ToonRoot* ToonSingleton<ToonRoot>::instance = nullptr;
 
 	// local callback functions declaration
 	void localKeyCallback		( GLFWwindow* window, int key, int scancode, int action, int mode );
@@ -19,18 +19,18 @@ namespace Toon
 	void localScrollCallback	( GLFWwindow* window, double xoffset, double yoffset );
 	void localResizingCallback	( GLFWwindow* window, int newWidth, int newHeight );
 
-	Application::Application()
+	ToonRoot::ToonRoot()
 		: timer()
 	{
 	}
 
-	Application::~Application()
+	ToonRoot::~ToonRoot()
 	{
 		ToonLogger::getConstInstance().infoMessage( "[Singleton] Application instnace is released" );
 		release();
 	}
 
-	bool Application::initContext( int width, int height, char const *wndTitle, bool fullscreen )
+	bool ToonRoot::initContext( int width, int height, char const *wndTitle, bool fullscreen )
 	{
 		if (!glfwInit())
 		{
@@ -90,7 +90,7 @@ namespace Toon
 			return false;
 		}
 
-#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ Logger::getConstInstance().errorMessage( "GLEW: GL_ARB_{} not supported.\n", #ext ); return false; }
+#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ ToonLogger::getConstInstance().errorMessage( "GLEW: GL_ARB_{} not supported.\n", #ext ); return false; }
 		CHECK_EXTENSION(shading_language_100);	// check your platform supports GLSL
 		CHECK_EXTENSION(vertex_buffer_object);	// BindBuffers, DeleteBuffers, GenBuffers, IsBuffer, BufferData, BufferSubData, GenBufferSubData, ...
 		CHECK_EXTENSION(vertex_shader);			// functions related to vertex shaders
@@ -108,17 +108,17 @@ namespace Toon
 		return true;
 	}
 
-	void Application::release(void)
+	void ToonRoot::release(void)
 	{
 		glfwTerminate();
 	}
 
-	bool Application::reset(void)
+	bool ToonRoot::reset(void)
 	{
 		return false;
 	}
 
-	void Application::registerCallback(void)
+	void ToonRoot::registerCallback(void)
 	{
 		glfwSetKeyCallback				(window, localKeyCallback					);
 		glfwSetMouseButtonCallback		(window, localMouseBtnCallback				);
@@ -128,7 +128,7 @@ namespace Toon
 		glfwSetInputMode				(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED	);
 	}
 
-	int Application::runApplicationLoop(void)
+	int ToonRoot::runApplicationLoop(void)
 	{
 		//timer reset
 		timer->reset();
@@ -154,39 +154,39 @@ namespace Toon
 		return 0;
 	}
 
-	void Application::resizingCallback( int newWidth, int newHeight )
+	void ToonRoot::resizingCallback( int newWidth, int newHeight )
 	{
 		glViewport( 0, 0, newWidth, newHeight );
 	}
 
-	Application const & Application::getConstInstance(void)
+	ToonRoot const & ToonRoot::getConstInstance(void)
 	{
 		return *instance;
 	}
 
-	Application & Application::getMutableInstance(void)
+	ToonRoot & ToonRoot::getMutableInstance(void)
 	{
 		return *instance;
 	}
 
 	void localKeyCallback( GLFWwindow* window, int key, int scancode, int action, int mode )
 	{
-		Singleton<Application>::getMutableInstance().keyCallback( key, scancode, action, mode );
+		ToonSingleton<ToonRoot>::getMutableInstance().keyCallback( key, scancode, action, mode );
 	}
 
 	void localMousePosCallback( GLFWwindow* window, double xpos, double ypos )
 	{
-		Singleton<Application>::getMutableInstance().mousePosCallback( xpos, ypos );
+		ToonSingleton<ToonRoot>::getMutableInstance().mousePosCallback( xpos, ypos );
 	}
 
 	void localMouseBtnCallback( GLFWwindow* window, int btn, int action, int mods )
 	{
-		Singleton<Application>::getMutableInstance().mouseBtnCallback( btn, action, mods );
+		ToonSingleton<ToonRoot>::getMutableInstance().mouseBtnCallback( btn, action, mods );
 	}
 
 	void localScrollCallback( GLFWwindow* window, double xoffset, double yoffset )
 	{
-		Singleton<Application>::getMutableInstance().scrollCallback( xoffset, yoffset );
+		ToonSingleton<ToonRoot>::getMutableInstance().scrollCallback( xoffset, yoffset );
 	}
 
 	void localResizingCallback( GLFWwindow* window, int newWidth, int newHeight )
@@ -194,6 +194,6 @@ namespace Toon
 		if (newWidth  == 0) newWidth  = 1;
 		if (newHeight == 0) newHeight = 1;
 
-		Singleton<Application>::getMutableInstance().resizingCallback( newWidth, newHeight );
+		ToonSingleton<ToonRoot>::getMutableInstance().resizingCallback( newWidth, newHeight );
 	}
 };

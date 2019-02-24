@@ -1,7 +1,7 @@
 #ifndef SINGLE_FRAME_ALLOCATOR_H
 #define SINGLE_FRAME_ALLOCATOR_H
 
-#include "NonCopyable.h"
+#include "ToonNoncopyable.h"
 #include <type_traits>
 #include <cstddef>
 
@@ -11,7 +11,7 @@ namespace Toon
 	class SingleFrameAllocator;
 
 	template < ::std::size_t Numbytes >
-	class SingleFrameAllocator<Numbytes> : public NonCopyable
+	class SingleFrameAllocator<Numbytes> : public ToonNoncopyable
 	{
 	public:
 		using size_type	= typename std::size_t;

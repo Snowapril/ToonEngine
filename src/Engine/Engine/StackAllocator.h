@@ -2,7 +2,7 @@
 #define STACK_ALLOCATOR_H
 
 #include "ToonHeaderPrefix.h"
-#include "Noncopyable.h"
+#include "ToonNoncopyable.h"
 #include <type_traits>
 #include <cassert>
 #include <stack>
@@ -10,7 +10,7 @@
 
 namespace Toon
 {
-	class StackAllocator : public NonCopyable
+	class StackAllocator : public ToonNoncopyable
 	{
 	public:
 		using size_type			= typename ::std::size_t;

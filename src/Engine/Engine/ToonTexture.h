@@ -1,9 +1,9 @@
-#ifndef TEXTURE_H
-#define TEXTURE_H
+#ifndef TOON_TEXTURE_H
+#define TOON_TEXTURE_H
 
 namespace Toon
 {
-	enum class TextureInfo : unsigned int
+	enum class ToonTextureInfo : unsigned int
 	{
 		R8G8B8A8 = 0,
 	};

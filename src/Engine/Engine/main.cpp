@@ -12,6 +12,7 @@
 #include <iostream>
 #include <list>
 #include "PoolAllocator.h"
+#include "ToonBitwise.h"
 
 #include <vector>
 class A
@@ -67,5 +68,13 @@ int main(void)
 	}
 
 	
+	for (unsigned int a = 0; a < 1000; ++a)
+	{
+		if (Toon::ToonBitwise::isPO2(a))
+		{
+			std::cout << a << std::endl;
+		}
+	}
+
 	return 0;
 }

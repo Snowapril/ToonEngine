@@ -1,7 +1,7 @@
 #ifndef DOUBLE_BUFFERED_ALLOCATOR_H
 #define DOUBLE_BUFFERED_ALLOCATOR_H
 
-#include "NonCopyable.h"
+#include "ToonNoncopyable.h"
 #include "SingleFrameAllocator.h"
 #include <type_traits>
 #include <cstddef>
@@ -12,7 +12,7 @@ namespace Toon
 	class DoubleBufferedAllocator;
 
 	template < ::std::size_t Numbytes >
-	class DoubleBufferedAllocator<Numbytes> : public NonCopyable
+	class DoubleBufferedAllocator<Numbytes> : public ToonNoncopyable
 	{
 	public:
 		using size_type			= typename std::size_t;

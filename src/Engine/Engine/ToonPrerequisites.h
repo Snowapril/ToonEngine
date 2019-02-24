@@ -4,7 +4,7 @@
 namespace Toon
 {
 	class ToonTimer;
-	class FileSystem;
+	class ToonFilesystem;
 	class ToonLogger;
 };
 

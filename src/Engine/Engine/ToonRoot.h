@@ -1,8 +1,8 @@
-#ifndef APPLICATION_H
-#define APPLICATION_H
+#ifndef TOON_ROOT_H
+#define TOON_ROOT_H
 
 #include "ToonHeaderPrefix.h"
-#include "Singleton.h"
+#include "ToonSingleton.h"
 #include <string>
 #include <memory>
 #include "ToonPrerequisites.h"
@@ -11,7 +11,7 @@ struct GLFWwindow;
 
 namespace Toon
 {
-	class Application : public Singleton<Application>
+	class ToonRoot : public ToonSingleton<ToonRoot>
 	{
 	protected:
 		std::string windowTitle;
@@ -21,7 +21,7 @@ namespace Toon
 		bool        bFullscreen		= false;
 	private: // plugins
 		std::unique_ptr<ToonLogger>		logger;
-		std::unique_ptr<FileSystem>	fs;
+		std::unique_ptr<ToonFilesystem>	fs;
 		std::unique_ptr<ToonTimer>		timer;
 	protected:
 		virtual void initialUpdate	(void) = 0;
@@ -32,8 +32,8 @@ namespace Toon
 	private:
 		void registerCallback(void);
 	public:
-		Application();
-		~Application();
+		ToonRoot();
+		~ToonRoot();
 
 		bool initContext( int width, int height, char const *wndTitle, bool fullscreen = false );
 		int  runApplicationLoop(void);
@@ -47,8 +47,8 @@ namespace Toon
 		virtual void scrollCallback		( double xoffset, double yoffset ) = 0;
 		virtual void resizingCallback	( int newWidth, int newHeight );
 	public:
-		static Application const&	getConstInstance(void);
-		static Application&			getMutableInstance(void);
+		static ToonRoot const&	getConstInstance(void);
+		static ToonRoot&			getMutableInstance(void);
 		static bool					isDestroyed(void) { return instance == nullptr; }
 	};
 };

@@ -1,21 +1,21 @@
 #include "stdafx.h"
-#include "Effect.h"
+#include "ToonEffect.h"
 #include <GLFX/glfx.h>
-#include "Logger.h"
+#include "ToonLogger.h"
 
 namespace Toon
 {
-	Effect::Effect()
+	ToonEffect::ToonEffect()
 	{
 		effect = glfxGenEffect();
 	}
 
-	Effect::~Effect()
+	ToonEffect::~ToonEffect()
 	{
 		glfxDeleteEffect(effect);
 	}
 
-	int Effect::compileProgram( const char * effectFilePath, const char * programName ) const
+	int ToonEffect::compileProgram( const char * effectFilePath, const char * programName ) const
 	{
 		bool bParsingSuccess = glfxParseEffectFromFile( effect, effectFilePath );
 		if (!bParsingSuccess)
@@ -34,14 +34,14 @@ namespace Toon
 		return program;
 	}
 
-	const char* Effect::getProgramName( int programIndex ) const
+	const char* ToonEffect::getProgramName( int programIndex ) const
 	{
 		return glfxGetProgramName( effect, programIndex );
 	}
 
-	void Effect::handleGLFXError(void) const
+	void ToonEffect::handleGLFXError(void) const
 	{
 		std::string errorLog = glfxGetEffectLog(effect);
-		Logger::getConstInstance().errorMessage(errorLog);
+		ToonLogger::getConstInstance().errorMessage(errorLog);
 	}
 };
