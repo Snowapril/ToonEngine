@@ -20,9 +20,9 @@ namespace Toon
 		int			clientHeight	= 0;
 		bool        bFullscreen		= false;
 	private: // plugins
-		std::unique_ptr<Logger>		logger;
+		std::unique_ptr<ToonLogger>		logger;
 		std::unique_ptr<FileSystem>	fs;
-		std::unique_ptr<Timer>		timer;
+		std::unique_ptr<ToonTimer>		timer;
 	protected:
 		virtual void initialUpdate	(void) = 0;
 		virtual void updateScene	(float dt) = 0;

@@ -9,13 +9,13 @@
 
 namespace Toon
 {
-	class Logger : public Singleton<Logger>
+	class ToonLogger : public Singleton<ToonLogger>
 	{
 	private:
 		std::unique_ptr<spdlog::logger> console;
 	public:
-		Logger();
-		~Logger();
+		ToonLogger();
+		~ToonLogger();
 		
 		void infoMessage	( std::string const & msg ) const;
 		void warnMessage	( std::string const & msg ) const;
@@ -28,25 +28,25 @@ namespace Toon
 		template < typename... Args >
 		void errorMessage( char const * fmt, Args&&... args ) const;
 	public:
-		static Logger const&	getConstInstance	(void);
-		static Logger &			getMutableInstance	(void);
+		static ToonLogger const&	getConstInstance	(void);
+		static ToonLogger &			getMutableInstance	(void);
 		static bool				isDestroyed			(void) { return instance == nullptr; }
 	};
 
 	template < typename... Args >
-	void Logger::infoMessage( char const * fmt, Args&&... args ) const
+	void ToonLogger::infoMessage( char const * fmt, Args&&... args ) const
 	{
 		console->info( fmt, std::forward<Args>(args)... );
 	}
 
 	template < typename... Args >
-	void Logger::warnMessage( char const * fmt, Args&&... args ) const
+	void ToonLogger::warnMessage( char const * fmt, Args&&... args ) const
 	{
 		console->warn( fmt, std::forward<Args>(args)... );
 	}
 
 	template < typename... Args >
-	void Logger::errorMessage( char const * fmt, Args&&... args ) const
+	void ToonLogger::errorMessage( char const * fmt, Args&&... args ) const
 	{
 		console->error( fmt, std::forward<Args>(args)... );
 	}

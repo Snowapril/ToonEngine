@@ -1,5 +1,5 @@
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef TOON_TIMER_H
+#define TOON_TIMER_H
 
 #include "ToonHeaderPrefix.h"
 #include "Singleton.h"
@@ -9,7 +9,7 @@ namespace Toon
 {
 	using time_point_t = std::chrono::time_point< std::chrono::high_resolution_clock >;
 
-	class Timer : public Singleton< Timer >
+	class ToonTimer : public Singleton< ToonTimer >
 	{
 	private:
 		time_point_t	startTime	;
@@ -18,8 +18,8 @@ namespace Toon
 		double			deltaTime	;
 		bool			bPaused		;
 	public:
-		Timer();
-		~Timer();
+		ToonTimer();
+		~ToonTimer();
 
 		void tick	(void);
 		void start	(void);
@@ -32,8 +32,8 @@ namespace Toon
 		float getDeltaTime(void) const;
 		float getTotalTime(void) const;
 	public:
-		static Timer const&		getConstInstance	(void);
-		static Timer &			getMutableInstance	(void);
+		static ToonTimer const&		getConstInstance	(void);
+		static ToonTimer &			getMutableInstance	(void);
 		static bool				isDestroyed			(void) { return instance == nullptr; }
 	};
 };

@@ -21,8 +21,8 @@ namespace Toon
 		~PoolAllocator() noexcept;
 		
 		Type* allocate(void) noexcept;
-		template <typename... Args, typename = std::enable_if_t<std::is_constructible_v<Type, Args...>> >
-		Type* allocate(Args&&... args) noexcept;
+		template <typename... Args>
+		typename std::enable_if_t<std::is_constructible_v<Type, Args...>, Type*> allocate(Args&&... args) noexcept;
 		void deallocate(Type* node) noexcept;
 
 		void sortFreeList(void) noexcept; // this help PoolAllocator to return contiguous nodes.
@@ -93,8 +93,8 @@ namespace Toon
 	}
 
 	template<typename Type>
-	template<typename... Args, typename = std::enable_if_t<std::is_constructible_v<Type, Args...>> >
-	Type * PoolAllocator<Type>::allocate(Args&&... args) noexcept
+	template<typename... Args>
+	typename std::enable_if_t<std::is_constructible_v<Type, Args...>, Type*> PoolAllocator<Type>::allocate(Args&&... args) noexcept
 	{
 		Type* freeNode = freeList.front();
 		freeList.pop_front();

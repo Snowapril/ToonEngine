@@ -14,16 +14,16 @@ namespace Toon
 		using size_type			= typename ::std::size_t;
 		using marker			= typename ::std::size_t;
 	public:
-		DoubleEndedStackAllocator( size_type size)  noexcept;
-		~DoubleEndedStackAllocator() noexcept;
+		DoubleEndedStackAllocator (size_type size)  noexcept;
+		~DoubleEndedStackAllocator()				noexcept;
 
-		void* allocateFront(size_type size) noexcept;
-		void* allocateBack(size_type size) noexcept;
-		marker getFrontMarker(void) const noexcept;
-		marker getBackMarker(void) const noexcept;
-		void freeToFrontMarker(marker mark) noexcept;
-		void freeToBackMarker(marker mark) noexcept;
-		void clear(void) noexcept;
+		void*	allocateFront		(size_type size) noexcept;
+		void*	allocateBack		(size_type size) noexcept;
+		marker	getFrontMarker		(void)			 const noexcept;
+		marker	getBackMarker		(void)			 const noexcept;
+		void	freeToFrontMarker	(marker mark)	 noexcept;
+		void	freeToBackMarker	(marker mark)	 noexcept;
+		void	clear				(void)			 noexcept;
 	private:
 		char* beginPtr;
 		char* frontOffsetPtr;

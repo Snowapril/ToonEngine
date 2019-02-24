@@ -79,17 +79,11 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation">
       <UniqueIdentifier>{7a371022-c863-4b79-8fb1-251b9dd499d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\StackAllocator">
-      <UniqueIdentifier>{48cf9f21-c85e-4e11-8b64-2a99101ac6f2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK\OpenGL">
       <UniqueIdentifier>{ae75fd88-9497-467a-8521-bdd177d5f391}</UniqueIdentifier>
     </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK\PhysX">
       <UniqueIdentifier>{2132913e-8d75-4e37-ac97-fb4c2fcba98c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\PoolAllocator">
-      <UniqueIdentifier>{b4f29d42-3356-4aaf-9003-37164e368af5}</UniqueIdentifier>
     </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions">
       <UniqueIdentifier>{1d6d573a-8a97-48ce-8c4b-7ee100191f14}</UniqueIdentifier>
@@ -105,12 +99,6 @@
     </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\UnitTest">
       <UniqueIdentifier>{fe205ae9-1bca-4bb0-9915-0c09fe62094a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\SingleFrameAllocator">
-      <UniqueIdentifier>{1017dc90-9ca1-461d-8b90-b3c49a88fc6a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\DoubleBufferedAllocator">
-      <UniqueIdentifier>{c2b28a48-c13b-48cc-a0bf-7c288618f5d3}</UniqueIdentifier>
     </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\String">
       <UniqueIdentifier>{575a79ea-c840-45b3-b46d-76abc34aa33a}</UniqueIdentifier>
@@ -129,17 +117,11 @@
     <ClCompile Include="Application.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer</Filter>
-    </ClCompile>
     <ClCompile Include="GBuffer.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
     </ClCompile>
     <ClCompile Include="Framebuffer.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
-    </ClCompile>
-    <ClCompile Include="Logger.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
@@ -152,6 +134,15 @@
     </ClCompile>
     <ClCompile Include="FileSystem.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonTimer.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="AlignedAllocator.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonLogger.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,17 +158,11 @@
     <ClInclude Include="Application.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer</Filter>
-    </ClInclude>
     <ClInclude Include="GBuffer.h">
       <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
     </ClInclude>
     <ClInclude Include="Framebuffer.h">
       <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="Logger.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Effect</Filter>
@@ -200,12 +185,6 @@
     <ClInclude Include="Material.h">
       <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Material</Filter>
     </ClInclude>
-    <ClInclude Include="PoolAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\PoolAllocator</Filter>
-    </ClInclude>
-    <ClInclude Include="StackAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\StackAllocator</Filter>
-    </ClInclude>
     <ClInclude Include="ToonExceptions.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions</Filter>
     </ClInclude>
@@ -221,23 +200,44 @@
     <ClInclude Include="ToonUtil.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Obfuscator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\AntiHack</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleEndedStackAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\StackAllocator</Filter>
-    </ClInclude>
-    <ClInclude Include="SingleFrameAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\SingleFrameAllocator</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleBufferedAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation\DoubleBufferedAllocator</Filter>
-    </ClInclude>
     <ClInclude Include="ToonString.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String</Filter>
     </ClInclude>
     <ClInclude Include="FileSystem.h">
       <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="StackAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleEndedStackAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleFrameAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBufferedAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="AlignedAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonPlatform.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\PlatformDetect</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonTimer.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonObfuscator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\AntiHack</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonBitwise.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonLogger.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,9 +3,9 @@
 
 namespace Toon
 {
-	class Timer;
+	class ToonTimer;
 	class FileSystem;
-	class Logger;
+	class ToonLogger;
 };
 
 #endif // end of _TOON_PREREQUISITES_H

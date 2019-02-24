@@ -26,7 +26,7 @@ namespace Toon
 
 	Application::~Application()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] Application instnace is released" );
+		ToonLogger::getConstInstance().infoMessage( "[Singleton] Application instnace is released" );
 		release();
 	}
 
@@ -34,7 +34,7 @@ namespace Toon
 	{
 		if (!glfwInit())
 		{
-			Logger::getConstInstance().errorMessage( OBFUSCATE("GLFW initialization failed.") );
+			ToonLogger::getConstInstance().errorMessage( OBFUSCATE("GLFW initialization failed.") );
 			return false;
 		}
 
@@ -76,7 +76,7 @@ namespace Toon
 		if (!window)
 		{
 			glfwTerminate();
-			Logger::getConstInstance().errorMessage( OBFUSCATE("GLFW Window Creating failed.") );
+			ToonLogger::getConstInstance().errorMessage( OBFUSCATE("GLFW Window Creating failed.") );
 			return false;
 		}
 
@@ -86,7 +86,7 @@ namespace Toon
 		int e = glewInit();
 		if (e != GLEW_OK)
 		{
-			Logger::getConstInstance().errorMessage( "Failed to init GLEW\nError{}", glewGetErrorString(e) );
+			ToonLogger::getConstInstance().errorMessage( "Failed to init GLEW\nError{}", glewGetErrorString(e) );
 			return false;
 		}
 
@@ -101,7 +101,7 @@ namespace Toon
 		const GLubyte* vendor	= glGetString(GL_VENDOR);
 		const GLubyte* renderer = glGetString(GL_RENDERER);
 
-		Logger::getConstInstance().infoMessage( OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer );
+		ToonLogger::getConstInstance().infoMessage( OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer );
 
 		registerCallback();
 
