@@ -8,7 +8,7 @@
 
 namespace Toon
 {
-	class DoubleEndedStackAllocator : public ToonNoncopyable
+	class DoubleEndedStackAllocator : public Noncopyable
 	{
 	public:
 		using size_type			= typename ::std::size_t;

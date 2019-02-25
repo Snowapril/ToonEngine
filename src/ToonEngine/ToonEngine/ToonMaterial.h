@@ -3,7 +3,7 @@
 
 namespace Toon
 {
-	class ToonMaterial
+	class Material
 	{
 	private:
 	public:

@@ -1,17 +1,17 @@
 #ifndef EFFECT_H
 #define EFFECT_H
 
-#include "ToonHeaderPrefix.h"
+#include <ToonEngine/ToonHeaderPrefix.h>
 
-namespace Toon
+namespace ToonGL3Plus
 {
-	class ToonEffect
+	class Effect
 	{
 	private:
 		int effect;
 	public:
-		ToonEffect();
-		~ToonEffect();
+		Effect();
+		~Effect();
 
 		int 		compileProgram( const char *effectFilePath, const char *programName ) const;
 		const char* getProgramName( int programIndex									) const;
@@ -20,6 +20,6 @@ namespace Toon
 	};
 };
 
-#include "ToonHeaderPostfix.h"
+#include <ToonEngine/ToonHeaderPostfix.h>
 
 #endif

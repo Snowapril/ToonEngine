@@ -5,19 +5,19 @@
 
 namespace Toon
 {
-	class ToonCamera
+	class Camera
 	{
 	private:
 		glm::vec3	position;
 		glm::vec3	direction;
 		float		speed;
 	public:
-		ToonCamera();
-		ToonCamera(ToonCamera const &);
-		ToonCamera(ToonCamera&&);
-		~ToonCamera();
-		ToonCamera& operator=(ToonCamera const &);
-		ToonCamera& operator=(ToonCamera&&);
+		Camera();
+		Camera(Camera const &);
+		Camera(Camera&&);
+		~Camera();
+		Camera& operator=(Camera const &);
+		Camera& operator=(Camera&&);
 
 		void processInput( int key, int button );
 	};

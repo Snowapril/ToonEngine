@@ -11,7 +11,7 @@
 namespace Toon
 {
 	template < typename Type >
-	class PoolAllocator : public ToonNoncopyable
+	class PoolAllocator : public Noncopyable
 	{
 	public:
 		using size_type			= typename std::size_t;

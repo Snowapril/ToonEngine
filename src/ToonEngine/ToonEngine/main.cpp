@@ -70,7 +70,7 @@ int main(void)
 	
 	for (unsigned int a = 0; a < 1000; ++a)
 	{
-		if (Toon::ToonBitwise::isPO2(a))
+		if (Toon::Bitwise::isPO2(a))
 		{
 			std::cout << a << std::endl;
 		}

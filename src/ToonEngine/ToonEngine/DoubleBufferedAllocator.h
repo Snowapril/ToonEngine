@@ -12,7 +12,7 @@ namespace Toon
 	class DoubleBufferedAllocator;
 
 	template < ::std::size_t Numbytes >
-	class DoubleBufferedAllocator<Numbytes> : public ToonNoncopyable
+	class DoubleBufferedAllocator<Numbytes> : public Noncopyable
 	{
 	public:
 		using size_type			= typename std::size_t;

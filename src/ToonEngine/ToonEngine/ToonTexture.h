@@ -3,7 +3,7 @@
 
 namespace Toon
 {
-	enum class ToonTextureInfo : unsigned int
+	enum class TextureInfo : unsigned int
 	{
 		R8G8B8A8 = 0,
 	};

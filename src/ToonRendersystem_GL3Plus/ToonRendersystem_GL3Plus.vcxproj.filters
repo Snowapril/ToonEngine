@@ -18,42 +18,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ToonEngine\ToonEngine\ToonFramebuffer.h">
-      <Filter>1. Source Codes %28RenderSystem%29</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ToonEngine\ToonEngine\ToonGBuffer.h">
-      <Filter>1. Source Codes %28RenderSystem%29</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>3. Stdafx / Resources %28RenderSystem%29</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>3. Stdafx / Resources %28RenderSystem%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\ToonEngine\ToonEngine\ToonEffect.h">
-      <Filter>1. Source Codes %28RenderSystem%29</Filter>
-    </ClInclude>
     <ClInclude Include="ToonPlugGL3Plus.h">
       <Filter>4. Plugin  %28RenderSystem%29</Filter>
     </ClInclude>
+    <ClInclude Include="ToonGL3PlusEffect.h">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonGL3PlusFramebuffer.h">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonGL3PlusGBuffer.h">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonGL3PlusRenderSystem.h">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ToonEngine\ToonEngine\ToonFramebuffer.cpp">
-      <Filter>1. Source Codes %28RenderSystem%29</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ToonEngine\ToonEngine\ToonGBuffer.cpp">
-      <Filter>1. Source Codes %28RenderSystem%29</Filter>
-    </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>1. Source Codes %28RenderSystem%29</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>3. Stdafx / Resources %28RenderSystem%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\ToonEngine\ToonEngine\ToonEffect.cpp">
+    <ClCompile Include="ToonGL3PlusRenderSystem.cpp">
       <Filter>1. Source Codes %28RenderSystem%29</Filter>
     </ClCompile>
-    <ClCompile Include="ToonRenderSystem_GL3Plus.cpp">
+    <ClCompile Include="ToonGL3PlusEffect.cpp">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonGL3PlusFramebuffer.cpp">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonGL3PlusGBuffer.cpp">
       <Filter>1. Source Codes %28RenderSystem%29</Filter>
     </ClCompile>
   </ItemGroup>

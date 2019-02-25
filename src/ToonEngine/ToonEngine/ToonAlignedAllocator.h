@@ -6,7 +6,7 @@
 
 namespace Toon
 {
-	class ToonAlignedAllocator
+	class AlignedAllocator
 	{
 	public:
 		static void* allocate(std::size_t size, std::size_t alignment);

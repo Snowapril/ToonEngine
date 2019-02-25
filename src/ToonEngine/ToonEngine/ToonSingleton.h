@@ -11,7 +11,7 @@
 namespace Toon
 {
 	template <typename Type>
-	class ToonSingleton : public ToonNoncopyable
+	class Singleton : public Noncopyable
 	{
 	protected:
 		static Type * instance;
@@ -20,33 +20,33 @@ namespace Toon
 		static Type&		getMutableInstance	(void);
 		static bool			isDestroyed			(void) { return instance == nullptr; }
 	public:
-		ToonSingleton();
-		~ToonSingleton();
+		Singleton();
+		~Singleton();
 	};
 
 	template <typename Type>
-	ToonSingleton< Type >::ToonSingleton()
+	Singleton< Type >::Singleton()
 	{
 		ToonAssert( "The instance is already allocated", instance == nullptr );
 		instance = static_cast<Type*>(this);
 	}
 
 	template <typename Type>
-	ToonSingleton< Type >::~ToonSingleton()
+	Singleton< Type >::~Singleton()
 	{
 		assert(instance != nullptr);
 		instance = nullptr;
 	}
 
 	template <typename Type>
-	Type const&	ToonSingleton<Type>::getConstInstance(void)
+	Type const&	Singleton<Type>::getConstInstance(void)
 	{
 		assert(instance != nullptr);
 		return *instance;
 	}
 
 	template <typename Type>
-	Type& ToonSingleton<Type>::getMutableInstance(void)
+	Type& Singleton<Type>::getMutableInstance(void)
 	{
 		assert(instance != nullptr);
 		return *instance;

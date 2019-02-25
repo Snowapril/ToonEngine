@@ -3,7 +3,7 @@
 
 #include "ToonPlugGame.h"
 
-class TOON_API DeformableSnow 
+class _ToonExport DeformableSnow
 {
 private:
 public:

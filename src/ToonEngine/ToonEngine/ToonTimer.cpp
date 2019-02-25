@@ -4,19 +4,19 @@
 
 namespace Toon
 {
-	template <> ToonTimer* ToonSingleton<ToonTimer>::instance = nullptr;
+	template <> Timer* Singleton<Timer>::instance = nullptr;
 
-	ToonTimer::ToonTimer()
+	Timer::Timer()
 		: startTime(), currentTime(), pausedTime(), deltaTime(), bPaused(false)
 	{
 	}
 
-	ToonTimer::~ToonTimer()
+	Timer::~Timer()
 	{
-		ToonLogger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released" );
+		Logger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released" );
 	}
 
-	void ToonTimer::tick(void)
+	void Timer::tick(void)
 	{
 		using namespace std::chrono;
 
@@ -37,12 +37,12 @@ namespace Toon
 		if (deltaTime < 0.0) deltaTime = 0.0;
 	}
 
-	void ToonTimer::start(void)
+	void Timer::start(void)
 	{
 		if (bPaused) bPaused = false;
 	}
 
-	void ToonTimer::reset(void)
+	void Timer::reset(void)
 	{
 		startTime	= ( currentTime = std::chrono::high_resolution_clock::now() );
 		bPaused		= false	;
@@ -50,27 +50,27 @@ namespace Toon
 		pausedTime	= 0.0	;
 	}
 
-	void ToonTimer::pause(void)
+	void Timer::pause(void)
 	{
 		if (!bPaused) bPaused = true;
 	}
 
-	bool ToonTimer::isOnGoing(void) const
+	bool Timer::isOnGoing(void) const
 	{
 		return !bPaused;
 	}
 
-	bool ToonTimer::isPaused(void) const
+	bool Timer::isPaused(void) const
 	{
 		return  bPaused;
 	}
 
-	float ToonTimer::getDeltaTime(void) const
+	float Timer::getDeltaTime(void) const
 	{
 		return static_cast<float>(deltaTime);
 	}
 
-	float ToonTimer::getTotalTime(void) const
+	float Timer::getTotalTime(void) const
 	{
 		using namespace std::chrono;
 		auto wholeDuration = duration_cast< duration<double> >( currentTime - startTime ).count();
@@ -78,12 +78,12 @@ namespace Toon
 		return static_cast<float>( wholeDuration - pausedTime );
 	}
 
-	ToonTimer const & ToonTimer::getConstInstance(void)
+	Timer const & Timer::getConstInstance(void)
 	{
 		return *instance;
 	}
 
-	ToonTimer & ToonTimer::getMutableInstance(void)
+	Timer & Timer::getMutableInstance(void)
 	{
 		return *instance;
 	}

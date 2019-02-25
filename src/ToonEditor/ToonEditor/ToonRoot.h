@@ -1,8 +1,8 @@
-#pragma once
+#ifndef TOON_ROOT_EDITOR_H
+#define TOON_ROOT_EDITOR_H
 
+#include <ToonEngine/ToonHeaderPrefix.h>
 #include <ToonEngine/ToonRoot.h>
-
-using namespace Toon;
 
 namespace ToonEditor
 {
@@ -13,3 +13,7 @@ namespace ToonEditor
 	public:
 	};
 };
+
+#include <ToonEngine/ToonHeaderPostfix.h>
+
+#endif

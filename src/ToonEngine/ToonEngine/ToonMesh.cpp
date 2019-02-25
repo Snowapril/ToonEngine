@@ -3,12 +3,12 @@
 
 namespace Toon
 {
-	ToonMesh::ToonMesh(ToonMesh const & other)
+	Mesh::Mesh(Mesh const & other)
 		: positions(other.positions), normals(other.normals), uvs(other.uvs), indices(other.indices)
 	{
 	}
 
-	ToonMesh & ToonMesh::operator=(ToonMesh const & other)
+	Mesh & Mesh::operator=(Mesh const & other)
 	{
 		if (this != &other)
 		{
@@ -21,12 +21,12 @@ namespace Toon
 		return *this;
 	}
 
-	ToonMesh::ToonMesh(ToonMesh&& other)
+	Mesh::Mesh(Mesh&& other)
 		: positions(move(other.positions)), normals(move(other.normals)), uvs(move(other.uvs)), indices(move(other.indices))
 	{
 	}
 
-	ToonMesh & ToonMesh::operator=(ToonMesh&& other)
+	Mesh & Mesh::operator=(Mesh&& other)
 	{
 		if (this != &other)
 		{
@@ -39,42 +39,42 @@ namespace Toon
 		return *this;
 	}
 
-	std::size_t ToonMesh::getNumVertices(void) const
+	std::size_t Mesh::getNumVertices(void) const
 	{
 		return std::size_t();
 	}
 
-	float const* ToonMesh::getPositions(void) const
+	float const* Mesh::getPositions(void) const
 	{
 		return hasPositions() ? &(positions[0].x) : nullptr;
 	}
 
-	float const* ToonMesh::getNormals(void) const
+	float const* Mesh::getNormals(void) const
 	{
 		return hasNormals() ? &(normals[0].x) : nullptr;
 	}
 
-	float const* ToonMesh::getUVs(void) const
+	float const* Mesh::getUVs(void) const
 	{
 		return hasUVs() ? &(uvs[0].x) : nullptr;
 	}
 
-	std::size_t ToonMesh::getNumTriangles(void) const
+	std::size_t Mesh::getNumTriangles(void) const
 	{
 		return static_cast<std::size_t>( indices.size() * 0.3333333f );
 	}
 
-	bool ToonMesh::hasPositions(void) const
+	bool Mesh::hasPositions(void) const
 	{
 		return !positions.empty();
 	}
 
-	bool ToonMesh::hasNormals(void) const
+	bool Mesh::hasNormals(void) const
 	{
 		return !normals.empty();
 	}
 
-	bool ToonMesh::hasUVs(void) const
+	bool Mesh::hasUVs(void) const
 	{
 		return !uvs.empty();
 	}

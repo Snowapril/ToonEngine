@@ -3,12 +3,16 @@
 
 namespace Toon
 {
-	class ToonTimer;
-	class ToonFilesystem;
-	class ToonLogger;
-	class ToonRenderSystem;
-	class ToonBitwise;
-	class ToonAlignedAllocator;
+	class Timer				;
+	class Filesystem		;
+	class Logger			;
+	class RenderSystem		;
+	class Bitwise			;
+	class AlignedAllocator	;
+	class SystemMessage		;
+	class SystemMessageBus	;
+
+	using SystemMessageListener = std::function<void(SystemMessage const &)>;
 };
 
 #endif // end of _TOON_PREREQUISITES_H

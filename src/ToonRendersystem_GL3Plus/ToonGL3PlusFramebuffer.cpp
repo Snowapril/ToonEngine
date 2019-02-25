@@ -1,17 +1,17 @@
 #include "stdafx.h"
-#include "ToonFramebuffer.h"
+#include "ToonGL3PlusFramebuffer.h"
 #include <GL/glew.h>
 
-namespace Toon
+namespace ToonGL3Plus
 {
-	ToonFramebuffer::~ToonFramebuffer()
+	Framebuffer::~Framebuffer()
 	{
 		if (!colorTextures.empty()) glDeleteTextures( static_cast<GLsizei>(colorTextures.size()), &colorTextures[0] );
 		if (depthTexture != 0U)		glDeleteTextures( 1, &depthTexture );
 		if (framebuffer != 0U)		glDeleteFramebuffers( 1, &framebuffer );
 	}
 
-	bool ToonFramebuffer::initFramebuffer( int width, int height, ToonFramebufferFlag flag )
+	bool Framebuffer::initFramebuffer( int width, int height, FramebufferFlag flag )
 	{
 		bufferSize = glm::ivec2( width, height );
 
@@ -19,7 +19,7 @@ namespace Toon
 		return true;
 	}
 
-	void ToonFramebuffer::bindBuffer(void) const
+	void Framebuffer::bindBuffer(void) const
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
@@ -27,7 +27,7 @@ namespace Toon
 		else					glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT	);
 	}
 
-	void ToonFramebuffer::unbindBuffer(void) const
+	void Framebuffer::unbindBuffer(void) const
 	{
 		glBindFramebuffer( GL_FRAMEBUFFER, 0U );
 	}

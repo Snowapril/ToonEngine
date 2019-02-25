@@ -1,19 +1,19 @@
 #ifndef TOON_FRAMEBUFFER_H
 #define TOON_FRAMEBUFFER_H
 
-#include "ToonHeaderPrefix.h"
-#include "ToonNonCopyable.h"
+#include <ToonEngine/ToonHeaderPrefix.h>
+#include <ToonEngine/ToonNonCopyable.h>
 #include <glm/vec2.hpp>
 #include <vector>
 
-namespace Toon
+namespace ToonGL3Plus
 {
-	enum class ToonFramebufferFlag : int
+	enum class FramebufferFlag : int
 	{
 
 	};
 
-	class ToonFramebuffer : public ToonNoncopyable
+	class Framebuffer : public Toon::Noncopyable
 	{
 	protected:
 		std::vector<unsigned int>		colorTextures;
@@ -21,10 +21,10 @@ namespace Toon
 		unsigned int					framebuffer  = 0U;
 		unsigned int					depthTexture = 0U;
 	public:
-		ToonFramebuffer() = default;
-		virtual ~ToonFramebuffer();
+		Framebuffer() = default;
+		virtual ~Framebuffer();
 
-		virtual bool initFramebuffer( int width, int height, ToonFramebufferFlag flag );
+		virtual bool initFramebuffer( int width, int height, FramebufferFlag flag );
 		virtual void bindBuffer(void) const;
 		void unbindBuffer(void) const;
 
@@ -43,6 +43,6 @@ namespace Toon
 	};
 };
 
-#include "ToonHeaderPostfix.h"
+#include <ToonEngine/ToonHeaderPostfix.h>
 
 #endif

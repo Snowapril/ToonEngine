@@ -88,12 +88,12 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <AdditionalOptions> /GR- </AdditionalOptions>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)common\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)common\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PreprocessorDefinitions>_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING;_CRT_NO_SECURE_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib;$(SolutionDir)common\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)common\lib</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
       <AdditionalOptions>/GR- %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -120,7 +120,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)common\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)common\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <AdditionalOptions>/d1reportTime /GR- </AdditionalOptions>
@@ -132,7 +132,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
-      <AdditionalLibraryDirectories>$(ProjectDir)lib;$(SolutionDir)common\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)common\lib</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalOptions>/GR- %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -147,6 +147,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ToonMesh.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="ToonSystemMessageBus.cpp" />
     <ClCompile Include="ToonTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +172,9 @@
     <ClInclude Include="StackAllocator.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ToonSystem.h" />
+    <ClInclude Include="ToonSystemMessage.h" />
+    <ClInclude Include="ToonSystemMessageBus.h" />
     <ClInclude Include="ToonTexture.h" />
     <ClInclude Include="ToonTimer.h" />
     <ClInclude Include="ToonExceptions.h" />

@@ -30,22 +30,22 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>2. Stdafx / Resources %28Editor%29</Filter>
     </ClCompile>
-    <ClCompile Include="lua_engine.cpp">
-      <Filter>3. Lua Source Codes %28Editor%29</Filter>
-    </ClCompile>
     <ClCompile Include="ToonRoot.cpp">
       <Filter>1. Source Codes %28Editor%29\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaEngine.cpp">
+      <Filter>3. Lua Source Codes %28Editor%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>2. Stdafx / Resources %28Editor%29</Filter>
     </ClInclude>
-    <ClInclude Include="lua_engine.h">
-      <Filter>3. Lua Source Codes %28Editor%29</Filter>
-    </ClInclude>
     <ClInclude Include="ToonRoot.h">
       <Filter>1. Source Codes %28Editor%29\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaEngine.h">
+      <Filter>3. Lua Source Codes %28Editor%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

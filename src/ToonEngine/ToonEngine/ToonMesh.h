@@ -8,7 +8,7 @@
 
 namespace Toon
 {
-	class ToonMesh
+	class Mesh
 	{
 	private:
 		std::vector<glm::vec3>		positions;
@@ -16,11 +16,11 @@ namespace Toon
 		std::vector<glm::vec2>		uvs;
 		std::vector<unsigned int>	indices;
 	public:
-		ToonMesh() = default;
-		ToonMesh(ToonMesh const &);
-		ToonMesh& operator=(ToonMesh const &);
-		ToonMesh(ToonMesh&&);
-		ToonMesh& operator=(ToonMesh&&);
+		Mesh() = default;
+		Mesh(Mesh const &);
+		Mesh& operator=(Mesh const &);
+		Mesh(Mesh&&);
+		Mesh& operator=(Mesh&&);
 
 		std::size_t  getNumVertices	(void) const;
 		float const* getPositions	(void) const;

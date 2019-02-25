@@ -4,3 +4,7 @@
 #include "stdafx.h"
 
 
+namespace ToonGL3Plus
+{
+
+};

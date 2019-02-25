@@ -2,14 +2,15 @@
 #define TOON_RENDERSYSTEM_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonNoncopyable.h"
+#include "ToonSystem.h"
+#include "ToonPrerequisites.h"
 #include <string>
 
 struct GLFWwindow;
 
 namespace Toon
 {
-	class ToonRenderSystem : public ToonNoncopyable
+	class RenderSystem : public EngineSystem
 	{
 	private:
 		std::string windowTitle;
@@ -18,9 +19,11 @@ namespace Toon
 		int			clientHeight = 0;
 		bool        bFullscreen = false;
 	public:
-		ToonRenderSystem();
-		~ToonRenderSystem();
+		RenderSystem();
+		~RenderSystem();
 	public:
+		void handleSystemMessage(ToonSystemMessage const & msg) override;
+
 		GLFWwindow const* getAppWindow	(void)	const { return window; }
 		float			  getAspectRatio(void)	const { return static_cast<float>(clientWidth) / clientHeight; }
 	};

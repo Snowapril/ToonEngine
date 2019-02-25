@@ -8,7 +8,7 @@
 
 namespace Toon
 {
-	class ToonBitwise
+	class Bitwise
 	{
 	public:
 		// return whether if given number is power of two or not.

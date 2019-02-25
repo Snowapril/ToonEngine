@@ -5,14 +5,14 @@
 
 namespace Toon
 {
-	class ToonNoncopyable
+	class Noncopyable
 	{
 	public:
-		ToonNoncopyable() = default;
-		ToonNoncopyable(const ToonNoncopyable& other) = delete;
-		ToonNoncopyable(ToonNoncopyable&& other) = delete;
-		ToonNoncopyable& operator=(const ToonNoncopyable& other) = delete;
-		ToonNoncopyable& operator=(ToonNoncopyable&& other) = delete;
+		Noncopyable() = default;
+		Noncopyable(const Noncopyable& other) = delete;
+		Noncopyable(Noncopyable&& other) = delete;
+		Noncopyable& operator=(const Noncopyable& other) = delete;
+		Noncopyable& operator=(Noncopyable&& other) = delete;
 	};
 };
 

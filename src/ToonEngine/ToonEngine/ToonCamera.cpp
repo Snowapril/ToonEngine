@@ -3,33 +3,23 @@
 
 namespace Toon
 {
-	ToonCamera::ToonCamera()
+	Camera::Camera()
 	{
 	}
 
-	ToonCamera::ToonCamera(ToonCamera const &)
+	Camera::Camera(Camera const &)
 	{
 	}
 
-	ToonCamera::ToonCamera(ToonCamera &&)
+	Camera::Camera(Camera &&)
 	{
 	}
 
-	ToonCamera::~ToonCamera()
+	Camera::~Camera()
 	{
 	}
 
-	ToonCamera & ToonCamera::operator=(ToonCamera const & other)
-	{
-		if ( &other != this )
-		{
-
-		}
-
-		return *this;
-	}
-
-	ToonCamera & ToonCamera::operator=(ToonCamera && other)
+	Camera & Camera::operator=(Camera const & other)
 	{
 		if ( &other != this )
 		{
@@ -39,7 +29,17 @@ namespace Toon
 		return *this;
 	}
 
-	void ToonCamera::processInput( int key, int button )
+	Camera & Camera::operator=(Camera && other)
+	{
+		if ( &other != this )
+		{
+
+		}
+
+		return *this;
+	}
+
+	void Camera::processInput( int key, int button )
 	{
 	}
 };

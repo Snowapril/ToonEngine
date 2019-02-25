@@ -4,29 +4,29 @@
 
 namespace Toon
 {
-	template <> ToonFilesystem* ToonSingleton< ToonFilesystem >::instance = nullptr;
+	template <> Filesystem* Singleton< Filesystem >::instance = nullptr;
 
-	ToonFilesystem::ToonFilesystem( std::string const & rootPath )
+	Filesystem::Filesystem( std::string const & rootPath )
 		: rootPath(rootPath)
 	{
 	}
 
-	ToonFilesystem::~ToonFilesystem()
+	Filesystem::~Filesystem()
 	{
-		ToonLogger::getConstInstance().infoMessage( "[Singleton] FileSystem instnace is released" );
+		Logger::getConstInstance().infoMessage( "[Singleton] FileSystem instnace is released" );
 	}
 
-	void ToonFilesystem::addDirectory( const std::string& label, const std::string& directory )
+	void Filesystem::addDirectory( const std::string& label, const std::string& directory )
 	{
 		dirTable[label] = directory;
 	}
 
-	std::string ToonFilesystem::getRootPath(void) const
+	std::string Filesystem::getRootPath(void) const
 	{
 		return rootPath;
 	}
 
-	std::string ToonFilesystem::getRelativePath( const std::string& label, const std::string& filename ) const
+	std::string Filesystem::getRelativePath( const std::string& label, const std::string& filename ) const
 	{
 		std::string retPath;
 
@@ -36,12 +36,12 @@ namespace Toon
 		return retPath;
 	}
 
-	ToonFilesystem const & ToonFilesystem::getConstInstance(void)
+	Filesystem const & Filesystem::getConstInstance(void)
 	{
 		return *instance;
 	}
 
-	ToonFilesystem & ToonFilesystem::getMutableInstance(void)
+	Filesystem & Filesystem::getMutableInstance(void)
 	{
 		return *instance;
 	}

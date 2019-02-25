@@ -11,14 +11,16 @@ struct GLFWwindow;
 
 namespace Toon
 {
-	class ToonRoot : public ToonSingleton<ToonRoot>
+	class ToonRoot : public Singleton<ToonRoot>
 	{
+		friend class RenderSystem;
 	protected:
-		ToonRenderSystem* renderSystem;
+		RenderSystem* renderSystem;
 	private: // plugins
-		std::unique_ptr<ToonLogger>		logger;
-		std::unique_ptr<ToonFilesystem>	fs;
-		std::unique_ptr<ToonTimer>		timer;
+		std::unique_ptr<SystemMessageBus>	systemMessageBus;
+		std::unique_ptr<Logger>				logger;
+		std::unique_ptr<Filesystem>			filesystem;
+		std::unique_ptr<Timer>				timer;
 	protected:
 		virtual void initialUpdate	(void) = 0;
 		virtual void updateScene	(float dt) = 0;
@@ -31,14 +33,8 @@ namespace Toon
 		ToonRoot();
 		~ToonRoot();
 
-		bool initContext( int width, int height, char const *wndTitle, bool fullscreen = false );
+		bool initialize(bool autoCreateWindow, std::string const & windowTitle, std::string const & configFilePath);
 		int  runApplicationLoop(void);
-
-		virtual void keyCallback		( int key, int scancode, int action, int mode ) = 0;
-		virtual void mousePosCallback	( double xpos, double ypos ) = 0;
-		virtual void mouseBtnCallback	( int btn, int action, int mods ) = 0;
-		virtual void scrollCallback		( double xoffset, double yoffset ) = 0;
-		virtual void resizingCallback	( int newWidth, int newHeight );
 	public:
 		static ToonRoot const&		getConstInstance(void);
 		static ToonRoot&			getMutableInstance(void);

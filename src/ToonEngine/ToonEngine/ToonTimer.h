@@ -9,7 +9,7 @@ namespace Toon
 {
 	using time_point_t = std::chrono::time_point< std::chrono::high_resolution_clock >;
 
-	class ToonTimer : public ToonSingleton< ToonTimer >
+	class Timer : public Singleton< Timer >
 	{
 	private:
 		time_point_t	startTime	;
@@ -18,8 +18,8 @@ namespace Toon
 		double			deltaTime	;
 		bool			bPaused		;
 	public:
-		ToonTimer();
-		~ToonTimer();
+		Timer();
+		~Timer();
 
 		void tick	(void);
 		void start	(void);
@@ -32,8 +32,8 @@ namespace Toon
 		float getDeltaTime(void) const;
 		float getTotalTime(void) const;
 	public:
-		static ToonTimer const&		getConstInstance	(void);
-		static ToonTimer &			getMutableInstance	(void);
+		static Timer const&		getConstInstance	(void);
+		static Timer &			getMutableInstance	(void);
 		static bool				isDestroyed			(void) { return instance == nullptr; }
 	};
 };

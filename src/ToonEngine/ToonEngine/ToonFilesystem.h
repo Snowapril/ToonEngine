@@ -8,21 +8,21 @@
 
 namespace Toon
 {
-	class ToonFilesystem : public ToonSingleton<ToonFilesystem>
+	class Filesystem : public Singleton<Filesystem>
 	{
 	private:
 		std::unordered_map< std::string, std::string > dirTable;
 		std::string rootPath;
 	public:
-		ToonFilesystem( std::string const & rootPath );
-		~ToonFilesystem();
+		Filesystem( std::string const & rootPath );
+		~Filesystem();
 
 		void		addDirectory	( const std::string& label, const std::string& directory );
 		std::string getRootPath		( void ) const;
 		std::string getRelativePath	( const std::string& label, const std::string& filename ) const;
 	public:
-		static ToonFilesystem const&	getConstInstance(void);
-		static ToonFilesystem &			getMutableInstance(void);
+		static Filesystem const&	getConstInstance(void);
+		static Filesystem &			getMutableInstance(void);
 		static bool					isDestroyed(void) { return instance == nullptr; }
 	};
 };

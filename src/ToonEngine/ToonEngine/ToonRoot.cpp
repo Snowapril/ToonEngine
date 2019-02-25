@@ -10,7 +10,7 @@
 
 namespace Toon
 {
-	template <> ToonRoot* ToonSingleton<ToonRoot>::instance = nullptr;
+	template <> ToonRoot* Singleton<ToonRoot>::instance = nullptr;
 
 	// local callback functions declaration
 	void localKeyCallback		( GLFWwindow* window, int key, int scancode, int action, int mode );
@@ -26,7 +26,7 @@ namespace Toon
 
 	ToonRoot::~ToonRoot()
 	{
-		ToonLogger::getConstInstance().infoMessage( "[Singleton] Application instnace is released" );
+		Logger::getConstInstance().infoMessage( "[Singleton] Application instnace is released" );
 		release();
 	}
 
@@ -34,7 +34,7 @@ namespace Toon
 	{
 		if (!glfwInit())
 		{
-			ToonLogger::getConstInstance().errorMessage( OBFUSCATE("GLFW initialization failed.") );
+			Logger::getConstInstance().errorMessage( OBFUSCATE("GLFW initialization failed.") );
 			return false;
 		}
 
@@ -76,7 +76,7 @@ namespace Toon
 		if (!window)
 		{
 			glfwTerminate();
-			ToonLogger::getConstInstance().errorMessage( OBFUSCATE("GLFW Window Creating failed.") );
+			Logger::getConstInstance().errorMessage( OBFUSCATE("GLFW Window Creating failed.") );
 			return false;
 		}
 
@@ -86,7 +86,7 @@ namespace Toon
 		int e = glewInit();
 		if (e != GLEW_OK)
 		{
-			ToonLogger::getConstInstance().errorMessage( "Failed to init GLEW\nError{}", glewGetErrorString(e) );
+			Logger::getConstInstance().errorMessage( "Failed to init GLEW\nError{}", glewGetErrorString(e) );
 			return false;
 		}
 
@@ -101,7 +101,7 @@ namespace Toon
 		const GLubyte* vendor	= glGetString(GL_VENDOR);
 		const GLubyte* renderer = glGetString(GL_RENDERER);
 
-		ToonLogger::getConstInstance().infoMessage( OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer );
+		Logger::getConstInstance().infoMessage( OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer );
 
 		registerCallback();
 
@@ -171,22 +171,22 @@ namespace Toon
 
 	void localKeyCallback( GLFWwindow* window, int key, int scancode, int action, int mode )
 	{
-		ToonSingleton<ToonRoot>::getMutableInstance().keyCallback( key, scancode, action, mode );
+		Singleton<ToonRoot>::getMutableInstance().keyCallback( key, scancode, action, mode );
 	}
 
 	void localMousePosCallback( GLFWwindow* window, double xpos, double ypos )
 	{
-		ToonSingleton<ToonRoot>::getMutableInstance().mousePosCallback( xpos, ypos );
+		Singleton<ToonRoot>::getMutableInstance().mousePosCallback( xpos, ypos );
 	}
 
 	void localMouseBtnCallback( GLFWwindow* window, int btn, int action, int mods )
 	{
-		ToonSingleton<ToonRoot>::getMutableInstance().mouseBtnCallback( btn, action, mods );
+		Singleton<ToonRoot>::getMutableInstance().mouseBtnCallback( btn, action, mods );
 	}
 
 	void localScrollCallback( GLFWwindow* window, double xoffset, double yoffset )
 	{
-		ToonSingleton<ToonRoot>::getMutableInstance().scrollCallback( xoffset, yoffset );
+		Singleton<ToonRoot>::getMutableInstance().scrollCallback( xoffset, yoffset );
 	}
 
 	void localResizingCallback( GLFWwindow* window, int newWidth, int newHeight )
@@ -194,6 +194,6 @@ namespace Toon
 		if (newWidth  == 0) newWidth  = 1;
 		if (newHeight == 0) newHeight = 1;
 
-		ToonSingleton<ToonRoot>::getMutableInstance().resizingCallback( newWidth, newHeight );
+		Singleton<ToonRoot>::getMutableInstance().resizingCallback( newWidth, newHeight );
 	}
 };

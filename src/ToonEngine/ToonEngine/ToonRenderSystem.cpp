@@ -22,7 +22,7 @@ namespace Toon
 
 	ToonRoot::~ToonRoot()
 	{
-		ToonLogger::getConstInstance().infoMessage("[Singleton] Application instnace is released");
+		Logger::getConstInstance().infoMessage("[Singleton] Application instnace is released");
 		release();
 	}
 
@@ -30,7 +30,7 @@ namespace Toon
 	{
 		if (!glfwInit())
 		{
-			ToonLogger::getConstInstance().errorMessage(OBFUSCATE("GLFW initialization failed."));
+			Logger::getConstInstance().errorMessage(OBFUSCATE("GLFW initialization failed."));
 			return false;
 		}
 
@@ -97,7 +97,7 @@ namespace Toon
 		const GLubyte* vendor = glGetString(GL_VENDOR);
 		const GLubyte* renderer = glGetString(GL_RENDERER);
 
-		ToonLogger::getConstInstance().infoMessage(OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer);
+		Logger::getConstInstance().infoMessage(OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer);
 
 		registerCallback();
 

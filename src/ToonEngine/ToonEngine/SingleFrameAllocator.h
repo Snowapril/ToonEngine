@@ -11,7 +11,7 @@ namespace Toon
 	class SingleFrameAllocator;
 
 	template < ::std::size_t Numbytes >
-	class SingleFrameAllocator<Numbytes> : public ToonNoncopyable
+	class SingleFrameAllocator<Numbytes> : public Noncopyable
 	{
 	public:
 		using size_type	= typename std::size_t;
