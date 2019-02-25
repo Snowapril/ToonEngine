@@ -1,5 +1,4 @@
-#ifndef LUA_ENGINE_H
-#define LUA_ENGINE_H
+#pragma once
 
 #include <sol/sol.hpp>
 
@@ -11,5 +10,3 @@ namespace ToonEditor
 	public:
 	};
 };
-
-#endif

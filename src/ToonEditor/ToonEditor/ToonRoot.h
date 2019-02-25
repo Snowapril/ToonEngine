@@ -1,7 +1,8 @@
-#ifndef TOON_ROOT_H
-#define TOON_ROOT_H
+#pragma once
 
 #include <ToonEngine/ToonRoot.h>
+
+using namespace Toon;
 
 namespace ToonEditor
 {
@@ -12,5 +13,3 @@ namespace ToonEditor
 	public:
 	};
 };
-
-#endif
