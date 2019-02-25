@@ -7,11 +7,11 @@
     <ClInclude Include="stdafx.h">
       <Filter>3. Stdafx / Resources %28Game%29</Filter>
     </ClInclude>
-    <ClInclude Include="plug_game.h">
-      <Filter>4. Plugin Source Codes %28Game%29</Filter>
-    </ClInclude>
     <ClInclude Include="DeformableSnow.h">
       <Filter>1. Source Codes %28Game%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonPlugGame.h">
+      <Filter>4. Plugin Source Codes %28Game%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

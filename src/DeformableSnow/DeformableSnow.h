@@ -1,10 +1,9 @@
 #ifndef DEFORMABLE_SNOW_H
 #define DEFORMABLE_SNOW_H
 
-#include "Application.h"
-#include "plug_game.h"
+#include "ToonPlugGame.h"
 
-class TOON_API DeformableSnow : public Application
+class TOON_API DeformableSnow 
 {
 private:
 public:

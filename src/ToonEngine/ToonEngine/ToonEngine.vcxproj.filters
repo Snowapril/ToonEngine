@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="1. Source Codes %28Engine%29">
+      <UniqueIdentifier>{3030287a-366b-41fd-b584-3d838f347e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2. Shader Codes %28Engine%29">
+      <UniqueIdentifier>{797d3221-4997-4294-a5ac-eeeca8e772b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3. Stdafx / Resources %28Engine%29">
+      <UniqueIdentifier>{eed42cf5-9fe1-4bbd-bdbe-bc9debe2a59d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4. Cuda Source Codes %28Engine%29">
+      <UniqueIdentifier>{3ed8a488-a110-4677-b4dd-b30e89a6b7ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="6. Config %28Engine%29">
+      <UniqueIdentifier>{a49740ef-d24b-456e-a757-987ac5e08464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5. Plugin Source Codes %28Engine%29">
+      <UniqueIdentifier>{9838ed40-0392-4d93-87c7-4afc417ac549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal">
+      <UniqueIdentifier>{dcf30403-9fd6-4ad6-b86b-6a8bfce2b434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Developer">
+      <UniqueIdentifier>{ba0ca54f-1332-48a5-89c7-c589fd6fad13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK">
+      <UniqueIdentifier>{e889875a-1946-4902-aca0-10bbac28fab4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\2-Platform-Free">
+      <UniqueIdentifier>{da24f5f1-cb84-41ab-bafa-383a74ee2711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System">
+      <UniqueIdentifier>{97419f0b-d3db-45fd-b0a0-84a97e996117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\4-Resources">
+      <UniqueIdentifier>{2c7797db-cfa5-4fc3-aa2a-e1f62801e168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer">
+      <UniqueIdentifier>{09da57c6-3eab-43b9-a67d-b9e81f467f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\2-Platform-Free\PlatformDetect">
+      <UniqueIdentifier>{a29b517a-8400-4042-93b3-0016ce06b1d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore">
+      <UniqueIdentifier>{427af4e8-1a39-4239-9e9b-f30286ab8839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\4-Resources\Material">
+      <UniqueIdentifier>{85ae80dd-0b84-4e8e-ac8b-88643c5d8d5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\4-Resources\Mesh">
+      <UniqueIdentifier>{dfc9558c-4359-45ed-a8cb-f8c5303cecff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\4-Resources\Texture">
+      <UniqueIdentifier>{d6d2b9ef-3890-4ad3-83c1-d563c0ca81b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Util">
+      <UniqueIdentifier>{c8ef3aa6-3d9e-41ac-8efa-db28f871b05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\AntiHack">
+      <UniqueIdentifier>{29145ecc-637f-4333-89b9-eda79c12b4bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Log">
+      <UniqueIdentifier>{812de22a-ebfa-4930-8038-3fbd1e09f278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Interfaces">
+      <UniqueIdentifier>{4dfc8502-cbc6-48bd-9d39-c8316ca4da99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Effect">
+      <UniqueIdentifier>{342c54da-ffe2-4567-b2c3-4800b1d4068f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\4-Resources\Camera">
+      <UniqueIdentifier>{ad14d96c-119e-475d-b55e-327aedc912d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation">
+      <UniqueIdentifier>{7a371022-c863-4b79-8fb1-251b9dd499d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK\OpenGL">
+      <UniqueIdentifier>{ae75fd88-9497-467a-8521-bdd177d5f391}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\1-Thirdparty-SDK\PhysX">
+      <UniqueIdentifier>{2132913e-8d75-4e37-ac97-fb4c2fcba98c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions">
+      <UniqueIdentifier>{1d6d573a-8a97-48ce-8c4b-7ee100191f14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Math">
+      <UniqueIdentifier>{721ab996-bfe1-4994-bef4-c9df8f68fbda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Parser">
+      <UniqueIdentifier>{93c8851a-0d23-4a0c-9dd1-725ef86b06c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\Random">
+      <UniqueIdentifier>{590b83f2-4e14-4d86-80ee-a0458eac3242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\UnitTest">
+      <UniqueIdentifier>{fe205ae9-1bca-4bb0-9915-0c09fe62094a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\String">
+      <UniqueIdentifier>{575a79ea-c840-45b3-b46d-76abc34aa33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem">
+      <UniqueIdentifier>{cc8b6294-7c4d-4064-b907-8b3494d4bd0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\2-Platform-Free\RenderSystem">
+      <UniqueIdentifier>{6a8b2cee-4073-434a-a0ef-cd17df60056e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>3. Stdafx / Resources %28Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>1. Source Codes %28Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonTimer.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonLogger.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonRoot.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonFilesystem.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonCamera.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonMesh.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonAlignedAllocator.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonRenderSystem.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\RenderSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>3. Stdafx / Resources %28Engine%29</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>3. Stdafx / Resources %28Engine%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonExceptions.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Assertions</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonPrerequisites.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonHeaderPrefix.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonHeaderPostfix.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonUtil.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonString.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String</Filter>
+    </ClInclude>
+    <ClInclude Include="StackAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleEndedStackAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleFrameAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBufferedAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonPlatform.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\PlatformDetect</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonTimer.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonObfuscator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\AntiHack</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonBitwise.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonLogger.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonRoot.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonSingleton.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonFilesystem.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\String\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonCamera.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonMaterial.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonMesh.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonTexture.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\4-Resources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonAlignedAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonNoncopyable.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\3-Core-System\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonRenderSystem.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\2-Platform-Free\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonPlugEngine.h">
+      <Filter>5. Plugin Source Codes %28Engine%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
