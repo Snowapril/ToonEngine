@@ -26,7 +26,7 @@ namespace Toon
 
 	ToonRoot::~ToonRoot()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] Application instnace is released" );
+		Logger::getConstInstance().infoMessage( "[Singleton] Application instnace is released ({0:x})", reinterpret_cast<void*>(instance) );
 		release();
 	}
 

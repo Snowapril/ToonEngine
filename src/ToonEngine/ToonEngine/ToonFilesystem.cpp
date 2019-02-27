@@ -13,7 +13,7 @@ namespace Toon
 
 	Filesystem::~Filesystem()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] FileSystem instnace is released" );
+		Logger::getConstInstance().infoMessage( "[Singleton] FileSystem instnace is released ({0:x})", reinterpret_cast<void*>(instance) );
 	}
 
 	void Filesystem::addDirectory( const std::string& label, const std::string& directory )

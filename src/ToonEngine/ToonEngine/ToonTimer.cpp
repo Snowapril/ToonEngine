@@ -13,7 +13,7 @@ namespace Toon
 
 	Timer::~Timer()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released" );
+		Logger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released ({0:x})", reinterpret_cast<void*>(instance));
 	}
 
 	void Timer::tick(void)

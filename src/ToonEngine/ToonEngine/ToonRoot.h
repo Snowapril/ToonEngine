@@ -15,7 +15,7 @@ namespace Toon
 	{
 		friend class RenderSystem;
 	protected:
-		RenderSystem* renderSystem;
+		std::unique_ptr<RenderSystem>		renderSystem;
 	private: // plugins
 		std::unique_ptr<SystemMessageBus>	systemMessageBus;
 		std::unique_ptr<Logger>				logger;

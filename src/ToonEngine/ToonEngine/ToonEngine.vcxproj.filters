@@ -149,21 +149,6 @@
     <ClInclude Include="ToonString.h">
       <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
     </ClInclude>
-    <ClInclude Include="StackAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleEndedStackAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
-    </ClInclude>
-    <ClInclude Include="SingleFrameAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
-    </ClInclude>
-    <ClInclude Include="PoolAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleBufferedAllocator.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
-    </ClInclude>
     <ClInclude Include="ToonPlatform.h">
       <Filter>1. Source Codes %28Engine%29\Internal\PlatformDetect</Filter>
     </ClInclude>
@@ -220,6 +205,18 @@
     </ClInclude>
     <ClInclude Include="ToonSystemMessageBus.h">
       <Filter>1. Source Codes %28Engine%29\Internal\SystemMessage</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonStackAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonPoolAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonDoubleEndedStackAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonBufferedAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

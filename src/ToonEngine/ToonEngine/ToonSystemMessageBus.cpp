@@ -14,7 +14,7 @@ namespace Toon
 
 	SystemMessageBus::~SystemMessageBus() noexcept
 	{
-		Logger::getConstInstance().infoMessage("[Singleton] SystemMessageBus instance is released");
+		Logger::getConstInstance().infoMessage("[Singleton] SystemMessageBus instance is released ({0:x})", reinterpret_cast<void*>(instance) );
 	}
 
 	void SystemMessageBus::postSystemMessageImmediately(SystemMessage&& msg) noexcept

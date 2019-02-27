@@ -18,7 +18,7 @@ namespace Toon
 
 	Logger::~Logger()
 	{
-		Logger::getConstInstance().infoMessage("[Singleton] Logger instnace is released");
+		Logger::getConstInstance().infoMessage("[Singleton] Logger instnace is released ({0:x})", reinterpret_cast<void*>(instance));
 		console.reset();
 	}
 
