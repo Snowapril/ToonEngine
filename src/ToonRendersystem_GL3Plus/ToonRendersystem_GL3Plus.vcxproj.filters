@@ -39,6 +39,12 @@
     <ClInclude Include="ToonGL3PlusRenderSystem.h">
       <Filter>1. Source Codes %28RenderSystem%29</Filter>
     </ClInclude>
+    <ClInclude Include="ToonGL3PlusUtil.h">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonGL3PlusErrorCodes.h">
+      <Filter>1. Source Codes %28RenderSystem%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

@@ -159,10 +159,12 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ToonGL3PlusEffect.h" />
+    <ClInclude Include="ToonGL3PlusErrorCodes.h" />
     <ClInclude Include="ToonGL3PlusFramebuffer.h" />
     <ClInclude Include="ToonGL3PlusGBuffer.h" />
     <ClInclude Include="ToonGL3PlusRenderSystem.h" />
     <ClInclude Include="ToonPlugGL3Plus.h" />
+    <ClInclude Include="ToonGL3PlusUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

@@ -143,9 +143,6 @@
     <ClInclude Include="ToonHeaderPostfix.h">
       <Filter>1. Source Codes %28Engine%29\Internal\Util</Filter>
     </ClInclude>
-    <ClInclude Include="ToonUtil.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\Util</Filter>
-    </ClInclude>
     <ClInclude Include="ToonString.h">
       <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
     </ClInclude>

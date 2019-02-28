@@ -181,7 +181,6 @@
     <ClInclude Include="ToonHeaderPrefix.h" />
     <ClInclude Include="ToonPrerequisites.h" />
     <ClInclude Include="ToonString.h" />
-    <ClInclude Include="ToonUtil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

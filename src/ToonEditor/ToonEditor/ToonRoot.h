@@ -11,6 +11,10 @@ namespace ToonEditor
 	private:
 	public:
 	public:
+	private:
+		void drawToolbar(void);
+		void drawToolbox(void);
+		void drawPreview(void);
 	};
 };
 
