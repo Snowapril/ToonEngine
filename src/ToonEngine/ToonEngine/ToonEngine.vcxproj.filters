@@ -215,5 +215,8 @@
     <ClInclude Include="ToonBufferedAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
     </ClInclude>
+    <ClInclude Include="ToonSTLAllocator.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
