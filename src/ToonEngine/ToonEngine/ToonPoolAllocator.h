@@ -10,6 +10,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						PoolAllocator class  declaration
+	****************************************************************************/
 	template < typename Type >
 	class PoolAllocator : public Noncopyable
 	{
@@ -37,6 +40,9 @@ namespace Toon
 		char* endPtr;
 	};
 
+	/****************************************************************************
+						PoolAllocator class  definition
+	****************************************************************************/
 	template<typename Type>
 	PoolAllocator<Type>::PoolAllocator(size_type num, size_type alignment) noexcept
 	{

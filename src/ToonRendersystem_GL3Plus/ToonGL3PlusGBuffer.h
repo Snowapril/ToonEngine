@@ -6,11 +6,14 @@
 
 namespace ToonGL3Plus
 {
-	class GBuffer : public Framebuffer
+	/****************************************************************************
+						GL3PlusGBuffer class declaration
+	****************************************************************************/
+	class GL3PlusGBuffer : public GL3PlusFramebuffer
 	{
 	public:
-		GBuffer() = default;
-		~GBuffer();
+		GL3PlusGBuffer() = default;
+		~GL3PlusGBuffer();
 
 		virtual bool initFramebuffer(int width, int height, FramebufferFlag flag) override;
 		virtual void bindBuffer(void) const								   override;

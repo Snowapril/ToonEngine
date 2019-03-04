@@ -10,6 +10,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						StackAllocator class  declaration
+	****************************************************************************/
 	class StackAllocator : public Noncopyable
 	{
 	public:
@@ -29,6 +32,9 @@ namespace Toon
 		char		*endPtr;
 	};
 
+	/****************************************************************************
+						StackAllocator class  definition
+	****************************************************************************/
 	StackAllocator::StackAllocator( size_type size) noexcept
 	{
 		beginPtr	= (char*)malloc(size);

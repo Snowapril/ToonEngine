@@ -7,6 +7,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+				EngineSystem class declaration
+	****************************************************************************/
 	class EngineSystem : public Noncopyable
 	{
 	public:

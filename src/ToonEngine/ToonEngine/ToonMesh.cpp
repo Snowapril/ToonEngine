@@ -3,6 +3,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Mesh class  definition
+	****************************************************************************/
 	Mesh::Mesh(Mesh const & other)
 		: positions(other.positions), normals(other.normals), uvs(other.uvs), indices(other.indices)
 	{

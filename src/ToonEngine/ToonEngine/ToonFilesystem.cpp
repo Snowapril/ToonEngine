@@ -4,6 +4,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Filesystem class definition
+	****************************************************************************/
 	template <> Filesystem* Singleton< Filesystem >::instance = nullptr;
 
 	Filesystem::Filesystem( std::string const & rootPath )
@@ -13,7 +16,7 @@ namespace Toon
 
 	Filesystem::~Filesystem()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] FileSystem instnace is released ({0:x})", reinterpret_cast<void*>(instance) );
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] FileSystem instnace is released ({0:x})"), reinterpret_cast<void*>(instance) );
 	}
 
 	void Filesystem::addDirectory( const std::string& label, const std::string& directory )

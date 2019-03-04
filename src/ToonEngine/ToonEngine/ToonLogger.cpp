@@ -6,6 +6,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Logger class definition
+	****************************************************************************/
 	template <> Logger* Singleton<Logger>::instance = nullptr;
 
 	Logger::Logger()
@@ -18,7 +21,7 @@ namespace Toon
 
 	Logger::~Logger()
 	{
-		Logger::getConstInstance().infoMessage("[Singleton] Logger instnace is released ({0:x})", reinterpret_cast<void*>(instance));
+		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] Logger instnace is released ({0:x})"), reinterpret_cast<void*>(instance));
 		console.reset();
 	}
 

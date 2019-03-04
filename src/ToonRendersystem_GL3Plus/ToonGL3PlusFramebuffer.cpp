@@ -4,14 +4,17 @@
 
 namespace ToonGL3Plus
 {
-	Framebuffer::~Framebuffer()
+	/****************************************************************************
+						GL3PlusFramebuffer class definition
+	****************************************************************************/
+	GL3PlusFramebuffer::~GL3PlusFramebuffer()
 	{
 		if (!colorTextures.empty()) glDeleteTextures( static_cast<GLsizei>(colorTextures.size()), &colorTextures[0] );
 		if (depthTexture != 0U)		glDeleteTextures( 1, &depthTexture );
 		if (framebuffer != 0U)		glDeleteFramebuffers( 1, &framebuffer );
 	}
 
-	bool Framebuffer::initFramebuffer( int width, int height, FramebufferFlag flag )
+	bool GL3PlusFramebuffer::initFramebuffer( int width, int height, FramebufferFlag flag )
 	{
 		bufferSize = glm::ivec2( width, height );
 
@@ -19,7 +22,7 @@ namespace ToonGL3Plus
 		return true;
 	}
 
-	void Framebuffer::bindBuffer(void) const
+	void GL3PlusFramebuffer::bindBuffer(void) const
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
@@ -27,7 +30,7 @@ namespace ToonGL3Plus
 		else					glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT	);
 	}
 
-	void Framebuffer::unbindBuffer(void) const
+	void GL3PlusFramebuffer::unbindBuffer(void) const
 	{
 		glBindFramebuffer( GL_FRAMEBUFFER, 0U );
 	}

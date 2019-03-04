@@ -7,6 +7,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Timer class declaration
+	****************************************************************************/
 	using time_point_t = std::chrono::time_point< std::chrono::high_resolution_clock >;
 
 	class Timer : public Singleton< Timer >

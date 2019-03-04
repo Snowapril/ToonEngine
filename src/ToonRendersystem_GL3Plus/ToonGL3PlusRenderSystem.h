@@ -3,6 +3,9 @@
 
 namespace ToonGL3Plus
 {
+	/****************************************************************************
+						GL3PlusRenderSystem class declaration
+	****************************************************************************/
 	class GL3PlusRenderSystem
 	{
 

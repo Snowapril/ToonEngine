@@ -1,20 +1,36 @@
 #include "stdafx.h"
 #include "ToonString.h"
+#include "ToonCRC32Hash.h"
 
-Toon::ToonString::ToonString(unsigned long key)
+namespace Toon
 {
-}
+	/****************************************************************************
+						ToonString class definition
+	****************************************************************************/
+	ToonString::ToonString(unsigned long key)
+		: hashKey(key)
+	{
+	}
+	bool ToonString::operator==(ToonString const & other) const
+	{
+		return hashKey == other.hashKey;
+	}
 
-Toon::ToonString::ToonString(char const * str)
-{
-}
+	bool ToonString::operator==(char const * str) const
+	{
+		return hashKey == CRC32_HASH_RUNTIME(str);
+	}
 
-bool Toon::ToonString::operator==(ToonString const & other) const
-{
-	return false;
-}
+	std::unordered_map<unsigned long, char const*> VisibleString::stringTable {};
 
-bool Toon::ToonString::operator==(char const * str) const
-{
-	return false;
-}
+	VisibleString::VisibleString(char const * buf)
+	{
+		hashKey = CRC32_HASH_RUNTIME(buf);
+		stringTable[hashKey] = buf;
+	}
+
+	bool VisibleString::operator==(VisibleString const & other) const
+	{
+		return hashKey == other.hashKey;
+	}
+};

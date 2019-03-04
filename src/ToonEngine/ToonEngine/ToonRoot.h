@@ -12,7 +12,7 @@ struct GLFWwindow;
 namespace Toon
 {
 	/****************************************************************************
-				SingleFrameAllocator class declaration
+				ToonRoot class declaration
 	****************************************************************************/
 	class ToonRoot : public Singleton<ToonRoot>
 	{

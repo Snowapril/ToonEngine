@@ -6,6 +6,9 @@
 
 namespace ToonEditor
 {
+	/****************************************************************************
+						ToonRoot class declaration
+	****************************************************************************/
 	class ToonRoot : public Toon::ToonRoot
 	{
 	private:

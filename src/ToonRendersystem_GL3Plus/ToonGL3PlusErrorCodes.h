@@ -6,6 +6,9 @@
 
 namespace ToonGL3Plus
 {
+	/****************************************************************************
+				RenderSystem error handling functions here declaration
+	****************************************************************************/
 	enum class RenderSystemErrorCodes : unsigned int
 	{
 		UNKNOWN_UNIFORM_VARIABLE_NAME = 0x00000000,

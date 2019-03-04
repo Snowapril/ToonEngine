@@ -4,19 +4,22 @@
 
 namespace ToonGL3Plus
 {
-	GBuffer::~GBuffer()
+	/****************************************************************************
+						GL3PlusGBuffer class declaration
+	****************************************************************************/
+	GL3PlusGBuffer::~GL3PlusGBuffer()
 	{
 	}
 
-	bool GBuffer::initFramebuffer( int width, int height, FramebufferFlag flag )
+	bool GL3PlusGBuffer::initFramebuffer( int width, int height, FramebufferFlag flag )
 	{
 		bufferSize = glm::ivec2(width, height);
 		return true;
 	}
 
-	void GBuffer::bindBuffer(void) const
+	void GL3PlusGBuffer::bindBuffer(void) const
 	{
-		Framebuffer::bindBuffer();
+		GL3PlusFramebuffer::bindBuffer();
 
 		for (int i = 0; i < colorTextures.size(); i++)
 		{

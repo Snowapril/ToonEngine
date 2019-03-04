@@ -6,6 +6,9 @@
 reference : https://github.com/andrivet/ADVobfuscator
 */
 
+/****************************************************************************
+				String obfuscator functions here.
+****************************************************************************/
 namespace Toon
 {
 	template < int... I >

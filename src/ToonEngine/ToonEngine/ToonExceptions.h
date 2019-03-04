@@ -5,6 +5,9 @@
 #include <cassert>
 #include <string>
 
+/****************************************************************************
+				ToonAssertion functions here.
+****************************************************************************/
 namespace Toon
 {
 	template < typename... Logics >

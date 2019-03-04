@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "../ToonEngine/ToonEngine/ToonCRC32Hash.h"
 using namespace std;
 
 
@@ -25,5 +25,9 @@ int main(void)
 {
 	B b;
 	b.test();
+
+	cout << sizeof("asfadsf") << endl;
+	cout << hex << CRC32_HASH_CONSTEXPR("stack-overflow") << endl;
+	cout << hex << CRC32_HASH_RUNTIME("stack-overflow") << endl;
 	return 0;
 }

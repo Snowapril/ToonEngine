@@ -9,6 +9,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Logger class declaration
+	****************************************************************************/
 	class Logger : public Singleton<Logger>
 	{
 	private:
@@ -33,6 +36,9 @@ namespace Toon
 		static bool				isDestroyed			(void) { return instance == nullptr; }
 	};
 
+	/****************************************************************************
+						Logger class definition
+	****************************************************************************/
 	template < typename... Args >
 	void Logger::infoMessage( char const * fmt, Args&&... args ) const
 	{

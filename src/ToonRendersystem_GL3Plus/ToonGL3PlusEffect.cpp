@@ -5,17 +5,20 @@
 
 namespace ToonGL3Plus
 {
-	Effect::Effect()
+	/****************************************************************************
+						GL3PlusEffect class definition
+	****************************************************************************/
+	GL3PlusEffect::GL3PlusEffect()
 	{
 		effect = glfxGenEffect();
 	}
 
-	Effect::~Effect()
+	GL3PlusEffect::~GL3PlusEffect()
 	{
 		glfxDeleteEffect(effect);
 	}
 
-	int Effect::compileProgram( const char * effectFilePath, const char * programName ) const
+	int GL3PlusEffect::compileProgram( const char * effectFilePath, const char * programName ) const
 	{
 		bool bParsingSuccess = glfxParseEffectFromFile( effect, effectFilePath );
 		if (!bParsingSuccess)
@@ -34,14 +37,14 @@ namespace ToonGL3Plus
 		return program;
 	}
 
-	const char* Effect::getProgramName( int programIndex ) const
+	const char* GL3PlusEffect::getProgramName( int programIndex ) const
 	{
 		return glfxGetProgramName( effect, programIndex );
 	}
 
-	void Effect::handleGLFXError(void) const
+	void GL3PlusEffect::handleGLFXError(void) const
 	{
 		std::string errorLog = glfxGetEffectLog(effect);
-		ToonLogger::getConstInstance().errorMessage(errorLog);
+		Toon::Logger::getConstInstance().errorMessage(errorLog);
 	}
 };

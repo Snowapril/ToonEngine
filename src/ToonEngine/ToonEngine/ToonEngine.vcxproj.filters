@@ -126,11 +126,11 @@
     <ClCompile Include="ToonSystemMessageBus.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\SystemMessage</Filter>
     </ClCompile>
-    <ClCompile Include="crc.c">
-      <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
-    </ClCompile>
     <ClCompile Include="ToonString.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonCRC32Hash.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,9 +203,6 @@
     <ClInclude Include="ToonPlugEngine.h">
       <Filter>5. Plugin Source Codes %28Engine%29</Filter>
     </ClInclude>
-    <ClInclude Include="ToonSystem.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\Interfaces</Filter>
-    </ClInclude>
     <ClInclude Include="ToonSystemMessage.h">
       <Filter>1. Source Codes %28Engine%29\Internal\SystemMessage</Filter>
     </ClInclude>
@@ -227,11 +224,11 @@
     <ClInclude Include="ToonSTLAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
     </ClInclude>
-    <ClInclude Include="crc.h">
+    <ClInclude Include="ToonCRC32Hash.h">
       <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
     </ClInclude>
-    <ClInclude Include="sniptype.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
+    <ClInclude Include="ToonEngineSystem.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,6 +5,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						SystemMessageBus class definition
+	****************************************************************************/
 	template <> SystemMessageBus* Singleton< SystemMessageBus >::instance = nullptr;
 
 	SystemMessageBus::SystemMessageBus() noexcept
@@ -14,7 +17,7 @@ namespace Toon
 
 	SystemMessageBus::~SystemMessageBus() noexcept
 	{
-		Logger::getConstInstance().infoMessage("[Singleton] SystemMessageBus instance is released ({0:x})", reinterpret_cast<void*>(instance) );
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] SystemMessageBus instance is released ({0:x})"), reinterpret_cast<void*>(instance) );
 	}
 
 	void SystemMessageBus::postSystemMessageImmediately(SystemMessage&& msg) noexcept

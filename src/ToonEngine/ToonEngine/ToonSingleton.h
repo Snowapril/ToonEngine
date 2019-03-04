@@ -11,6 +11,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Singleton class declaration
+	****************************************************************************/
 	template <typename Type>
 	class Singleton : public Noncopyable
 	{
@@ -25,6 +28,9 @@ namespace Toon
 		~Singleton();
 	};
 
+	/****************************************************************************
+						Singleton class definition
+	****************************************************************************/
 	template <typename Type>
 	Singleton< Type >::Singleton()
 	{

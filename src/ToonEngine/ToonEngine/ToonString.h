@@ -3,25 +3,31 @@
 
 #include "ToonSingleton.h"
 #include <unordered_map>
-
-#define CRC32_CONSTEXPR(str) {}
-#define CRC32_RUNTIME(str) {}
+#include <type_traits>
 
 namespace Toon
 {
+	/****************************************************************************
+						ToonString class declaration
+	****************************************************************************/
 	class ToonString
 	{
-	private:
-		static std::unordered_map<unsigned long, char*> stringTable;
+	protected:
 		unsigned long hashKey;
 	public:
+		ToonString() = default;
 		ToonString(unsigned long);
-		ToonString(char const*);
 		bool operator==(ToonString const &) const;
 		bool operator==(char const*) const;
-
-		template <typename Type>
-		bool compareTo(Type const &other) const;
+	};
+	
+	class VisibleString : public ToonString
+	{
+	private:
+		static std::unordered_map<unsigned long, char const*> stringTable;
+	public:
+		VisibleString(char const*);
+		bool operator==(VisibleString const &) const;
 
 		inline char const* toString(void) const
 		{
@@ -32,12 +38,12 @@ namespace Toon
 			return hashKey;
 		}
 	};
-	
-	template<typename Type>
-	inline bool ToonString::compareTo(Type const & other) const
-	{
-		return (*this == other);
-	}
+
+#define _TOON_STRING_INTERNAL(str) 
+#define TOON_STRING(key) (ToonString((key)))
+#define VISIBLE_STRING(str) (VisibleString(str))
+
 };
+
 
 #endif // end of TOON_STRING_H

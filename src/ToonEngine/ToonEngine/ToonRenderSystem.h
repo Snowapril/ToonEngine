@@ -10,6 +10,9 @@ struct GLFWwindow;
 
 namespace Toon
 {
+	/****************************************************************************
+						RenderSystem class declaration
+	****************************************************************************/
 	class RenderSystem : public EngineSystem
 	{
 	private:

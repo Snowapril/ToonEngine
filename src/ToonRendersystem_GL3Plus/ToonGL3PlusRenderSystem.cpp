@@ -6,6 +6,9 @@
 
 namespace ToonGL3Plus
 {
+	/****************************************************************************
+						GL3PlusRenderSystem class definition
+	****************************************************************************/
 	bool ToonRoot::initContext(int width, int height, char const *wndTitle, bool fullscreen)
 	{
 		if (!glfwInit())

@@ -8,6 +8,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Filesystem class declaration
+	****************************************************************************/
 	class Filesystem : public Singleton<Filesystem>
 	{
 	private:

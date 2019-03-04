@@ -8,6 +8,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						DoubleEndedStackAllocator class  declaration
+	****************************************************************************/
 	class DoubleEndedStackAllocator : public Noncopyable
 	{
 	public:
@@ -31,6 +34,9 @@ namespace Toon
 		char* endPtr;
 	};
 	
+	/****************************************************************************
+						DoubleEndedStackAllocator class  definition
+	****************************************************************************/
 	DoubleEndedStackAllocator::DoubleEndedStackAllocator( size_type size) noexcept
 	{
 		beginPtr		= (char*)malloc(size);

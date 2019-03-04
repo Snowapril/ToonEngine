@@ -10,6 +10,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						SystemMessageBus class declaration
+	****************************************************************************/
 	class SystemMessageBus : public Singleton<SystemMessageBus>
 	{
 	private:

@@ -10,6 +10,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+				ToonRoot class definition
+	****************************************************************************/
 	template <> ToonRoot* Singleton<ToonRoot>::instance = nullptr;
 
 	// local callback functions declaration
@@ -26,7 +29,7 @@ namespace Toon
 
 	ToonRoot::~ToonRoot()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] Application instnace is released ({0:x})", reinterpret_cast<void*>(instance) );
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] Application instnace is released ({0:x})"), reinterpret_cast<void*>(instance) );
 		release();
 	}
 

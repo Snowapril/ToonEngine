@@ -4,6 +4,9 @@
 #include "ToonHeaderPrefix.h"
 namespace Toon
 {
+	/****************************************************************************
+						SystemMessage class declaration
+	****************************************************************************/
 	class SystemMessage
 	{
 

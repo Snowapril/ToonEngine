@@ -4,6 +4,9 @@
 
 namespace Toon
 {
+	/****************************************************************************
+						Timer class definition
+	****************************************************************************/
 	template <> Timer* Singleton<Timer>::instance = nullptr;
 
 	Timer::Timer()
@@ -13,7 +16,7 @@ namespace Toon
 
 	Timer::~Timer()
 	{
-		Logger::getConstInstance().infoMessage( "[Singleton] Timer instnace is released ({0:x})", reinterpret_cast<void*>(instance));
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] Timer instnace is released ({0:x})"), reinterpret_cast<void*>(instance));
 	}
 
 	void Timer::tick(void)

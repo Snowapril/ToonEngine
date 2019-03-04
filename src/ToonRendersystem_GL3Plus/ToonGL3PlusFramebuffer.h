@@ -8,12 +8,15 @@
 
 namespace ToonGL3Plus
 {
+	/****************************************************************************
+						GL3PlusFramebuffer class declaration
+	****************************************************************************/
 	enum class FramebufferFlag : int
 	{
 
 	};
 
-	class Framebuffer : public Toon::Noncopyable
+	class GL3PlusFramebuffer : public Toon::Noncopyable
 	{
 	protected:
 		std::vector<unsigned int>		colorTextures;
@@ -21,8 +24,8 @@ namespace ToonGL3Plus
 		unsigned int					framebuffer  = 0U;
 		unsigned int					depthTexture = 0U;
 	public:
-		Framebuffer() = default;
-		virtual ~Framebuffer();
+		GL3PlusFramebuffer() = default;
+		virtual ~GL3PlusFramebuffer();
 
 		virtual bool initFramebuffer( int width, int height, FramebufferFlag flag );
 		virtual void bindBuffer(void) const;
