@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="crc.c" />
     <ClCompile Include="ToonAlignedAllocator.cpp" />
     <ClCompile Include="ToonRenderSystem.cpp" />
     <ClCompile Include="ToonRoot.cpp" />
@@ -147,10 +148,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ToonMesh.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="ToonString.cpp" />
     <ClCompile Include="ToonSystemMessageBus.cpp" />
     <ClCompile Include="ToonTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="crc.h" />
+    <ClInclude Include="sniptype.h" />
     <ClInclude Include="ToonBufferedAllocator.h" />
     <ClInclude Include="ToonDoubleEndedStackAllocator.h" />
     <ClInclude Include="ToonPoolAllocator.h" />

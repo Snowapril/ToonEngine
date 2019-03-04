@@ -88,6 +88,9 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\SystemMessage">
       <UniqueIdentifier>{19f76592-a023-4424-b518-c3c607f8aedd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\String\CRC32">
+      <UniqueIdentifier>{75cccf59-1741-445f-8847-4db6bc1cc0bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -122,6 +125,12 @@
     </ClCompile>
     <ClCompile Include="ToonSystemMessageBus.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\SystemMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="crc.c">
+      <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonString.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +226,12 @@
     </ClInclude>
     <ClInclude Include="ToonSTLAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="crc.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
+    </ClInclude>
+    <ClInclude Include="sniptype.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
