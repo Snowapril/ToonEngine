@@ -81,7 +81,7 @@ namespace Toon
 	constexpr unsigned long CRC32Hasher::hashConstexpr(char const* buf)
 	{
 		static_assert(idx < 16U, "CRC32 Hash function in constexpr must be worked on short string.\n"
-			"Use runtime version, hashRuntime(str)");
+								 "Use runtime version, hashRuntime(str)"							 );
 		return UPDC32(buf[idx - 1], hashConstexpr<idx - 1>(buf));
 	}
 	template <>

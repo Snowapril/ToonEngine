@@ -21,6 +21,9 @@ namespace Toon
 		bool operator==(char const*) const;
 	};
 	
+	/****************************************************************************
+						VisibleStirng class declaration
+	****************************************************************************/
 	class VisibleString : public ToonString
 	{
 	private:

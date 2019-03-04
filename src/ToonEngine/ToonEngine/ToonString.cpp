@@ -21,6 +21,9 @@ namespace Toon
 		return hashKey == CRC32_HASH_RUNTIME(str);
 	}
 
+	/****************************************************************************
+						VisibleString class definition
+	****************************************************************************/
 	std::unordered_map<unsigned long, char const*> VisibleString::stringTable {};
 
 	VisibleString::VisibleString(char const * buf)
