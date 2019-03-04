@@ -2,7 +2,7 @@
 #define TOON_RENDERSYSTEM_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonSystem.h"
+#include "ToonEngineSystem.h"
 #include "ToonPrerequisites.h"
 #include <string>
 
@@ -22,8 +22,9 @@ namespace Toon
 		RenderSystem();
 		~RenderSystem();
 	public:
-		void handleSystemMessage(ToonSystemMessage const & msg) override;
-
+		void preDrawScene(void) const noexcept;
+		void drawScene	 (void) const noexcept;
+	public:
 		GLFWwindow const* getAppWindow	(void)	const { return window; }
 		float			  getAspectRatio(void)	const { return static_cast<float>(clientWidth) / clientHeight; }
 	};

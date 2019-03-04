@@ -11,6 +11,9 @@ struct GLFWwindow;
 
 namespace Toon
 {
+	/****************************************************************************
+				SingleFrameAllocator class declaration
+	****************************************************************************/
 	class ToonRoot : public Singleton<ToonRoot>
 	{
 		friend class RenderSystem;
@@ -22,23 +25,22 @@ namespace Toon
 		std::unique_ptr<Filesystem>			filesystem;
 		std::unique_ptr<Timer>				timer;
 	protected:
-		virtual void initialUpdate	(void) = 0;
-		virtual void updateScene	(float dt) = 0;
-		virtual void drawScene		(void) const = 0;
-		virtual void release		(void);
-		virtual bool reset			(void);
-	private:
-		void registerCallback(void);
+		virtual void initialUpdate	(  void	 );
+		virtual void preUpdateScene	(float dt);
+		virtual void updateScene	(float dt);
+		virtual void preDrawScene	(  void  ) const;
+		virtual void drawScene		(  void  ) const;
+		virtual void release		(  void  );
 	public:
 		ToonRoot();
-		~ToonRoot();
+		virtual ~ToonRoot();
 
 		bool initialize(bool autoCreateWindow, std::string const & windowTitle, std::string const & configFilePath);
-		int  runApplicationLoop(void);
+		int  runMainLoop(void);
 	public:
-		static ToonRoot const&		getConstInstance(void);
+		static ToonRoot const&		getConstInstance  (void);
 		static ToonRoot&			getMutableInstance(void);
-		static bool					isDestroyed(void) { return instance == nullptr; }
+		static bool					isDestroyed		  (void)  { return instance == nullptr; }
 	};
 };
 

@@ -194,9 +194,6 @@
     <ClInclude Include="ToonPlugEngine.h">
       <Filter>5. Plugin Source Codes %28Engine%29</Filter>
     </ClInclude>
-    <ClInclude Include="ToonSystem.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\Interfaces</Filter>
-    </ClInclude>
     <ClInclude Include="ToonSystemMessage.h">
       <Filter>1. Source Codes %28Engine%29\Internal\SystemMessage</Filter>
     </ClInclude>
@@ -217,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="ToonSTLAllocator.h">
       <Filter>1. Source Codes %28Engine%29\Internal\MemoryAllocation</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonEngineSystem.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -172,7 +172,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ToonSTLAllocator.h" />
-    <ClInclude Include="ToonSystem.h" />
+    <ClInclude Include="ToonEngineSystem.h" />
     <ClInclude Include="ToonSystemMessage.h" />
     <ClInclude Include="ToonSystemMessageBus.h" />
     <ClInclude Include="ToonTexture.h" />

@@ -7,6 +7,7 @@
 #include "ToonHeaderPrefix.h"
 #include "ToonNoncopyable.h"
 #include "ToonExceptions.h"
+#include "ToonObfuscator.h"
 
 namespace Toon
 {
@@ -27,7 +28,7 @@ namespace Toon
 	template <typename Type>
 	Singleton< Type >::Singleton()
 	{
-		ToonAssert( "The instance is already allocated", instance == nullptr );
+		assert(instance == nullptr, OBFUSCATE("The instance is already allocated"));
 		instance = static_cast<Type*>(this);
 	}
 

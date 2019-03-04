@@ -1,5 +1,5 @@
-#ifndef TOON_SYSTEM_H
-#define TOON_SYSTEM_H
+#ifndef TOON_ENGINE_SYSTEM_H
+#define TOON_ENGINE_SYSTEM_H
 
 #include "ToonHeaderPrefix.h"
 #include "ToonNoncopyable.h"
