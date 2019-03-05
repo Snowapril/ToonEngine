@@ -7,6 +7,7 @@
 #include <functional>
 #include <queue>
 #include <vector>
+#include "ToonSystemMessage.h"
 
 namespace Toon
 {
@@ -22,8 +23,8 @@ namespace Toon
 		SystemMessageBus() noexcept;
 		~SystemMessageBus() noexcept;
 
-		void postSystemMessageImmediately	(SystemMessage&&  msg )	noexcept;
-		void postSystemMessage				(SystemMessage&&  msg )	noexcept;
+		void postSystemMessageImmediately	(SystemMessage&&  )	noexcept;
+		void postSystemMessage				(SystemMessage&&  )	noexcept;
 		void addSystemMessageListener		(SystemMessageListener) noexcept;
 		void notifySystemMessage			(void)					noexcept;
 	public:

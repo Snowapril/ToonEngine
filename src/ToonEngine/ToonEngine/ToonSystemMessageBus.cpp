@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "ToonSystemMessageBus.h"
 #include "ToonLogger.h"
-#include "ToonSystemMessage.h"
 
 namespace Toon
 {
@@ -20,9 +19,9 @@ namespace Toon
 		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] SystemMessageBus instance is released ({0:x})"), reinterpret_cast<void*>(instance) );
 	}
 
-	void SystemMessageBus::postSystemMessageImmediately(SystemMessage&& msg) noexcept
+	void SystemMessageBus::postSystemMessageImmediately(SystemMessage&& msg_) noexcept
 	{
-		SystemMessage msg = std::move(msg);
+		SystemMessage msg = std::move(msg_);
 		for (auto& listener : listeners)
 			listener(msg);
 	}

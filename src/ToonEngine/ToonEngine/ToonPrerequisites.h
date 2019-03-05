@@ -1,6 +1,8 @@
 #ifndef _TOON_PREREQUISITES_H
 #define _TOON_PREREQUISITES_H
 
+#include <functional>
+
 namespace Toon
 {
 	class Timer				;

@@ -21,17 +21,11 @@ namespace Toon
 		size_type misalignment = mask & reinterpret_cast<address_type>(beginPtr);
 		size_type adjustment = alignment - misalignment;
 
-		Type* beginNode = reinterpret_cast<Type*>(beginPtr + adjustment);
-		Type* endNode = reinterpret_cast<Type*>(beginNode + static_cast<size_type>((totalSize - adjustment) / sizeof(Type)));
-
-		Type* currentNode = beginNode;
-		while (currentNode != endNode)
-		{
-			freeList.push_back(&(*currentNode));
-			++currentNode;
-		}
-
-		return nullptr;
+		char* retPtr = beginPtr + adjustment;
+		char* infoPtr = retPtr - 1;
+		*infoPtr = static_cast<char>(adjustment);
+		
+		return retPtr;
 	}
 
 	void * AlignedAllocator::allocate(std::size_t size)
@@ -41,8 +35,14 @@ namespace Toon
 
 	void * AlignedAllocator::deallocate(void * ptr)
 	{
-		if (ptr);
-		tdsfa
+		if (ptr)
+		{
+			char* infoPtr = reinterpret_cast<char*>(ptr) - 1;
+			char adjustment = *infoPtr;
+			void* totalPtr = reinterpret_cast<char*>(ptr) - adjustment;
+			free(totalPtr);
+		}
+
 		return nullptr;
 	}
 };

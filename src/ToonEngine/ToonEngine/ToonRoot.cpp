@@ -7,6 +7,11 @@
 #include "ToonObfuscator.h"
 #include "ToonTimer.h"
 #include "ToonFileSystem.h"
+#include "ToonRenderSystem.h"
+
+
+#include "ToonSystemMessageBus.h"
+#include "ToonSystemMessage.h"
 
 namespace Toon
 {
@@ -23,7 +28,6 @@ namespace Toon
 	void localResizingCallback	( GLFWwindow* window, int newWidth, int newHeight );
 
 	ToonRoot::ToonRoot()
-		: timer()
 	{
 	}
 
@@ -34,6 +38,11 @@ namespace Toon
 	}
 
 	bool ToonRoot::initialize(bool autoCreateWindow, std::string const & windowTitle, std::string const & configFilePath)
+	{
+		return true;
+	}
+
+	bool ToonRoot::initSubsystems(void)
 	{
 		return true;
 	}
@@ -60,7 +69,6 @@ namespace Toon
 
 	void ToonRoot::release(void)
 	{
-		glfwTerminate();
 	}
 
 	int ToonRoot::runMainLoop(void)

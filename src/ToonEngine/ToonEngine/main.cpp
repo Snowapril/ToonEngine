@@ -5,76 +5,22 @@
 //{
 //	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
 //}
-#include "StackAllocator.h"
-#include "DoubleBufferedAllocator.h"
-#include "SingleFrameAllocator.h"
-#include "DoubleEndedStackAllocator.h"
+
 #include <iostream>
-#include <list>
-#include "PoolAllocator.h"
-#include "ToonBitwise.h"
 
-#include <vector>
-class A
+template <typename... Bits>
+void asserts(Bits... bits)
 {
-public:
-	A(int a, int B)
-		: v1(a), v2(B) {};
-
-	void print(void) const
+	if (!(bits && ...))
 	{
-		std::cout << v1 << ' ' << v2 << std::endl;
+		std::cout << "sdfafdsa" << std::endl;
 	}
-	void _Construct(int a, int b)
-	{
-		v1 = a;
-		v2 = b;
-	}
-public:
-	int v1, v2;
-};
+}
 
 int main(void)
-{
-	int* arr;
-
-
-	Toon::StackAllocator alloc(100);
-	auto mark = alloc.getMarker();
-	arr = reinterpret_cast<int*>(alloc.allocate(64));
+{ 
+	asserts(true, true, true, true);
 	
-	for (int i = 0; i < 16; i++)
-	{
-		arr[i] = (i + 1) * (i + 1);
-	}
-
-	for (int i = 0; i < 16; i++)
-	{
-		std::cout << arr[i] << std::endl;
-	}
-
-	alloc.freeToMarker(mark);
-
-	double* arr2 = reinterpret_cast<double*>(alloc.allocate(64));
-
-	for (int i = 0; i < 8; i++)
-	{
-		arr2[i] = (i + 1) * (i + 1);
-	}
-
-	for (int i = 0; i < 16; i++)
-	{
-		std::cout << arr[i] << std::endl;
-	}
-
-	
-	for (unsigned int a = 0; a < 1000; ++a)
-	{
-		if (Toon::Bitwise::isPO2(a))
-		{
-			std::cout << a << std::endl;
-		}
-	}
 
 	return 0;
 }

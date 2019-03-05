@@ -34,7 +34,7 @@ namespace Toon
 	template <typename Type>
 	Singleton< Type >::Singleton()
 	{
-		assert(instance == nullptr, OBFUSCATE("The instance is already allocated"));
+		ToonAssert("[Singleton] The instance is already allocated", instance == nullptr);
 		instance = static_cast<Type*>(this);
 	}
 

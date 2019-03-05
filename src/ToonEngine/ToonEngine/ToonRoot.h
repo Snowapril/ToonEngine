@@ -20,8 +20,8 @@ namespace Toon
 	protected:
 		std::unique_ptr<RenderSystem>		renderSystem;
 	private: // plugins
-		std::unique_ptr<SystemMessageBus>	systemMessageBus;
 		std::unique_ptr<Logger>				logger;
+		std::unique_ptr<SystemMessageBus>	systemMessageBus;
 		std::unique_ptr<Filesystem>			filesystem;
 		std::unique_ptr<Timer>				timer;
 	protected:
@@ -31,6 +31,8 @@ namespace Toon
 		virtual void preDrawScene	(  void  ) const;
 		virtual void drawScene		(  void  ) const;
 		virtual void release		(  void  );
+	private:
+		bool initSubsystems(void);
 	public:
 		ToonRoot();
 		virtual ~ToonRoot();

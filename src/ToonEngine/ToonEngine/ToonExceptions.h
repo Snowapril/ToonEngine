@@ -10,10 +10,14 @@
 ****************************************************************************/
 namespace Toon
 {
-	template < typename... Logics >
-	inline void ToonAssert( std::string const& msg, Logics... bits )
+	template< typename... Bits >
+	inline void ToonAssert(char const * msg, Bits... bits)
 	{
-		assert( (... && bits) );
+		if (!(bits && ...))
+		{
+			Logger::getConstInstance().errorMessage(msg);
+			std::terminate();
+		}
 	}
 };
 
