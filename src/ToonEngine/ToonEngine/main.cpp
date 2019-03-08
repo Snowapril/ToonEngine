@@ -15,7 +15,8 @@ int main(void)
 	Toon::ToonRoot root;
 	root.initialize();
 
-	root.runMainLoop();
+	auto& logger = Toon::Logger::getConstInstance();
+	logger.infoMessage("info message here");
 
 	return 0;
 }
