@@ -25,3 +25,6 @@
 [submodule "src/Libraries/physx"]
 	path = src/Libraries/physx
 	url = https://github.com/NVIDIAGameWorks/PhysX.git
+[submodule "src/Libraries/thrust"]
+	path = src/Libraries/thrust
+	url = https://github.com/thrust/thrust.git
