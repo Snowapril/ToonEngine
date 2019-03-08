@@ -2,6 +2,11 @@
 
 [![](https://codescene.io/projects/4218/status.svg) Get more details at **codescene.io**.](https://codescene.io/projects/4218/jobs/latest-successful/results)
 
+## Build
+```
+git clone https://github.com/Snowapril/ToonEngine.git --recursive
+```
+
 ## Plan Ahead
 
 ![Plan_ahead](./plan_ahead.jpg)
