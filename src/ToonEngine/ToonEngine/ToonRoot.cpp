@@ -34,10 +34,9 @@ namespace Toon
 
 	ToonRoot::~ToonRoot()
 	{
-		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] Application instnace is released ({0:x})"), reinterpret_cast<void*>(instance) );
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("ToonRoot instance is released"), reinterpret_cast<void*>(instance) );
 		release();
-		instance = nullptr;
-	}
+	}	
 
 	bool ToonRoot::initialize(bool autoCreateWindow, std::string const & windowTitle, std::string const & configFilePath)
 	{
@@ -66,6 +65,16 @@ namespace Toon
 		if (Logger::isDestroyed())
 		{
 			logger.reset(new Logger("./log/")); // TODO : this will be replaced to FileSystem related path
+		}
+
+		if (Timer::isDestroyed())
+		{
+			timer.reset(new Timer());
+		}
+
+		if (SystemMessageBus::isDestroyed())
+		{
+			systemMessageBus.reset(new SystemMessageBus());
 		}
 
 		return true;
@@ -109,13 +118,13 @@ namespace Toon
 			float dt		= timer->getDeltaTime();
 			float totalTime = timer->getTotalTime();
 
+			logger->infoMessage("delta time {0:01.4f} ms, total time {1:04.3f} sec", dt * 1000.0f, totalTime);
+
 			preUpdateScene(dt);
 			updateScene(dt);
 			preDrawScene();
 			drawScene();
 		}
-
-		release();
 
 		return 0;
 	}

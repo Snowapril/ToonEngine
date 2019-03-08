@@ -130,7 +130,7 @@
       <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\Util</Filter>
+      <Filter>1. Source Codes %28Engine%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

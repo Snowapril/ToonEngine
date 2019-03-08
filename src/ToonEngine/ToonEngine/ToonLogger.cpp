@@ -21,7 +21,7 @@ namespace Toon
 			fs.createDirectory(logDirectory);
 		}
 
-		spdlog::init_thread_pool(8192, 1);
+		spdlog::init_thread_pool(8192, 2);
 #ifdef _DEBUG
 		auto stdoutSink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
 		auto fileSink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(logDirectory + std::string("engine.log")); // TODO : will be replaced to filesystem related string 
@@ -31,15 +31,17 @@ namespace Toon
 		std::vector<spdlog::sink_ptr> sinks{ fileSink };
 #endif
 		logger = std::make_shared<spdlog::async_logger>("toonLogger", begin(sinks), end(sinks), spdlog::thread_pool(), spdlog::async_overflow_policy::overrun_oldest);
-		logger->set_level(spdlog::level::err);
+		logger->set_level(spdlog::level::trace);	
 
 		spdlog::register_logger(logger);
+		
 	}
 
 	Logger::~Logger()
 	{
-		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] Logger instnace is released ({0:x})"), reinterpret_cast<void*>(instance));
-		// spdlog::shutdown();
+		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Logger instance is released"), reinterpret_cast<void*>(instance));
+		spdlog::drop_all();
+		//spdlog::shutdown();
 		logger.reset();
 	}
 

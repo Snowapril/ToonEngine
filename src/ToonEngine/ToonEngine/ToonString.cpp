@@ -7,6 +7,11 @@ namespace Toon
 	/****************************************************************************
 						ToonString class definition
 	****************************************************************************/
+	enum class _TOON_STRING_TABLE : unsigned long
+	{
+
+	};
+
 	ToonString::ToonString(unsigned long key)
 		: hashKey(key)
 	{

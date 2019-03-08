@@ -16,7 +16,7 @@ namespace Toon
 
 	Timer::~Timer()
 	{
-		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] Timer instnace is released ({0:x})"), reinterpret_cast<void*>(instance));
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Timer instance is released"), reinterpret_cast<void*>(instance));
 	}
 
 	void Timer::tick(void)

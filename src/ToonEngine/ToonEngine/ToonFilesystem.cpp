@@ -18,7 +18,7 @@ namespace Toon
 
 	Filesystem::~Filesystem()
 	{
-		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] FileSystem instnace is released ({0:x})"), reinterpret_cast<void*>(instance) );
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("FileSystem instance is released"), reinterpret_cast<void*>(instance) );
 	}
 
 	void Filesystem::setDirectory( const std::string& label, const std::string& directory )

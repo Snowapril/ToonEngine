@@ -10,6 +10,8 @@ namespace Toon
 	/****************************************************************************
 						ToonString class declaration
 	****************************************************************************/
+	enum class _TOON_STRING_TABLE : unsigned long;
+
 	class ToonString
 	{
 	protected:
@@ -44,7 +46,7 @@ namespace Toon
 
 #define _TOON_STRING_INTERNAL(str) 
 #define TOON_STRING(key) (ToonString((key)))
-#define VISIBLE_STRING(str) (VisibleString(str))
+#define VISIBLE_STRING(str) (VisibleString((str)))
 
 };
 
