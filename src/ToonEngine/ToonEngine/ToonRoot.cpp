@@ -29,21 +29,45 @@ namespace Toon
 
 	ToonRoot::ToonRoot()
 	{
+		instance = this;
 	}
 
 	ToonRoot::~ToonRoot()
 	{
 		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] Application instnace is released ({0:x})"), reinterpret_cast<void*>(instance) );
 		release();
+		instance = nullptr;
 	}
 
 	bool ToonRoot::initialize(bool autoCreateWindow, std::string const & windowTitle, std::string const & configFilePath)
 	{
+		if (autoCreateWindow)
+		{
+
+		}
+		else
+		{
+
+		}
+
+		if (!initSubsystems())
+			return false;
+
 		return true;
 	}
 
 	bool ToonRoot::initSubsystems(void)
 	{
+		if (Filesystem::isDestroyed())
+		{
+			filesystem.reset(new Filesystem("")); // TODO : this will be replaced to Config file related path
+		}
+
+		if (Logger::isDestroyed())
+		{
+			logger.reset(new Logger("./log/")); // TODO : this will be replaced to FileSystem related path
+		}
+
 		return true;
 	}
 
@@ -94,15 +118,5 @@ namespace Toon
 		release();
 
 		return 0;
-	}
-
-	ToonRoot const & ToonRoot::getConstInstance(void)
-	{
-		return *instance;
-	}
-
-	ToonRoot & ToonRoot::getMutableInstance(void)
-	{
-		return *instance;
 	}
 };

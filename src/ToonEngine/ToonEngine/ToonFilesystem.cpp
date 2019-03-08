@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ToonFilesystem.h"
 #include "ToonLogger.h"
+#include <filesystem>
 
 namespace Toon
 {
@@ -8,6 +9,7 @@ namespace Toon
 						Filesystem class definition
 	****************************************************************************/
 	template <> Filesystem* Singleton< Filesystem >::instance = nullptr;
+	namespace fs = std::experimental::filesystem;
 
 	Filesystem::Filesystem( std::string const & rootPath )
 		: rootPath(rootPath)
@@ -19,7 +21,7 @@ namespace Toon
 		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] FileSystem instnace is released ({0:x})"), reinterpret_cast<void*>(instance) );
 	}
 
-	void Filesystem::addDirectory( const std::string& label, const std::string& directory )
+	void Filesystem::setDirectory( const std::string& label, const std::string& directory )
 	{
 		dirTable[label] = directory;
 	}
@@ -38,14 +40,12 @@ namespace Toon
 
 		return retPath;
 	}
-
-	Filesystem const & Filesystem::getConstInstance(void)
+	bool Filesystem::isExists(std::string const & relativePath) const
 	{
-		return *instance;
+		return fs::exists(rootPath + relativePath);
 	}
-
-	Filesystem & Filesystem::getMutableInstance(void)
+	void Filesystem::createDirectory(std::string const & relativePath) const
 	{
-		return *instance;
+		fs::create_directory(rootPath + relativePath);
 	}
 };

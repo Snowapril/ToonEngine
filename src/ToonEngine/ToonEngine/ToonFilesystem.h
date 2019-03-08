@@ -20,13 +20,12 @@ namespace Toon
 		Filesystem( std::string const & rootPath );
 		~Filesystem();
 
-		void		addDirectory	( const std::string& label, const std::string& directory );
+		void		setDirectory	( const std::string& label, const std::string& directory );
 		std::string getRootPath		( void ) const;
 		std::string getRelativePath	( const std::string& label, const std::string& filename ) const;
 	public:
-		static Filesystem const&	getConstInstance(void);
-		static Filesystem &			getMutableInstance(void);
-		static bool					isDestroyed(void) { return instance == nullptr; }
+		bool isExists(std::string const & relativePath) const;
+		void createDirectory(std::string const & relativePath) const;
 	};
 };
 

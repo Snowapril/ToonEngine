@@ -49,14 +49,4 @@ namespace Toon
 			}
 		}
 	}
-
-	SystemMessageBus const&	SystemMessageBus::getConstInstance(void)
-	{
-		return *instance;
-	}
-
-	SystemMessageBus& SystemMessageBus::getMutableInstance(void)
-	{
-		return *instance;
-	}
 };

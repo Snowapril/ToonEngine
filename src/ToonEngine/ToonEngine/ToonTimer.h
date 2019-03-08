@@ -34,10 +34,6 @@ namespace Toon
 
 		float getDeltaTime(void) const;
 		float getTotalTime(void) const;
-	public:
-		static Timer const&		getConstInstance	(void);
-		static Timer &			getMutableInstance	(void);
-		static bool				isDestroyed			(void) { return instance == nullptr; }
 	};
 };
 

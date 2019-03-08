@@ -157,6 +157,7 @@
     <ClInclude Include="ToonBufferedAllocator.h" />
     <ClInclude Include="ToonDoubleEndedStackAllocator.h" />
     <ClInclude Include="ToonEngineSystem.h" />
+    <ClInclude Include="ToonParser.h" />
     <ClInclude Include="ToonPoolAllocator.h" />
     <ClInclude Include="ToonStackAllocator.h" />
     <ClInclude Include="ToonAlignedAllocator.h" />

@@ -27,10 +27,6 @@ namespace Toon
 		void postSystemMessage				(SystemMessage&&  )	noexcept;
 		void addSystemMessageListener		(SystemMessageListener) noexcept;
 		void notifySystemMessage			(void)					noexcept;
-	public:
-		static SystemMessageBus const&	getConstInstance	(void);
-		static SystemMessageBus &		getMutableInstance	(void);
-		static bool							isDestroyed			(void) { return instance == nullptr; }
 	};
 };
 

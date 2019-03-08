@@ -76,9 +76,6 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\Camera">
       <UniqueIdentifier>{ad14d96c-119e-475d-b55e-327aedc912d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1. Source Codes %28Engine%29\Internal\Material">
-      <UniqueIdentifier>{85ae80dd-0b84-4e8e-ac8b-88643c5d8d5d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Source Codes %28Engine%29\Internal\Mesh">
       <UniqueIdentifier>{dfc9558c-4359-45ed-a8cb-f8c5303cecff}</UniqueIdentifier>
     </Filter>
@@ -91,13 +88,13 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\String\CRC32">
       <UniqueIdentifier>{75cccf59-1741-445f-8847-4db6bc1cc0bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\Material">
+      <UniqueIdentifier>{85ae80dd-0b84-4e8e-ac8b-88643c5d8d5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>3. Stdafx / Resources %28Engine%29</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>1. Source Codes %28Engine%29</Filter>
     </ClCompile>
     <ClCompile Include="ToonTimer.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\Timer</Filter>
@@ -131,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="ToonCRC32Hash.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,9 +172,6 @@
     </ClInclude>
     <ClInclude Include="ToonRoot.h">
       <Filter>1. Source Codes %28Engine%29\Internal\EngineCore</Filter>
-    </ClInclude>
-    <ClInclude Include="ToonSingleton.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="ToonFilesystem.h">
       <Filter>1. Source Codes %28Engine%29\Internal\String\FileSystem</Filter>
@@ -229,6 +226,12 @@
     </ClInclude>
     <ClInclude Include="ToonEngineSystem.h">
       <Filter>1. Source Codes %28Engine%29\Internal\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonSingleton.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonParser.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\Parser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

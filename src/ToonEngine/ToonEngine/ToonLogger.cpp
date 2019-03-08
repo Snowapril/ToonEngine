@@ -3,6 +3,8 @@
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/basic_file_sink.h>
+#include <spdlog/spdlog.h>
+#include "ToonFilesystem.h"
 
 namespace Toon
 {
@@ -11,43 +13,49 @@ namespace Toon
 	****************************************************************************/
 	template <> Logger* Singleton<Logger>::instance = nullptr;
 
-	Logger::Logger()
+	Logger::Logger(std::string const& logDirectory)
 	{
-		auto sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-		console = std::make_unique<spdlog::logger>("setup", sink);
-		
-		console->set_level(spdlog::level::err);
+		auto& fs = Filesystem::getConstInstance();
+		if (!fs.isExists(logDirectory))
+		{
+			fs.createDirectory(logDirectory);
+		}
+
+		spdlog::init_thread_pool(8192, 1);
+#ifdef _DEBUG
+		auto stdoutSink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+		auto fileSink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(logDirectory + std::string("engine.log")); // TODO : will be replaced to filesystem related string 
+		std::vector<spdlog::sink_ptr> sinks{ stdoutSink, fileSink };
+#else
+		auto fileSink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(logDirectory + std::string("engine.log")); // TODO : will be replaced to filesystem related string 
+		std::vector<spdlog::sink_ptr> sinks{ fileSink };
+#endif
+		logger = std::make_shared<spdlog::async_logger>("toonLogger", begin(sinks), end(sinks), spdlog::thread_pool(), spdlog::async_overflow_policy::overrun_oldest);
+		logger->set_level(spdlog::level::err);
+
+		spdlog::register_logger(logger);
 	}
 
 	Logger::~Logger()
 	{
 		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] Logger instnace is released ({0:x})"), reinterpret_cast<void*>(instance));
-		console.reset();
+		// spdlog::shutdown();
+		logger.reset();
 	}
 
 	void Logger::infoMessage(std::string const & msg) const
 	{
-		console->info(msg);
+		logger->info(msg);
 	}
 
 	void Logger::warnMessage(std::string const & msg) const
 	{
-		console->warn(msg);
+		logger->warn(msg);
 	}
 
 	void Logger::errorMessage(std::string const & msg) const
 	{
-		console->error(msg);
-	}
-
-	Logger const & Logger::getConstInstance(void)
-	{
-		return *instance;
-	}
-
-	Logger & Logger::getMutableInstance(void)
-	{
-		return *instance;
+		logger->error(msg);
 	}
 
 };

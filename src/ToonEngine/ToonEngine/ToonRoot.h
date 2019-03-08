@@ -37,12 +37,8 @@ namespace Toon
 		ToonRoot();
 		virtual ~ToonRoot();
 
-		bool initialize(bool autoCreateWindow, std::string const & windowTitle, std::string const & configFilePath);
+		bool initialize(bool autoCreateWindow = true, std::string const & windowTitle = "ToonEngine", std::string const & configFilePath = "");
 		int  runMainLoop(void);
-	public:
-		static ToonRoot const&		getConstInstance  (void);
-		static ToonRoot&			getMutableInstance(void);
-		static bool					isDestroyed		  (void)  { return instance == nullptr; }
 	};
 };
 

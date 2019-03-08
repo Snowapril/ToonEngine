@@ -80,14 +80,4 @@ namespace Toon
 
 		return static_cast<float>( wholeDuration - pausedTime );
 	}
-
-	Timer const & Timer::getConstInstance(void)
-	{
-		return *instance;
-	}
-
-	Timer & Timer::getMutableInstance(void)
-	{
-		return *instance;
-	}
 };

@@ -7,20 +7,15 @@
 //}
 
 #include <iostream>
-
-template <typename... Bits>
-void asserts(Bits... bits)
-{
-	if (!(bits && ...))
-	{
-		std::cout << "sdfafdsa" << std::endl;
-	}
-}
+#include "ToonRoot.h"
+#include "ToonLogger.h"
 
 int main(void)
 { 
-	asserts(true, true, true, true);
-	
+	Toon::ToonRoot root;
+	root.initialize();
+
+	Toon::Logger::getConstInstance().infoMessage("info message here");
 
 	return 0;
 }
