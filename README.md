@@ -13,12 +13,12 @@ git clone https://github.com/Snowapril/ToonEngine.git --recursive
 
 * Core Systems
 	- module start-up and shut-down
-	- assertions
+	- ~~assertions~~
 	- unit testing
 	- ~~memory allocation~~
 	- math library
 	- ~~strings and hashed string ids~~
-	- Debug printing and logging
+	- ~~Debug printing and logging~~
 	- localization
 	- movie player
 	- parsers (JSON, ini ...)
