@@ -31,6 +31,6 @@ namespace ToonGL3Plus
 
 		return option;
 	}
-}
+};
 
 #endif
