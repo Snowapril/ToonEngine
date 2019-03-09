@@ -123,14 +123,14 @@
     <ClCompile Include="ToonSystemMessageBus.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\SystemMessage</Filter>
     </ClCompile>
-    <ClCompile Include="ToonCRC32Hash.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>1. Source Codes %28Engine%29</Filter>
     </ClCompile>
     <ClCompile Include="ToonString.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonParser.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\Parser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

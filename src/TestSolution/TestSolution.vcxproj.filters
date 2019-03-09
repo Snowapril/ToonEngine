@@ -18,12 +18,15 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\ToonEngine\ToonEngine\ToonCRC32Hash.cpp">
+    <ClCompile Include="..\ToonEngine\ToonEngine\ToonString.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ToonEngine\ToonEngine\ToonCRC32Hash.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ToonEngine\ToonEngine\ToonString.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>
