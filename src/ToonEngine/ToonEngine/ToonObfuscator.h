@@ -44,9 +44,9 @@ namespace Toon
 		char buffer[sizeof...(I) + 1];
 	};
 
-#define OBFUSCATE(str) ( MetaString<MakeIndexes< sizeof((str)) - 1 >::type>((str)).decrypt() )
 };
 
+#define OBFUSCATE(str) ( Toon::MetaString<Toon::MakeIndexes< sizeof((str)) - 1 >::type>((str)).decrypt() )
 #include "ToonHeaderPostfix.h"
 
 #endif
