@@ -37,7 +37,7 @@ namespace Toon
 		ToonRoot();
 		virtual ~ToonRoot();
 
-		bool initialize(bool autoCreateWindow = true, std::string const & windowTitle = "ToonEngine", std::string const & configFilePath = "");
+		bool initialize(bool autoCreateWindow = true, std::string const & windowTitle = OBFUSCATE("ToonEngine"), std::string const & configFilePath = "");
 		int  runMainLoop(void);
 	};
 };
