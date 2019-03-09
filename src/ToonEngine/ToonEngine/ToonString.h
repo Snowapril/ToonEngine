@@ -16,6 +16,7 @@ namespace Toon
 		static std::unordered_map<unsigned long, char const*> stringTable;
 		unsigned long hashKey;
 	public:
+		ToonString();
 		ToonString(char const * buf, unsigned long key);
 		bool operator==(char const * str) const noexcept;
 
@@ -26,7 +27,7 @@ namespace Toon
 		inline bool operator==(ToonString const & other) const noexcept
 		{
 			return hashKey == other.hashKey;
-		}
+		} 
 		inline char const* toString(void) const
 		{
 			return stringTable[hashKey];

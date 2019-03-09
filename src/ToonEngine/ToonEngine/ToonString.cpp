@@ -8,6 +8,11 @@ namespace Toon
 	****************************************************************************/
 	std::unordered_map<unsigned long, char const*> ToonString::stringTable {};
 
+	ToonString::ToonString()
+		: ToonString("", CRC32_STRING_HASH(""))
+	{
+	}
+
 	ToonString::ToonString(char const * buf, unsigned long key)
 		: hashKey(key)
 	{
