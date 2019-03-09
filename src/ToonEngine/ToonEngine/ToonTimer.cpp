@@ -19,7 +19,7 @@ namespace Toon
 		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Timer instance is released"), reinterpret_cast<void*>(instance));
 	}
 
-	void Timer::tick(void)
+	void Timer::tick(void) noexcept
 	{
 		using namespace std::chrono;
 
@@ -40,12 +40,12 @@ namespace Toon
 		if (deltaTime < 0.0) deltaTime = 0.0;
 	}
 
-	void Timer::start(void)
+	void Timer::start(void) noexcept
 	{
 		if (bPaused) bPaused = false;
 	}
 
-	void Timer::reset(void)
+	void Timer::reset(void) noexcept
 	{
 		startTime	= ( currentTime = std::chrono::high_resolution_clock::now() );
 		bPaused		= false	;
@@ -53,27 +53,27 @@ namespace Toon
 		pausedTime	= 0.0	;
 	}
 
-	void Timer::pause(void)
+	void Timer::pause(void) noexcept
 	{
 		if (!bPaused) bPaused = true;
 	}
 
-	bool Timer::isOnGoing(void) const
+	bool Timer::isOnGoing(void) const noexcept
 	{
 		return !bPaused;
 	}
 
-	bool Timer::isPaused(void) const
+	bool Timer::isPaused(void) const noexcept
 	{
 		return  bPaused;
 	}
 
-	float Timer::getDeltaTime(void) const
+	float Timer::getDeltaTime(void) const noexcept
 	{
 		return static_cast<float>(deltaTime);
 	}
 
-	float Timer::getTotalTime(void) const
+	float Timer::getTotalTime(void) const noexcept
 	{
 		using namespace std::chrono;
 		auto wholeDuration = duration_cast< duration<double> >( currentTime - startTime ).count();

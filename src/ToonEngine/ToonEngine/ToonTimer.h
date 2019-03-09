@@ -24,16 +24,16 @@ namespace Toon
 		Timer();
 		~Timer();
 
-		void tick	(void);
-		void start	(void);
-		void reset	(void);
-		void pause	(void);
+		void tick	(void) noexcept;
+		void start	(void) noexcept;
+		void reset	(void) noexcept;
+		void pause	(void) noexcept;
 
-		bool isOnGoing	(void) const;
-		bool isPaused	(void) const;
+		bool isOnGoing	(void) const noexcept;
+		bool isPaused	(void) const noexcept;
 
-		float getDeltaTime(void) const;
-		float getTotalTime(void) const;
+		float getDeltaTime(void) const noexcept;
+		float getTotalTime(void) const noexcept;
 	};
 };
 
