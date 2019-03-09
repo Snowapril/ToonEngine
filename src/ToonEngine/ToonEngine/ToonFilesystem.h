@@ -24,7 +24,7 @@ namespace Toon
 		std::string getRootPath		( void ) const;
 		std::string getRelativePath	( const std::string& label, const std::string& filename ) const;
 	public:
-		bool isExists(std::string const & relativePath) const;
+		bool isExists		(std::string const & relativePath) const; 
 		void createDirectory(std::string const & relativePath) const;
 	};
 };

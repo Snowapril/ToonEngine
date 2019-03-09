@@ -21,11 +21,11 @@ namespace Toon
 	template <> ToonRoot* Singleton<ToonRoot>::instance = nullptr;
 
 	// local callback functions declaration
-	void localKeyCallback		( GLFWwindow* window, int key, int scancode, int action, int mode );
-	void localMousePosCallback	( GLFWwindow* window, double xpos, double ypos );
-	void localMouseBtnCallback	( GLFWwindow* window, int btn, int action, int mods );
-	void localScrollCallback	( GLFWwindow* window, double xoffset, double yoffset );
-	void localResizingCallback	( GLFWwindow* window, int newWidth, int newHeight );
+	void localKeyCallback		(GLFWwindow* window, int key, int scancode, int action, int mode) {};
+	void localMousePosCallback	( GLFWwindow* window, double xpos, double ypos ) {};
+	void localMouseBtnCallback	( GLFWwindow* window, int btn, int action, int mods ) {};
+	void localScrollCallback	( GLFWwindow* window, double xoffset, double yoffset ) {};
+	void localResizingCallback	( GLFWwindow* window, int newWidth, int newHeight ) {};
 
 	ToonRoot::ToonRoot()
 	{
@@ -120,10 +120,10 @@ namespace Toon
 
 			logger->infoMessage("delta time {0:01.4f} ms, total time {1:04.3f} sec", dt * 1000.0f, totalTime);
 
-			preUpdateScene(dt);
-			updateScene(dt);
-			preDrawScene();
-			drawScene();
+			preUpdateScene(dt); // 1) pre-simulation step
+			updateScene(dt);    // 2) simulation step
+			preDrawScene();	    // 3) pre-draw step
+			drawScene();	    // 4) darw step
 		}
 
 		return 0;
