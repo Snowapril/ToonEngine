@@ -21,7 +21,7 @@ git clone https://github.com/Snowapril/ToonEngine.git --recursive
 	- ~~Debug printing and logging~~
 	- localization
 	- movie player
-	- parsers (JSON, ini ...)
+	- ~~parsers (JSON, ini ...)~~
 	- profiling, stats gathering
 	- engine config
 	- random number generation
