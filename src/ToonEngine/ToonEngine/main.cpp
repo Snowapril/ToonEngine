@@ -1,14 +1,8 @@
 #include "stdafx.h"
-
-//// For enabling optimus feature of laptops.
-//extern "C"
-//{
-//	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
-//}
-
 #include <iostream>
 #include "ToonRoot.h"
 #include "ToonLogger.h"
+#include "ToonString.h"
 
 int main(void)
 { 
@@ -17,6 +11,10 @@ int main(void)
 
 	auto& logger = Toon::Logger::getConstInstance();
 	logger.infoMessage("info message here");
+
+	auto str = TOON_STRING("stack-overflow");
+	logger.infoMessage("{}", str.toString());
+	logger.infoMessage("{:x}", str.toHashKey());
 
 	return 0;
 }
