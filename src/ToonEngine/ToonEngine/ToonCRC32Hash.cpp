@@ -20,4 +20,9 @@ namespace Toon
 
 		return ~oldcrc32;
 	}
+
+	enum class _TOON_STRING_TABLE : unsigned long
+	{
+
+	};
 };

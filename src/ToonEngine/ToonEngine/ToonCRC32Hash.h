@@ -89,9 +89,10 @@ namespace Toon
 	{
 		return 0xFFFFFFFF;
 	}
+
 };
 
-#define CRC32_HASH_CONSTEXPR(str)	(~(Toon::CRC32Hasher::hashConstexpr<sizeof(str) - 1U>(str)))
+#define CRC32_HASH_CONSTEXPR(str)	(~(Toon::CRC32Hasher::hashConstexpr<sizeof(str) - 1U>(str))) 
 #define CRC32_HASH_RUNTIME(str)		(Toon::CRC32Hasher::hashRuntime((str), sizeof((str)) - 1U) )
 
 #endif

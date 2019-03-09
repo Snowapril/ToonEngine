@@ -123,14 +123,14 @@
     <ClCompile Include="ToonSystemMessageBus.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\SystemMessage</Filter>
     </ClCompile>
-    <ClCompile Include="ToonString.cpp">
-      <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
-    </ClCompile>
     <ClCompile Include="ToonCRC32Hash.cpp">
       <Filter>1. Source Codes %28Engine%29\Internal\String\CRC32</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>1. Source Codes %28Engine%29</Filter>
+    </ClCompile>
+    <ClCompile Include="ToonString.cpp">
+      <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +151,6 @@
     </ClInclude>
     <ClInclude Include="ToonHeaderPostfix.h">
       <Filter>1. Source Codes %28Engine%29\Internal\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="ToonString.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
     </ClInclude>
     <ClInclude Include="ToonPlatform.h">
       <Filter>1. Source Codes %28Engine%29\Internal\PlatformDetect</Filter>
@@ -232,6 +229,9 @@
     </ClInclude>
     <ClInclude Include="ToonParser.h">
       <Filter>1. Source Codes %28Engine%29\Internal\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonString.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
