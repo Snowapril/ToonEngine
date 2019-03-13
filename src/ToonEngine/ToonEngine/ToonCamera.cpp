@@ -7,14 +7,17 @@ namespace Toon
 							Camera class  definition
 	****************************************************************************/
 	Camera::Camera()
+		: speed(0.0f)
 	{
 	}
 
-	Camera::Camera(Camera const &)
+	Camera::Camera(Camera const & other)
+		: position(other.position), direction(other.direction), speed(other.speed)
 	{
 	}
 
-	Camera::Camera(Camera &&)
+	Camera::Camera(Camera && other)
+		: position(std::move(other.position)), direction(std::move(other.direction)), speed(other.speed)
 	{
 	}
 
@@ -26,7 +29,9 @@ namespace Toon
 	{
 		if ( &other != this )
 		{
-
+			position	= other.position	;
+			direction	= other.direction	;
+			speed		= other.speed		;
 		}
 
 		return *this;
@@ -36,7 +41,9 @@ namespace Toon
 	{
 		if ( &other != this )
 		{
-
+			position	= std::move(other.position)	;
+			direction	= std::move(other.direction);
+			speed		= other.speed;
 		}
 
 		return *this;

@@ -108,7 +108,6 @@ namespace Toon
 	{
 		//timer reset
 		timer->reset();
-		int count = 0;
 		
 		initialUpdate();
 
