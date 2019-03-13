@@ -91,6 +91,9 @@
     <Filter Include="1. Source Codes %28Engine%29\Internal\Material">
       <UniqueIdentifier>{85ae80dd-0b84-4e8e-ac8b-88643c5d8d5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Source Codes %28Engine%29\Internal\RTTI / Reflection">
+      <UniqueIdentifier>{d82b4219-9614-4b81-a01f-2f3ff7a86ede}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
