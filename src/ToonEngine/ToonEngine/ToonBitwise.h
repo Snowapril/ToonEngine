@@ -22,7 +22,7 @@ namespace Toon
 		}
 
 		template < typename RetType, typename... Bits, typename = typename std::enable_if_t< std::is_integral_v<RetType>> >
-		static decltype(auto) TOON_FORCE_INLINE setBitmask(Bits... bits)
+		static std::decay_t<RetType> TOON_FORCE_INLINE setBitmask(Bits... bits)
 		{
 			RetType mask = ((1 << bits) | ...);
 			return mask;
@@ -31,6 +31,5 @@ namespace Toon
 };
 
 #include "ToonHeaderPrefix.h"
-
 
 #endif
