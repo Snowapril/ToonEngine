@@ -143,9 +143,6 @@
     <ClInclude Include="targetver.h">
       <Filter>3. Stdafx / Resources %28Engine%29</Filter>
     </ClInclude>
-    <ClInclude Include="ToonExceptions.h">
-      <Filter>1. Source Codes %28Engine%29\Internal\Assertions</Filter>
-    </ClInclude>
     <ClInclude Include="ToonPrerequisites.h">
       <Filter>1. Source Codes %28Engine%29\Internal\Util</Filter>
     </ClInclude>
@@ -235,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="ToonString.h">
       <Filter>1. Source Codes %28Engine%29\Internal\String</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonExceptions.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #define TOON_EXCEPTIONS_H
 
 #include "ToonHeaderPrefix.h"
+#include "ToonPlatform.h"
 #include <cassert>
 #include <string>
 
@@ -11,7 +12,7 @@
 namespace Toon
 {
 	template< typename... Bits >
-	inline void ToonAssert(char const * msg, Bits... bits)
+	TOON_FORCE_INLINE void ToonAssert(char const * msg, Bits... bits)
 	{
 		if (!(bits && ...))
 		{

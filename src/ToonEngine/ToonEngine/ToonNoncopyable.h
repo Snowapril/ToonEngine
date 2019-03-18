@@ -12,10 +12,10 @@ namespace Toon
 	{
 	public:
 		Noncopyable() = default;
-		Noncopyable(const Noncopyable& other) = delete;
-		Noncopyable(Noncopyable&& other) = delete;
-		Noncopyable& operator=(const Noncopyable& other) = delete;
-		Noncopyable& operator=(Noncopyable&& other) = delete;
+		Noncopyable(Noncopyable const&) = delete;
+		Noncopyable(Noncopyable&&	  ) = delete;
+		Noncopyable& operator=(Noncopyable const&) = delete;
+		Noncopyable& operator=(Noncopyable&&	 ) = delete;
 	};
 };
 
