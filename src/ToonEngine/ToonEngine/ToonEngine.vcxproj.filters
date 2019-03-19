@@ -236,5 +236,11 @@
     <ClInclude Include="ToonExceptions.h">
       <Filter>1. Source Codes %28Engine%29\Internal\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="ToonReflection.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\RTTI / Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="ToonObject.h">
+      <Filter>1. Source Codes %28Engine%29\Internal\RTTI / Reflection</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
