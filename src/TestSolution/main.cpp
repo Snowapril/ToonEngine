@@ -1,7 +1,9 @@
-#include <ToonEngine/ToonCRC32Hash.h>
+#include <ToonEngine/ToonBitwise.h>
+#include <iostream>
 
 int main(void)
 {
-	auto key = CRC32_STRING_HASH("stack-overflow");
+	auto a = Toon::Bitwise::setBitmask<unsigned int>(1, 3, 5);
+	std::cout << std::hex << a << std::endl;
 	return 0;
 }
