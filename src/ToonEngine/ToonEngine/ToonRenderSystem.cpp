@@ -23,4 +23,8 @@ namespace Toon
 	void RenderSystem::drawScene(void) const noexcept
 	{
 	}
+	bool RenderSystem::initWindow(INIParser const &) noexcept
+	{
+		return true;
+	}
 };

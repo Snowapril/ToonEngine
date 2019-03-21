@@ -1,17 +1,17 @@
 #include "stdafx.h"
 #include "ToonRoot.h"
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include "ToonLogger.h"
 #include "ToonObfuscator.h"
 #include "ToonTimer.h"
 #include "ToonFileSystem.h"
 #include "ToonRenderSystem.h"
-
+#include "ToonParser.h"
 
 #include "ToonSystemMessageBus.h"
 #include "ToonSystemMessage.h"
+
+#include <algorithm>
 
 namespace Toon
 {
@@ -21,7 +21,7 @@ namespace Toon
 	template <> ToonRoot* Singleton<ToonRoot>::instance = nullptr;
 
 	// local callback functions declaration
-	void localKeyCallback		(GLFWwindow* window, int key, int scancode, int action, int mode) {};
+	void localKeyCallback		( GLFWwindow* window, int key, int scancode, int action, int mode ) {};
 	void localMousePosCallback	( GLFWwindow* window, double xpos, double ypos ) {};
 	void localMouseBtnCallback	( GLFWwindow* window, int btn, int action, int mods ) {};
 	void localScrollCallback	( GLFWwindow* window, double xoffset, double yoffset ) {};
@@ -40,8 +40,11 @@ namespace Toon
 
 	bool ToonRoot::initialize(bool autoCreateWindow, std::string const & windowTitle, std::string const & configFilePath)
 	{
+		INIParser parser(configFilePath);
+
 		if (autoCreateWindow)
 		{
+			
 
 		}
 		else
@@ -49,22 +52,27 @@ namespace Toon
 
 		}
 
-		if (!initSubsystems())
+		if (!initSubsystems(parser))
 			return false;
 
 		return true;
 	}
 
-	bool ToonRoot::initSubsystems(void)
+	bool ToonRoot::initSubsystems(INIParser const& parser)
 	{
+		auto rootPath = parser.getData<std::string>("root_path");
+		auto logPath  = parser.getData<std::string>("log_path" );
+
+		if (AnyOf(!rootPath, !logPath)) return false;
+
 		if (Filesystem::isDestroyed())
 		{
-			filesystem.reset(new Filesystem("")); // TODO : this will be replaced to Config file related path
+			filesystem.reset(new Filesystem(rootPath.get())); 
 		}
 
 		if (Logger::isDestroyed())
 		{
-			logger.reset(new Logger("./log/")); // TODO : this will be replaced to FileSystem related path
+			logger.reset(new Logger(logPath.get()));
 		}
 
 		if (Timer::isDestroyed())
@@ -76,6 +84,9 @@ namespace Toon
 		{
 			systemMessageBus.reset(new SystemMessageBus());
 		}
+
+		if (!renderSystem->initWindow(parser))
+			return false;
 
 		return true;
 	}
@@ -102,6 +113,10 @@ namespace Toon
 
 	void ToonRoot::release(void)
 	{
+		systemMessageBus.reset();
+		timer.reset();
+		logger.reset();
+		filesystem.reset();
 	}
 
 	int ToonRoot::runMainLoop(void)

@@ -15,7 +15,10 @@ namespace Toon
 	private:
 		boost::property_tree::ptree iniParser;
 	public:
+		INIParser() = default;
 		INIParser(std::string const &);
+
+		bool open(std::string const &);
 
 		template <typename Type>
 		boost::optional<Type> getData(std::string const &) const;
@@ -35,7 +38,10 @@ namespace Toon
 	private:
 		boost::property_tree::ptree jsonParser;
 	public:
+		JsonParser() = default;
 		JsonParser(std::string const &);
+
+		bool open(std::string const &);
 
 		template <typename Type>
 		boost::optional<Type> getData(std::string const &) const;

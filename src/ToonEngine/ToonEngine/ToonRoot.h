@@ -32,7 +32,7 @@ namespace Toon
 		virtual void drawScene		(  void  ) const;
 		virtual void release		(  void  );
 	private:
-		bool initSubsystems(void);
+		bool initSubsystems(INIParser const&);
 	public:
 		ToonRoot();
 		virtual ~ToonRoot();

@@ -26,30 +26,30 @@ namespace Toon
 		void errorMessage	( std::string const & msg ) const;
 
 		template < typename... Args >
-		void infoMessage( char const * fmt, Args&&... args ) const;
+		void infoMessage( std::string const& fmt, Args&&... args ) const;
 		template < typename... Args >
-		void warnMessage( char const * fmt, Args&&... args ) const;
+		void warnMessage(std::string const&, Args&&... args ) const;
 		template < typename... Args >
-		void errorMessage( char const * fmt, Args&&... args ) const;
+		void errorMessage(std::string const&, Args&&... args ) const;
 	};
 
 	/****************************************************************************
 						Logger class definition
 	****************************************************************************/
 	template < typename... Args >
-	void Logger::infoMessage( char const * fmt, Args&&... args ) const
+	void Logger::infoMessage(std::string const& fmt, Args&&... args ) const
 	{
 		logger->info( fmt, std::forward<Args>(args)... );
 	}
 
 	template < typename... Args >
-	void Logger::warnMessage( char const * fmt, Args&&... args ) const
+	void Logger::warnMessage(std::string const& fmt, Args&&... args ) const
 	{
 		logger->warn( fmt, std::forward<Args>(args)... );
 	}
 
 	template < typename... Args >
-	void Logger::errorMessage( char const * fmt, Args&&... args ) const
+	void Logger::errorMessage(std::string const& fmt, Args&&... args ) const
 	{
 		logger->error( fmt, std::forward<Args>(args)... );
 	}

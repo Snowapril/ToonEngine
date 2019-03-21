@@ -12,13 +12,25 @@
 namespace Toon
 {
 	template< typename... Bits >
-	TOON_FORCE_INLINE void ToonAssert(char const * msg, Bits... bits)
+	TOON_FORCE_INLINE void ToonAssert(std::string const& msg, Bits... bits)
 	{
 		if (!(bits && ...))
 		{
 			Logger::getConstInstance().errorMessage(msg);
 			std::terminate();
 		}
+	}
+
+	template < typename... Logics >
+	TOON_FORCE_INLINE bool AnyOf(Logics... logics)
+	{
+		return ((logics) || ...);
+	}
+
+	template < typename... Logics >
+	TOON_FORCE_INLINE bool AllOf(Logics... logics)
+	{
+		return ((logics) && ...);
 	}
 };
 

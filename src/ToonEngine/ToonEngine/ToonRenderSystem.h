@@ -28,6 +28,7 @@ namespace Toon
 		void preDrawScene(void) const noexcept;
 		void drawScene	 (void) const noexcept;
 	public:
+		bool			  initWindow	(INIParser const&) noexcept;
 		GLFWwindow const* getAppWindow	(void)	const { return window; }
 		float			  getAspectRatio(void)	const { return static_cast<float>(clientWidth) / clientHeight; }
 	};
