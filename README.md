@@ -3,9 +3,18 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2860280b79be4b3898b6915edb16769d)](https://app.codacy.com/app/Snowapril/ToonEngine?utm_source=github.com&utm_medium=referral&utm_content=Snowapril/ToonEngine&utm_campaign=Badge_Grade_Dashboard)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-## Build
+## Start build (Not work yet..)
+
+### Clone
 ```
 git clone https://github.com/Snowapril/ToonEngine.git --recursive
+```
+
+### Build 
+```
+mkdir Build
+cd Build
+cmake ../src -G "Visual Studio 15 2017 Win64"
 ```
 
 ## Plan Ahead
