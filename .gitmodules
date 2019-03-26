@@ -28,3 +28,27 @@
 [submodule "src/Libraries/thrust"]
 	path = src/Libraries/thrust
 	url = https://github.com/thrust/thrust.git
+[submodule "ToonEngine/Libraries/imgui"]
+	path = ToonEngine/Libraries/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "ToonEngine/Libraries/googletest"]
+	path = ToonEngine/Libraries/googletest
+	url = https://github.com/google/googletest
+[submodule "ToonEngine/Libraries/PhysX"]
+	path = ToonEngine/Libraries/PhysX
+	url = https://github.com/NVIDIAGameWorks/PhysX
+[submodule "ToonEngine/Libraries/sol2"]
+	path = ToonEngine/Libraries/sol2
+	url = https://github.com/ThePhD/sol2
+[submodule "ToonEngine/Libraries/thrust"]
+	path = ToonEngine/Libraries/thrust
+	url = https://github.com/thrust/thrust
+[submodule "ToonEngine/Libraries/glm"]
+	path = ToonEngine/Libraries/glm
+	url = https://github.com/g-truc/glm
+[submodule "ToonEngine/Libraries/glfw"]
+	path = ToonEngine/Libraries/glfw
+	url = https://github.com/glfw/glfw
+[submodule "ToonEngine/Libraries/boost"]
+	path = ToonEngine/Libraries/boost
+	url = https://github.com/boostorg/boost
