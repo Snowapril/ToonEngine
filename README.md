@@ -14,7 +14,7 @@ git clone https://github.com/Snowapril/ToonEngine.git --recursive
 ```
 mkdir Build
 cd Build
-cmake ../src -G "Visual Studio 15 2017 Win64"
+cmake ../ToonEngine -G "Visual Studio 15 2017 Win64"
 ```
 
 ## Plan Ahead
