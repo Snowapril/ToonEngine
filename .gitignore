@@ -427,4 +427,7 @@ modules.xml
 .idea/misc.xml
 *.ipr
 
+# Toon Engine cmake build related
+Build/
+
 # End of https://www.gitignore.io/api/pycharm+iml
