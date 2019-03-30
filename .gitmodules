@@ -19,3 +19,6 @@
 [submodule "ToonEngine/Libraries/glfw"]
 	path = ToonEngine/Libraries/glfw
 	url = https://github.com/glfw/glfw
+[submodule "ToonEngine/Libraries/spdlog"]
+	path = ToonEngine/Libraries/spdlog
+	url = https://github.com/gabime/spdlog

@@ -1,18 +1,20 @@
 # Target name
 set(target TestSolution)
 
-add_executable(testsolution
-    main.cpp
+set(SOURCES 
+	${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
 )
 
-target_include_directories(toonengine
+add_executable(TestSolution ${SOURCES})
+
+target_include_directories(TestSolution
 PUBLIC
     # ${CMAKE_SOURCE_DIR}/
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )
 
-target_link_libraries(toonengine
+target_link_libraries(TestSolution
 PUBLIC
     
 PRIVATE

@@ -1,21 +1,29 @@
 # Target name
 set(target ToonEditor)
 
-add_executable(toonengine
-    LuaEngine.cpp
-    main.cpp
-    stdafx.cpp
-    ToonRoot.cpp
+set(SOURCES
+	${CMAKE_CURRENT_SOURCE_DIR}/Sources/LuaEngine.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/stdafx.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonRoot.cpp
 )
 
-target_include_directories(toonengine
+set(INCLUDES
+	${CMAKE_CURRENT_SOURCE_DIR}/Includes/LuaEngine.h
+	${CMAKE_CURRENT_SOURCE_DIR}/Includes/stdafx.h
+	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonRoot.h
+)
+
+add_executable(ToonEditor ${SOURCES} ${INCLUDES})
+
+target_include_directories(ToonEditor
 PUBLIC
     # ${CMAKE_SOURCE_DIR}/
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )
 
-target_link_libraries(toonengine
+target_link_libraries(ToonEditor
 PUBLIC
     
 PRIVATE

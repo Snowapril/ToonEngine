@@ -32,27 +32,15 @@ endif()
 # Overrides
 set(CMAKE_MACOSX_RPATH ON)
 
-if(WIN32)
-  add_custom_target(Toon)
-  add_custom_command(TARGET Toon
-                       POST_BUILD
-                       COMMAND cmd //C Libraries/boost/bootstrap.bat )
-  add_custom_command(TARGET Toon
-                       POST_BUILD
-                       COMMAND cmd //C Libraries/boost/b2.exe )
-endif()
-
-add_subdirectory(Libraries/googletest)
-add_subdirectory(Libraries/glfw)
-add_subdirectory(Libraries/glm)
-add_subdirectory(Libraries/sol2)
-# add_subdirectory(Libraries/thrust)
-
-add_dependencies(ToonEngine ToonRendersystem_GL3Plus)
-add_dependencies(ToonEditor ToonEngine ToonRendersystem_GL3Plus)
-add_dependencies(TestSolution ToonEditor ToonEngine ToonRendersystem_GL3Plus)
+add_subdirectory(Libraries/googletest EXCLUDE_FROM_ALL)
+add_subdirectory(Libraries/glfw EXCLUDE_FROM_ALL)
+# add_subdirectory(Libraries/thrust EXCLUDE_FROM_ALL)
 
 add_subdirectory(ToonEngine)
 add_subdirectory(ToonEditor)
 add_subdirectory(ToonRendersystem_GL3Plus)
 add_subdirectory(TestSolution)
+
+add_dependencies(ToonEngine ToonRendersystem_GL3Plus)
+add_dependencies(ToonEditor ToonEngine ToonRendersystem_GL3Plus)
+add_dependencies(TestSolution ToonEditor ToonEngine ToonRendersystem_GL3Plus)

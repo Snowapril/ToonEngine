@@ -1,69 +1,72 @@
 # Target name
 set(target ToonEngine)
 
-# Define
-set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
-
-# Includes
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/../Includes
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../Libraries
+set(SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/stdafx.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonAlignedAllocator.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonCamera.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonFilesystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonLogger.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonMesh.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonParser.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonRenderSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonRoot.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonString.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonSystemMessageBus.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonTimer.cpp
 )
 
-# Sources
-file(GLOB header_dir
-    ${root_dir}/Includes/Rosetta)
-
-file(GLOB_RECURSE headers
-    ${header_dir}/*.hpp)
-
-file(GLOB_RECURSE sources
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-
-# Custom-build event
-set(rosettastone_header_gen_py ${root_dir}/Scripts/header_gen.py)
-add_custom_command(
-    COMMAND python ${rosettastone_header_gen_py}
-    DEPENDS ${headers}
-    OUTPUT ${root_dir}/Includes/RosettaStone.hpp
-)
-add_custom_target(rosettastone_header_gen_py ALL
-    DEPENDS ${root_dir}/Includes/RosettaStone.hpp)
-
-# Build library
-add_library(${target}
-    ${sources})
-add_dependencies(${target} rosettastone_header_gen_py)
-
-# Project options
-set_target_properties(${target}
-    PROPERTIES
-    ${DEFAULT_PROJECT_OPTIONS}
-)
-
-# Compile options
-target_compile_options(${target}
-    PRIVATE
-
-    PUBLIC
-    ${DEFAULT_COMPILE_OPTIONS}
-
-    INTERFACE
-)
-target_compile_definitions(${target}
-    PRIVATE
-    RESOURCES_DIR="${CMAKE_CURRENT_SOURCE_DIR}/../../Resources/"
+set(INCLUDES
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/stdafx.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/targetver.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonAlignedAllocator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonBitwise.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonBufferedAllocator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonCamera.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonCRC32Hash.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonDoubleEndedStackAllocator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonEngineSystem.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonExceptions.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonFilesystem.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonHeaderPostfix.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonHeaderPrefix.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonLogger.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonMaterial.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonMesh.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonNoncopyable.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonObfuscator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonObject.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonParser.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPlatform.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPlugEngine.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPoolAllocator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPrerequisites.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonReflection.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonRenderSystem.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonRoot.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonSingleton.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonStackAllocator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonSTLAllocator.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonString.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonSystemMessage.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonSystemMessageBus.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonTexture.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonTimer.h
 )
 
-target_link_libraries(${target}
-    PRIVATE
+add_executable(ToonEngine ${SOURCES} ${INCLUDES})
 
-    PUBLIC
-    ${DEFAULT_LINKER_OPTIONS}
-
-    INTERFACE
+target_include_directories(ToonEngine
+PUBLIC
+    # ${CMAKE_SOURCE_DIR}/
+PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )
 
-# Install
-install(TARGETS ${target} DESTINATION lib)
-install(DIRECTORY ${header_dir} DESTINATION include)
+target_link_libraries(ToonEngine
+PUBLIC
+    
+PRIVATE
+    glfw3 opengl32     
+)
