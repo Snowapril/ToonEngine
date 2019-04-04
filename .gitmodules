@@ -22,3 +22,6 @@
 [submodule "ToonEngine/Libraries/spdlog"]
 	path = ToonEngine/Libraries/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "ToonEngine/Libraries/fmt"]
+	path = ToonEngine/Libraries/fmt
+	url = https://github.com/fmtlib/fmt
