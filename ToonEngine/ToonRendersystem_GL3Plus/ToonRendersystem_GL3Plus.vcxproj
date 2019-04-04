@@ -87,7 +87,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries;$(ProjectDir)Includes;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,7 +118,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries;$(ProjectDir)Includes;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,7 +135,7 @@
     <ClInclude Include="Includes\ToonGL3PlusErrorCodes.h" />
     <ClInclude Include="Includes\ToonGL3PlusFramebuffer.h" />
     <ClInclude Include="Includes\ToonGL3PlusGBuffer.h" />
-    <ClInclude Include="Includes\ToonGL3PlusRenderSystem.h" />
+    <ClInclude Include="Includes\ToonGL3PlusRendersystem.h" />
     <ClInclude Include="Includes\ToonGL3PlusUtil.h" />
     <ClInclude Include="Includes\ToonPlugGL3Plus.h" />
   </ItemGroup>
@@ -143,7 +145,7 @@
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusGBuffer.cpp" />
-    <ClCompile Include="Sources\ToonGL3PlusRenderSystem.cpp" />
+    <ClCompile Include="Sources\ToonGL3PlusRendersystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

@@ -17,7 +17,6 @@ namespace Toon
 	{
 	private:
 		std::string windowTitle;
-		GLFWwindow *window = nullptr;
 		int			clientWidth = 0;
 		int			clientHeight = 0;
 		bool        bFullscreen = false;
@@ -29,7 +28,6 @@ namespace Toon
 		void drawScene	 (void) const noexcept;
 	public:
 		bool			  initWindow	(INIParser const&) noexcept;
-		GLFWwindow const* getAppWindow	(void)	const { return window; }
 		float			  getAspectRatio(void)	const { return static_cast<float>(clientWidth) / clientHeight; }
 	};
 };

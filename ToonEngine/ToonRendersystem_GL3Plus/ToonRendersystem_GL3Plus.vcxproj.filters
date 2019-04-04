@@ -7,9 +7,9 @@
     <ClInclude Include="Includes\ToonGL3PlusErrorCodes.h" />
     <ClInclude Include="Includes\ToonGL3PlusFramebuffer.h" />
     <ClInclude Include="Includes\ToonGL3PlusGBuffer.h" />
-    <ClInclude Include="Includes\ToonGL3PlusRenderSystem.h" />
     <ClInclude Include="Includes\ToonGL3PlusUtil.h" />
     <ClInclude Include="Includes\ToonPlugGL3Plus.h" />
+    <ClInclude Include="Includes\ToonGL3PlusRendersystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\dllmain.cpp" />
@@ -17,7 +17,7 @@
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusGBuffer.cpp" />
-    <ClCompile Include="Sources\ToonGL3PlusRenderSystem.cpp" />
+    <ClCompile Include="Sources\ToonGL3PlusRendersystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

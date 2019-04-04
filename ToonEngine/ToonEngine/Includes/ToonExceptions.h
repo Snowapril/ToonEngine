@@ -12,7 +12,7 @@
 namespace Toon
 {
 	template< typename... Bits >
-	TOON_FORCE_INLINE void ToonAssert(std::string const& msg, Bits... bits)
+	TOON_FORCE_INLINE void ToonAssert(char const* msg, Bits... bits)
 	{
 		if (!(bits && ...))
 		{

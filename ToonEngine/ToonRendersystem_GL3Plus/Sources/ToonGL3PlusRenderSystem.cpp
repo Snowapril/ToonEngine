@@ -1,26 +1,43 @@
-﻿// ToonRendersystem_GL3Plus.cpp : DLL 응용 프로그램을 위해 내보낸 함수를 정의합니다.
-//
-
-#include "stdafx.h"
-
+﻿#include "stdafx.h"
+#include "ToonGL3PlusRendersystem.h"
+#include <GLFW/glfw3.h>
+#include <glew/glew.h>
+#include "ToonObfuscator.h"
+#include <fmt/format.h>
 
 namespace ToonGL3Plus
 {
 	/****************************************************************************
 						GL3PlusRenderSystem class definition
 	****************************************************************************/
-	bool ToonRoot::initContext(int width, int height, char const *wndTitle, bool fullscreen)
+
+	GL3PlusRendersystem::GL3PlusRendersystem(char const* title, int width, int height) noexcept
+	{
+		assert(!initWindow(title, width, height));
+	}
+	GL3PlusRendersystem::~GL3PlusRendersystem() noexcept
+	{
+		glfwTerminate();
+	}
+	GLFWwindow const* GL3PlusRendersystem::getWindow(void) const noexcept
+	{
+		return window;
+	}
+	double GL3PlusRendersystem::getAspectRatio(void) const noexcept
+	{
+		return static_cast<double>(clientWidth) / clientHeight;
+	}
+	std::optional<std::string> GL3PlusRendersystem::initWindow(char const* title, int width, int height) noexcept
 	{
 		if (!glfwInit())
 		{
-			Logger::getConstInstance().errorMessage(OBFUSCATE("GLFW initialization failed."));
-			return false;
+			return OBFUSCATE("GLFW initialization failed.");
 		}
 
-		this->windowTitle = wndTitle;
+		this->wndCaption = title;
 		this->clientWidth = width;
 		this->clientHeight = height;
-		this->bFullscreen = fullscreen;
+		this->fullscreen = fullscreen;
 
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -31,8 +48,8 @@ namespace ToonGL3Plus
 		glfwWindowHint(GLFW_OPENGL_COMPAT_PROFILE, GLFW_OPENGL_FORWARD_COMPAT);
 #endif
 
-		GLFWmonitor		  *glfwMonitor = glfwGetPrimaryMonitor();
-		GLFWvidmode const *glfwMode = glfwGetVideoMode(glfwMonitor);
+		GLFWmonitor* glfwMonitor = glfwGetPrimaryMonitor();
+		GLFWvidmode const* glfwMode = glfwGetVideoMode(glfwMonitor);
 
 		glfwWindowHint(GLFW_RED_BITS, glfwMode->redBits);
 		glfwWindowHint(GLFW_GREEN_BITS, glfwMode->greenBits);
@@ -40,7 +57,7 @@ namespace ToonGL3Plus
 		glfwWindowHint(GLFW_REFRESH_RATE, glfwMode->refreshRate);
 		glfwWindowHint(GLFW_SRGB_CAPABLE, GLFW_TRUE);
 
-		if (bFullscreen)
+		if (fullscreen)
 		{
 			clientWidth = glfwMode->width;
 			clientHeight = glfwMode->height;
@@ -50,13 +67,11 @@ namespace ToonGL3Plus
 			glfwMonitor = nullptr;
 		}
 
-		window = glfwCreateWindow(clientWidth, clientHeight, wndTitle, glfwMonitor, nullptr);
+		window = glfwCreateWindow(clientWidth, clientHeight, title, glfwMonitor, nullptr);
 
 		if (!window)
 		{
-			glfwTerminate();
-			Logger::getConstInstance().errorMessage(OBFUSCATE("GLFW Window Creating failed."));
-			return false;
+			return OBFUSCATE("GLFW Window Creating failed.");
 		}
 
 
@@ -65,11 +80,10 @@ namespace ToonGL3Plus
 		int e = glewInit();
 		if (e != GLEW_OK)
 		{
-			Logger::getConstInstance().errorMessage("Failed to init GLEW\nError{}", glewGetErrorString(e));
-			return false;
+			return fmt::format(OBFUSCATE("GLEW Error occurred {}"), glewGetErrorString(e));
 		}
 
-#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ ToonLogger::getConstInstance().errorMessage( "GLEW: GL_ARB_{} not supported.\n", #ext ); return false; }
+#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ return fmt::format( OBFUSCATE("GLEW: GL_ARB_{} not supported.\n"), #ext ); }
 		CHECK_EXTENSION(shading_language_100);	// check your platform supports GLSL
 		CHECK_EXTENSION(vertex_buffer_object);	// BindBuffers, DeleteBuffers, GenBuffers, IsBuffer, BufferData, BufferSubData, GenBufferSubData, ...
 		CHECK_EXTENSION(vertex_shader);			// functions related to vertex shaders
@@ -77,13 +91,15 @@ namespace ToonGL3Plus
 		CHECK_EXTENSION(shader_objects);			// functions related to program and shaders
 #undef CHECK_EXTENSION
 
-		const GLubyte* vendor = glGetString(GL_VENDOR);
-		const GLubyte* renderer = glGetString(GL_RENDERER);
+		return {};
+	}
 
-		Logger::getConstInstance().infoMessage(OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer);
-
-		registerCallback();
-
-		return true;
+	auto GL3PlusRendersystem::getVendorString(void) const noexcept
+	{
+		return glGetString(GL_VENDOR);
+	}
+	auto GL3PlusRendersystem::getRendererString(void) const noexcept
+	{
+		return glGetString(GL_RENDERER);
 	}
 };

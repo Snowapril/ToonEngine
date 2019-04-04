@@ -1,6 +1,9 @@
 # Target name
 set(target ToonEngine)
 
+# Define
+set(library_dir ${CMAKE_CURRENT_SOURCE_DIR}/../Libraries)
+
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/stdafx.cpp
@@ -59,7 +62,8 @@ add_executable(ToonEngine ${SOURCES} ${INCLUDES})
 
 target_include_directories(ToonEngine
 PUBLIC
-    # ${CMAKE_SOURCE_DIR}/
+    ${library_dir}/spdlog/include 
+	${library_dir}/glm
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )

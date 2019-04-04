@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "ToonGL3PlusEffect.h"
 #include <GLFX/glfx.h>
-#include <ToonEngine/ToonLogger.h>
 
 namespace ToonGL3Plus
 {
@@ -45,6 +44,6 @@ namespace ToonGL3Plus
 	void GL3PlusEffect::handleGLFXError(void) const
 	{
 		std::string errorLog = glfxGetEffectLog(effect);
-		Toon::Logger::getConstInstance().errorMessage(errorLog);
+		
 	}
 };

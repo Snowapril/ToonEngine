@@ -23,6 +23,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Compile options
 include(CompileOptions)
+include(cotire)
 
 # Build type - Release by default
 if (NOT CMAKE_BUILD_TYPE)
@@ -34,6 +35,7 @@ set(CMAKE_MACOSX_RPATH ON)
 
 add_subdirectory(Libraries/googletest EXCLUDE_FROM_ALL)
 add_subdirectory(Libraries/glfw EXCLUDE_FROM_ALL)
+add_subdirectory(Libraries/fmt  EXCLUDE_FROM_ALL)
 # add_subdirectory(Libraries/thrust EXCLUDE_FROM_ALL)
 
 add_subdirectory(ToonEngine)

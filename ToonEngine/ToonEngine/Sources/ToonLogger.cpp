@@ -44,17 +44,17 @@ namespace Toon
 		logger.reset();
 	}
 
-	void Logger::infoMessage(std::string const & msg) const
+	void Logger::infoMessage(char const* msg) const
 	{
 		logger->info(msg);
 	}
 
-	void Logger::warnMessage(std::string const & msg) const
+	void Logger::warnMessage(char const* msg) const
 	{
 		logger->warn(msg);
 	}
 
-	void Logger::errorMessage(std::string const & msg) const
+	void Logger::errorMessage(char const* msg) const
 	{
 		logger->error(msg);
 	}
