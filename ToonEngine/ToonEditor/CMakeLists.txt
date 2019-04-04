@@ -29,3 +29,6 @@ PUBLIC
 PRIVATE
     glfw3 opengl32     
 )
+
+set_target_properties(ToonEditor PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${CMAKE_CURRENT_SOURCE_DIR}/Includes/stdafx.h)
+cotire(ToonEditor)

@@ -1,6 +1,7 @@
 set(target ToonRendersystem_GL3Plus)
 set(library_dir ${CMAKE_CURRENT_SOURCE_DIR}/../Libraries)
 
+
 set(SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/Sources/dllmain.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/stdafx.cpp
@@ -37,3 +38,6 @@ target_link_libraries(ToonRendersystem_GL3Plus
 PRIVATE
     glfw3 opengl32     
 )
+
+set_target_properties(ToonRendersystem_GL3Plus PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${CMAKE_CURRENT_SOURCE_DIR}/Includes/stdafx.h)
+cotire(ToonRendersystem_GL3Plus)
