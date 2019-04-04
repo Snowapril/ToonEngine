@@ -1,9 +1,9 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-#include <cstddef>
 #include <initializer_list>
 #include <type_traits>
+#include <array>
 
 namespace ToonResourceParser 
 {
@@ -17,8 +17,10 @@ namespace ToonResourceParser
         storage_t storage;
         size_type numElements = 0;
     public:
-        constexpr vector() = default;
-        constexpr vector(std::initializer_list<Type>&&) noexcept;
+        constexpr vector() noexcept;
+		template < typename... T, typename Enable  = typename std::enable_if_t< std::is_same_v< Type, T >>,
+								  typename Enable2 = typename std::enable_if_t< (sizeof...(T) <= Size) >  >
+		constexpr vector(T&&...) noexcept;
 
         template < typename T, typename Enable = typename std::enable_if_t< std::is_same_v< Type, T >> >
         constexpr void push_back(T&&) noexcept;
@@ -32,11 +34,17 @@ namespace ToonResourceParser
         constexpr auto end(void) const noexcept;
     };
 
-    template < typename Type, std::size_t Size >
-    constexpr vector< Type, Size >::vector(std::initializer_list<Type>&& iList) noexcept 
-    {
-        std::copy(begin(iList), end(iList), begin(storage));
-    }
+	template < typename Type, std::size_t Size >
+	constexpr vector< Type, Size >::vector() noexcept
+		: storage{}, numElements(0)
+	{
+	}
+	template < typename Type, std::size_t Size >
+	template < typename... T, typename Enable, typename Enable2>
+	constexpr vector< Type, Size >::vector(T&&... args) noexcept
+		: storage{ std::forward<Type>(args)... }, numElements(sizeof...(args))
+	{	
+	}
     template < typename Type, std::size_t Size >
     template < typename T, typename Enable >
     constexpr void vector< Type, Size >::push_back(T&& arg) noexcept 
