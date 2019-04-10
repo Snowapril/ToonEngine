@@ -1,7 +1,7 @@
 #ifndef TOON_GL3_PLUS_UTIL_H
 #define TOON_GL3_PLUS_UTIL_H
 
-#include <GL/glew.h>
+#include <glew/glew.h>
 #include <type_traits>
 #include <optional>
 #include <glm/glm.hpp>

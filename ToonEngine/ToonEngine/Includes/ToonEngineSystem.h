@@ -14,6 +14,7 @@ namespace Toon
 	{
 	public:
 		virtual void handleSystemMessage(SystemMessage const & msg) = 0;
+		virtual ~EngineSystem() = 0 {};
 	};
 };
 #include "ToonHeaderPostfix.h"

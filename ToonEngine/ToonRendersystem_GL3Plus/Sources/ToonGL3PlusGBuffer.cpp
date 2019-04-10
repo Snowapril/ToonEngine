@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ToonGL3PlusGBuffer.h"
-#include <GL/glew.h>
+#include <glew/glew.h>
 
 namespace ToonGL3Plus
 {

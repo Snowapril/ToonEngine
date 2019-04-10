@@ -132,6 +132,7 @@
     <ClInclude Include="Includes\constexpr\BasicString.h" />
     <ClInclude Include="Includes\constexpr\Map.h" />
     <ClInclude Include="Includes\constexpr\StaticString.h" />
+    <ClInclude Include="Includes\constexpr\Utility.h" />
     <ClInclude Include="Includes\constexpr\Vector.h" />
     <ClInclude Include="Includes\INIParser.h" />
   </ItemGroup>

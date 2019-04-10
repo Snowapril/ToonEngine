@@ -2,6 +2,9 @@
 cmake_minimum_required(VERSION 3.8.0 FATAL_ERROR)
 project(Toon)
 
+set(library_dir ${CMAKE_CURRENT_SOURCE_DIR}/Libraries)
+set(project_dir ${CMAKE_CURRENT_SORUCE_DIR})
+
 # C++ Language Standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

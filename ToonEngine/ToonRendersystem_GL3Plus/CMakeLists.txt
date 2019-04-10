@@ -1,6 +1,4 @@
 set(target ToonRendersystem_GL3Plus)
-set(library_dir ${CMAKE_CURRENT_SOURCE_DIR}/../Libraries)
-
 
 set(SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/Sources/dllmain.cpp
@@ -30,6 +28,7 @@ PUBLIC
     ${library_dir}/glfw/include
 	${library_dir}/GL
 	${library_dir}/fmt/include
+	${project_dir}/ToonEngine/Includes
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )

@@ -13,8 +13,8 @@ namespace ToonResourceParser
     public:
 		using storage_t		 = std::array<Type, Size>;
 		using size_type		 = std::size_t;
-		using iterator		 = storage_t::iterator;
-		using const_iterator = storage_t::const_iterator;
+		using iterator		 = typename storage_t::iterator;
+		using const_iterator = typename storage_t::const_iterator;
 
         constexpr Vector() noexcept;
 		template < typename... T >

@@ -2,7 +2,6 @@
 set(target ToonEngine)
 
 # Define
-set(library_dir ${CMAKE_CURRENT_SOURCE_DIR}/../Libraries)
 
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
@@ -64,6 +63,7 @@ target_include_directories(ToonEngine
 PUBLIC
     ${library_dir}/spdlog/include 
 	${library_dir}/glm
+	${project_dir}/ToonRendersystem_GL3Plus/Includes
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )

@@ -60,19 +60,19 @@ namespace Toon
 
 	bool ToonRoot::initSubsystems(INIParser const& parser)
 	{
-		auto rootPath = parser.getData<std::string>("root_path");
-		auto logPath  = parser.getData<std::string>("log_path" );
+		auto rootPath = "C:/Users/User/Desktop/Github/ongoing/ToonEngine/src"; // TODO :  parser.getData<std::string>("root_path");
+		auto logPath = "C:/Users/User/Desktop/Github/ongoing/ToonEngine/src/ToonEngine/ToonEngine/log"; // TODO :  parser.getData<std::string>("log_path");
 
 		if (AnyOf(!rootPath, !logPath)) return false;
 
 		if (Filesystem::isDestroyed())
 		{
-			filesystem.reset(new Filesystem(rootPath.get())); 
+			filesystem.reset(new Filesystem(rootPath)); 
 		}
 
 		if (Logger::isDestroyed())
 		{
-			logger.reset(new Logger(logPath.get()));
+			logger.reset(new Logger(logPath));
 		}
 
 		if (Timer::isDestroyed())

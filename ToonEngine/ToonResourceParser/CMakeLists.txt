@@ -1,5 +1,6 @@
 set(target ToonResourceParser)
 
+
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
 )

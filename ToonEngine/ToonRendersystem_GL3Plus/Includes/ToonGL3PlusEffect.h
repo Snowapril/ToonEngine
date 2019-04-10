@@ -1,7 +1,7 @@
 #ifndef EFFECT_H
 #define EFFECT_H
 
-#include <ToonEngine/ToonHeaderPrefix.h>
+#include <ToonHeaderPrefix.h>
 
 namespace ToonGL3Plus
 {

@@ -2,7 +2,7 @@
 #define TOON_GL3_PLUS_ERROR_CODES_H
 
 #include <string>
-#include <ToonEngine/ToonObfuscator.h>
+#include <ToonObfuscator.h>
 
 namespace ToonGL3Plus
 {

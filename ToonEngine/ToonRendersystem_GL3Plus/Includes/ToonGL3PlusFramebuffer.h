@@ -1,8 +1,8 @@
 #ifndef TOON_FRAMEBUFFER_H
 #define TOON_FRAMEBUFFER_H
 
-#include <ToonEngine/ToonHeaderPrefix.h>
-#include <ToonEngine/ToonNonCopyable.h>
+#include <ToonHeaderPrefix.h>
+#include <ToonNonCopyable.h>
 #include <glm/vec2.hpp>
 #include <vector>
 

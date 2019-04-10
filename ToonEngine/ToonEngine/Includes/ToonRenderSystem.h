@@ -2,8 +2,8 @@
 #define TOON_RENDERSYSTEM_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonEngineSystem.h"
 #include "ToonPrerequisites.h"
+#include <ToonGL3PlusRendersystem.h>
 #include <string>
 
 struct GLFWwindow;
@@ -13,13 +13,11 @@ namespace Toon
 	/****************************************************************************
 						RenderSystem class declaration
 	****************************************************************************/
-	class RenderSystem : public EngineSystem
+	class RenderSystem : public ToonGL3Plus::GL3PlusRendersystem
 	{
 	private:
-		std::string windowTitle;
-		int			clientWidth = 0;
-		int			clientHeight = 0;
-		bool        bFullscreen = false;
+		using super_t = ToonGL3Plus::GL3PlusRendersystem;
+
 	public:
 		RenderSystem();
 		~RenderSystem();
@@ -27,8 +25,7 @@ namespace Toon
 		void preDrawScene(void) const noexcept;
 		void drawScene	 (void) const noexcept;
 	public:
-		bool			  initWindow	(INIParser const&) noexcept;
-		float			  getAspectRatio(void)	const { return static_cast<float>(clientWidth) / clientHeight; }
+		bool	initWindow	(INIParser const&) noexcept;
 	};
 };
 

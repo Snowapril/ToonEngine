@@ -102,4 +102,10 @@ namespace ToonGL3Plus
 	{
 		return glGetString(GL_RENDERER);
 	}
+	void GL3PlusRendersystem::preDrawScene(void) const noexcept
+	{
+	}
+	void GL3PlusRendersystem::drawScene(void) const noexcept
+	{
+	}
 };

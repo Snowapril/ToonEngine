@@ -19,9 +19,11 @@ namespace Toon
 	}
 	void RenderSystem::preDrawScene(void) const noexcept
 	{
+		super_t::preDrawScene();
 	}
 	void RenderSystem::drawScene(void) const noexcept
 	{
+		super_t::drawScene();
 	}
 	bool RenderSystem::initWindow(INIParser const &) noexcept
 	{

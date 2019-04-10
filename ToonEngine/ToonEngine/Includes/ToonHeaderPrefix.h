@@ -9,5 +9,6 @@
 #pragma warning( disable :  6387 )	
 #pragma warning( disable : 26437 )
 #pragma warning( disable :  4098 )
+#pragma warning( disable :  4244 )
 
 #endif
