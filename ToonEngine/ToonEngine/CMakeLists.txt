@@ -62,6 +62,7 @@ PUBLIC
     ${library_dir}/spdlog/include 
 	${library_dir}/glm
 	${project_dir}/ToonRendersystem_GL3Plus/Includes
+	${project_dir}/ToonResourceParser/Includes
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )

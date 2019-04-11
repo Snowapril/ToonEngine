@@ -137,11 +137,13 @@
     <ClInclude Include="Includes\INIParser.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\INIParser.cpp" />
     <ClCompile Include="Sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExampleResource\engine_config.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

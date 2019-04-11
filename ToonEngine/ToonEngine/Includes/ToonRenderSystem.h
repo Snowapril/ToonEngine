@@ -5,6 +5,7 @@
 #include "ToonPrerequisites.h"
 #include <ToonGL3PlusRendersystem.h>
 #include <string>
+#include <INIParser.h>
 
 struct GLFWwindow;
 
@@ -25,7 +26,7 @@ namespace Toon
 		void preDrawScene(void) const noexcept;
 		void drawScene	 (void) const noexcept;
 	public:
-		bool	initWindow	(INIParser const&) noexcept;
+		bool	initWindow	(ToonResourceParser::INIParser const&) noexcept;
 	};
 };
 

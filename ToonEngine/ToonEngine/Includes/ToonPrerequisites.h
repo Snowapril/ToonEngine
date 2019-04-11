@@ -13,8 +13,6 @@ namespace Toon
 	class AlignedAllocator	;
 	class SystemMessage		;
 	class SystemMessageBus	;
-	class INIParser			;
-	class JsonParser		;
 
 	using SystemMessageListener = std::function<void(SystemMessage const &)>;
 };

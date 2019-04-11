@@ -12,7 +12,6 @@
     <ClInclude Include="Includes\ToonGL3PlusRendersystem.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\dllmain.cpp" />
     <ClCompile Include="Sources\stdafx.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />

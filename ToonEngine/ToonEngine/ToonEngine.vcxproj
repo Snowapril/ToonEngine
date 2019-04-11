@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

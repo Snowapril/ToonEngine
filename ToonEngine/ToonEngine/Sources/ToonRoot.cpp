@@ -6,8 +6,6 @@
 #include "ToonTimer.h"
 #include "ToonFileSystem.h"
 #include "ToonRenderSystem.h"
-#include "ToonParser.h"
-
 #include "ToonSystemMessageBus.h"
 #include "ToonSystemMessage.h"
 
@@ -19,6 +17,7 @@ namespace Toon
 				ToonRoot class definition
 	****************************************************************************/
 	template <> ToonRoot* Singleton<ToonRoot>::instance = nullptr;
+	using namespace ToonResourceParser;
 
 	// local callback functions declaration
 	void localKeyCallback		( GLFWwindow* window, int key, int scancode, int action, int mode ) {};
@@ -60,19 +59,19 @@ namespace Toon
 
 	bool ToonRoot::initSubsystems(INIParser const& parser)
 	{
-		auto rootPath = "C:/Users/User/Desktop/Github/ongoing/ToonEngine/src"; // TODO :  parser.getData<std::string>("root_path");
-		auto logPath = "C:/Users/User/Desktop/Github/ongoing/ToonEngine/src/ToonEngine/ToonEngine/log"; // TODO :  parser.getData<std::string>("log_path");
+		auto rootPath = parser.getData<std::string>("Common.root_path");
+		auto logPath  = parser.getData<std::string>("Common.log_path");
 
 		if (AnyOf(!rootPath, !logPath)) return false;
 
 		if (Filesystem::isDestroyed())
 		{
-			filesystem.reset(new Filesystem(rootPath)); 
+			filesystem.reset(new Filesystem(rootPath.value())); 
 		}
 
 		if (Logger::isDestroyed())
 		{
-			logger.reset(new Logger(logPath));
+			logger.reset(new Logger(logPath.value()));
 		}
 
 		if (Timer::isDestroyed())

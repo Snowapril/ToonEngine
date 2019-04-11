@@ -6,6 +6,7 @@
 #include <string>
 #include <memory>
 #include "ToonPrerequisites.h"
+#include <INIParser.h>
 
 struct GLFWwindow;
 
@@ -32,7 +33,7 @@ namespace Toon
 		virtual void drawScene		(  void  ) const;
 		virtual void release		(  void  );
 	private:
-		bool initSubsystems(INIParser const&);
+		bool initSubsystems(ToonResourceParser::INIParser const&);
 	public:
 		ToonRoot();
 		virtual ~ToonRoot();

@@ -21,7 +21,7 @@ set(INCLUDES
 	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPlugGL3Plus.h
 )
 
-add_library(ToonRendersystem_GL3Plus SHARED ${SOURCES} ${INCLUDES})
+add_library(ToonRendersystem_GL3Plus ${SOURCES} ${INCLUDES})
 
 target_include_directories(ToonRendersystem_GL3Plus
 PUBLIC
