@@ -3,12 +3,16 @@ set(target ToonResourceParser)
 
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/Sources/INIParser.cpp
 )
 
 set(INCLUDES
-    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/vector.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/string.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/map.h
+	${CMAKE_CURRENT_SOURCE_DIR}/Includes/INIParser.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/Vector.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/StaticString.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/Map.h
+	${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/Utility.h
+	${CMAKE_CURRENT_SOURCE_DIR}/Includes/constexpr/BasicString.h
 )
 
 add_library(ToonResourceParser SHARED ${SOURCES} ${INCLUDES})

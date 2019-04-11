@@ -1,10 +1,13 @@
 #include <iostream>
-#include "constexpr/vector.h"
+#include "INIParser.h"
+
+using namespace ToonResourceParser;
 
 int main(void)
 {
-	constexpr ToonResourceParser::Vector<int, 5> vec{ 1, 2,3 , 4, 5 };
-	
+	INIParser parser("engine_config.ini");
+
+	auto data = parser.getData<std::string>("Common.root_path");
 
     return 0;
 }

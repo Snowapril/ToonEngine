@@ -20,7 +20,6 @@
     <ClInclude Include="Includes\ToonNoncopyable.h" />
     <ClInclude Include="Includes\ToonObfuscator.h" />
     <ClInclude Include="Includes\ToonObject.h" />
-    <ClInclude Include="Includes\ToonParser.h" />
     <ClInclude Include="Includes\ToonPlatform.h" />
     <ClInclude Include="Includes\ToonPlugEngine.h" />
     <ClInclude Include="Includes\ToonPoolAllocator.h" />
@@ -45,7 +44,6 @@
     <ClCompile Include="Sources\ToonFilesystem.cpp" />
     <ClCompile Include="Sources\ToonLogger.cpp" />
     <ClCompile Include="Sources\ToonMesh.cpp" />
-    <ClCompile Include="Sources\ToonParser.cpp" />
     <ClCompile Include="Sources\ToonRenderSystem.cpp" />
     <ClCompile Include="Sources\ToonRoot.cpp" />
     <ClCompile Include="Sources\ToonString.cpp" />

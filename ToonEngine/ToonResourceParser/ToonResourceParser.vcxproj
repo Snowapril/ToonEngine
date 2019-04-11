@@ -137,6 +137,7 @@
     <ClInclude Include="Includes\INIParser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\INIParser.cpp" />
     <ClCompile Include="Sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>

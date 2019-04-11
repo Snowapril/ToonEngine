@@ -11,7 +11,6 @@ set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonFilesystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonLogger.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonMesh.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonParser.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonRenderSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonRoot.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonString.cpp
@@ -39,7 +38,6 @@ set(INCLUDES
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonNoncopyable.h
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonObfuscator.h
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonObject.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonParser.h
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPlatform.h
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPlugEngine.h
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonPoolAllocator.h

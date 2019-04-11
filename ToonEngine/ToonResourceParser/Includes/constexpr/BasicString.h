@@ -15,6 +15,14 @@ namespace ToonResourceParser
 		constexpr BasicString(std::string_view const&) noexcept;
 	private:
 	};
-};
+
+	template <typename CharType, std::size_t Size>
+	constexpr BasicString<CharType, Size>::BasicString(StaticString const& str) noexcept
+		: Vector<CharType, Size>(str.begin(), str.end()) {};
+
+	template <typename CharType, std::size_t Size>
+	constexpr BasicString<CharType, Size>::BasicString(std::string_view const& str) noexcept
+		: Vector<CharType, Size>(begin(str), end(str)) {};
+};	
 
 #endif

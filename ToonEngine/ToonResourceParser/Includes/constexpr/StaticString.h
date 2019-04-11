@@ -15,6 +15,8 @@ namespace ToonResourceParser
 
 		constexpr std::size_t size(void) const noexcept;
 		constexpr char const* c_str(void) const noexcept;
+		constexpr auto begin(void) const noexcept;
+		constexpr auto end(void)   const noexcept;
 	private:
 		std::size_t len{ 0 };
 		char const* buffer = nullptr;
@@ -38,6 +40,16 @@ namespace ToonResourceParser
 	constexpr char const* StaticString::c_str(void) const noexcept
 	{
 		return buffer;
+	}
+
+	constexpr auto StaticString::begin(void) const noexcept
+	{
+
+	}
+
+	constexpr auto StaticString::end(void) const noexcept
+	{
+
 	}
 };
 
