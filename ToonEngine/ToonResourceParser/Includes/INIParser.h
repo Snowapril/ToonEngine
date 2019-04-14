@@ -7,7 +7,6 @@
 #include <cassert>
 #include <fstream>
 #include <sstream>
-#include <algorithm>
 
 namespace ToonResourceParser
 {
@@ -69,7 +68,7 @@ namespace ToonResourceParser
 		}
 		else
 		{
-			auto firstQuotesLoc = stringData.find_first_of('"');
+			auto firstQuotesLoc  = stringData.find_first_of('"');
 			auto secondQuotesLoc = stringData.find_last_of('"');
 			retData = stringData.substr(firstQuotesLoc + 1, secondQuotesLoc - firstQuotesLoc - 1);
 		}
