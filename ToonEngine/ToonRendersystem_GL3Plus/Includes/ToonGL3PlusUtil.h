@@ -1,5 +1,4 @@
-#ifndef TOON_GL3_PLUS_UTIL_H
-#define TOON_GL3_PLUS_UTIL_H
+#pragma once
 
 #include <glew/glew.h>
 #include <type_traits>
@@ -32,5 +31,3 @@ namespace ToonGL3Plus
 		return option;
 	}
 };
-
-#endif

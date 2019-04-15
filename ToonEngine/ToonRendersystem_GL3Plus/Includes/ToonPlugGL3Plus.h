@@ -3,7 +3,7 @@
 
 #define _ToonExport _declspec(dllexport)
 
-namespace Toon
+namespace ToonGL3Plus
 {
 
 };

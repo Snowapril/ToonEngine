@@ -89,10 +89,14 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(SolutionDir)Libraries;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\libs;$(SolutionDir)x64\Debug;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,24 +124,24 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)Libraries;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries;$(SolutionDir)x64\Release;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Includes\targetver.h" />
     <ClInclude Include="Includes\ToonAlignedAllocator.h" />
     <ClInclude Include="Includes\ToonBitwise.h" />
     <ClInclude Include="Includes\ToonBufferedAllocator.h" />
     <ClInclude Include="Includes\ToonCamera.h" />
     <ClInclude Include="Includes\ToonCRC32Hash.h" />
     <ClInclude Include="Includes\ToonDoubleEndedStackAllocator.h" />
-    <ClInclude Include="Includes\ToonEngineSystem.h" />
     <ClInclude Include="Includes\ToonExceptions.h" />
     <ClInclude Include="Includes\ToonFilesystem.h" />
     <ClInclude Include="Includes\ToonHeaderPostfix.h" />

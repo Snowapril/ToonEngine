@@ -1,8 +1,9 @@
 ﻿#include "stdafx.h"
 #include "ToonGL3PlusRendersystem.h"
-#include <GLFW/glfw3.h>
 #include <glew/glew.h>
-#include "ToonObfuscator.h"
+#include <GLFW/glfw3.h>
+
+#define FMT_HEADER_ONLY
 #include <fmt/format.h>
 
 namespace ToonGL3Plus
@@ -27,11 +28,11 @@ namespace ToonGL3Plus
 	{
 		return static_cast<double>(clientWidth) / clientHeight;
 	}
-	std::optional<std::string> GL3PlusRendersystem::initWindow(char const* title, int width, int height) noexcept
+	std::optional<std::string> GL3PlusRendersystem::initWindow(std::string const& title, int width, int height) noexcept
 	{
-		if (!glfwInit())
+		if (!glfwInit())	
 		{
-			return OBFUSCATE("GLFW initialization failed.");
+			return "GLFW initialization failed.";
 		}
 
 		this->wndCaption = title;
@@ -67,11 +68,11 @@ namespace ToonGL3Plus
 			glfwMonitor = nullptr;
 		}
 
-		window = glfwCreateWindow(clientWidth, clientHeight, title, glfwMonitor, nullptr);
+		window = glfwCreateWindow(clientWidth, clientHeight, title.c_str(), glfwMonitor, nullptr);
 
 		if (!window)
 		{
-			return OBFUSCATE("GLFW Window Creating failed.");
+			return "GLFW Window Creating failed.";
 		}
 
 
@@ -80,10 +81,10 @@ namespace ToonGL3Plus
 		int e = glewInit();
 		if (e != GLEW_OK)
 		{
-			return fmt::format(OBFUSCATE("GLEW Error occurred {}"), glewGetErrorString(e));
+			return fmt::format("GLEW Error occurred {}", glewGetErrorString(e));
 		}
 
-#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ return fmt::format( OBFUSCATE("GLEW: GL_ARB_{} not supported.\n"), #ext ); }
+#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ return fmt::format( "GLEW: GL_ARB_{} not supported.\n", #ext ); }
 		CHECK_EXTENSION(shading_language_100);	// check your platform supports GLSL
 		CHECK_EXTENSION(vertex_buffer_object);	// BindBuffers, DeleteBuffers, GenBuffers, IsBuffer, BufferData, BufferSubData, GenBufferSubData, ...
 		CHECK_EXTENSION(vertex_shader);			// functions related to vertex shaders

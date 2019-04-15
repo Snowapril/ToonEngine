@@ -16,17 +16,21 @@ namespace Toon
 	****************************************************************************/
 	class RenderSystem : public ToonGL3Plus::GL3PlusRendersystem
 	{
-	private:
 		using super_t = ToonGL3Plus::GL3PlusRendersystem;
-
+	private:
+		static RenderSystem* instance;
 	public:
 		RenderSystem();
 		~RenderSystem();
+
+		static RenderSystem const& getConstInstance(void);
+		static RenderSystem& getMutableInstance(void);
+		static bool isDestroyed(void) { return instance == nullptr; }
 	public:
 		void preDrawScene(void) const noexcept;
 		void drawScene	 (void) const noexcept;
-	public:
-		bool	initWindow	(ToonResourceParser::INIParser const&) noexcept;
+
+		bool initWindow	(ToonResourceParser::INIParser const&) noexcept;
 	};
 };
 

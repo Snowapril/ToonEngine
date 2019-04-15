@@ -16,8 +16,6 @@ namespace Toon
 		Noncopyable(Noncopyable&&	  ) = delete;
 		Noncopyable& operator=(Noncopyable const&) = delete;
 		Noncopyable& operator=(Noncopyable&&	 ) = delete;
-
-		virtual ~Noncopyable() = 0 {};
 	};
 };
 

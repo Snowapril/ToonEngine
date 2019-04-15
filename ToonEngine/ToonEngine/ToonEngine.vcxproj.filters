@@ -2,14 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Includes\targetver.h" />
     <ClInclude Include="Includes\ToonAlignedAllocator.h" />
     <ClInclude Include="Includes\ToonBitwise.h" />
     <ClInclude Include="Includes\ToonBufferedAllocator.h" />
     <ClInclude Include="Includes\ToonCamera.h" />
     <ClInclude Include="Includes\ToonCRC32Hash.h" />
     <ClInclude Include="Includes\ToonDoubleEndedStackAllocator.h" />
-    <ClInclude Include="Includes\ToonEngineSystem.h" />
     <ClInclude Include="Includes\ToonExceptions.h" />
     <ClInclude Include="Includes\ToonFilesystem.h" />
     <ClInclude Include="Includes\ToonHeaderPostfix.h" />

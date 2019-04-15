@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ToonTimer.h"
 #include "ToonLogger.h"
+#include "ToonObfuscator.h"
 
 namespace Toon
 {

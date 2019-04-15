@@ -1,7 +1,6 @@
 #ifndef TOON_GBUFFER_H
 #define TOON_GBUFFER_H
 
-#include <ToonHeaderPrefix.h>
 #include "ToonGL3PlusFramebuffer.h"
 
 namespace ToonGL3Plus
@@ -20,6 +19,5 @@ namespace ToonGL3Plus
 	};
 };
 
-#include <ToonHeaderPostfix.h>
 
 #endif

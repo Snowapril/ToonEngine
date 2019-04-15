@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "ToonFilesystem.h"
 #include "ToonLogger.h"
+#include "ToonObfuscator.h"
 #include <filesystem>
+#include <iostream>
 
 namespace Toon
 {
@@ -9,7 +11,7 @@ namespace Toon
 						Filesystem class definition
 	****************************************************************************/
 	template <> Filesystem* Singleton< Filesystem >::instance = nullptr;
-	namespace fs = std::experimental::filesystem;
+	namespace fs = std::filesystem;
 
 	Filesystem::Filesystem( std::string const & rootPath )
 		: rootPath(rootPath)
@@ -42,10 +44,16 @@ namespace Toon
 	}
 	bool Filesystem::isExists(std::string const & relativePath) const
 	{
-		return fs::exists(rootPath + relativePath);
+		std::error_code ec;
+		bool result = fs::exists(rootPath + relativePath, ec);
+		if (!result) std::cerr << ec.message() << std::endl;
+
+		return result;
 	}
 	void Filesystem::createDirectory(std::string const & relativePath) const
-	{
-		fs::create_directory(rootPath + relativePath);
+	{	
+		std::error_code ec;
+		bool result = fs::create_directory(rootPath + relativePath, ec);
+		if (!result) std::cerr << ec.message() << std::endl;
 	}
 };

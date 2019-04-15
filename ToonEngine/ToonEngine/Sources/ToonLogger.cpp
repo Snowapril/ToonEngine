@@ -5,6 +5,7 @@
 #include <spdlog/sinks/rotating_file_sink.h>
 #include <spdlog/spdlog.h>
 #include "ToonFilesystem.h"
+#include "ToonObfuscator.h"
 
 namespace Toon
 {
@@ -44,17 +45,17 @@ namespace Toon
 		logger.reset();
 	}
 
-	void Logger::infoMessage(char const* msg) const
+	void Logger::infoMessage(char const* msg) const noexcept
 	{
 		logger->info(msg);
 	}
 
-	void Logger::warnMessage(char const* msg) const
+	void Logger::warnMessage(char const* msg) const noexcept
 	{
 		logger->warn(msg);
 	}
 
-	void Logger::errorMessage(char const* msg) const
+	void Logger::errorMessage(char const* msg) const noexcept
 	{
 		logger->error(msg);
 	}

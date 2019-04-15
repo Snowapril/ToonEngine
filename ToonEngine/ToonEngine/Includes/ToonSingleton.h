@@ -4,10 +4,8 @@
 // referencing on Ogre engine
 
 #include "ToonHeaderPrefix.h"
-#include "ToonHeaderPrefix.h"
 #include "ToonNoncopyable.h"
-#include "ToonExceptions.h"
-#include "ToonObfuscator.h"
+#include <cassert>
 
 namespace Toon
 {
@@ -25,7 +23,7 @@ namespace Toon
 		static bool			isDestroyed			(void) { return instance == nullptr; }
 	public:
 		Singleton();
-		~Singleton();
+		virtual ~Singleton();
 	};
 
 	/****************************************************************************
@@ -34,7 +32,7 @@ namespace Toon
 	template <typename Type>
 	Singleton< Type >::Singleton()
 	{
-		ToonAssert(OBFUSCATE("[Singleton] The instance is already allocated"), instance == nullptr);
+		assert(instance == nullptr);
 		instance = static_cast<Type*>(this);
 	}
 

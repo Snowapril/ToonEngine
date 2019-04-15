@@ -1,8 +1,6 @@
 #ifndef TOON_FRAMEBUFFER_H
 #define TOON_FRAMEBUFFER_H
 
-#include <ToonHeaderPrefix.h>
-#include <ToonNonCopyable.h>
 #include <glm/vec2.hpp>
 #include <vector>
 
@@ -16,7 +14,7 @@ namespace ToonGL3Plus
 
 	};
 
-	class GL3PlusFramebuffer : public Toon::Noncopyable
+	class GL3PlusFramebuffer 
 	{
 	protected:
 		std::vector<unsigned int>		colorTextures;
@@ -26,6 +24,10 @@ namespace ToonGL3Plus
 	public:
 		GL3PlusFramebuffer() = default;
 		virtual ~GL3PlusFramebuffer();
+		GL3PlusFramebuffer(GL3PlusFramebuffer const&) = delete;
+		GL3PlusFramebuffer(GL3PlusFramebuffer&&) = delete;
+		GL3PlusFramebuffer& operator=(GL3PlusFramebuffer const&) = delete;
+		GL3PlusFramebuffer& operator=(GL3PlusFramebuffer&&) = delete;
 
 		virtual bool initFramebuffer( int width, int height, FramebufferFlag flag );
 		virtual void bindBuffer(void) const;
@@ -45,7 +47,5 @@ namespace ToonGL3Plus
 		}
 	};
 };
-
-#include <ToonEngine/ToonHeaderPostfix.h>
 
 #endif

@@ -5,6 +5,7 @@
 #include "ToonObfuscator.h"
 #include "ToonTimer.h"
 #include "ToonFileSystem.h"
+#include "ToonExceptions.h"
 
 namespace Toon
 {
@@ -12,12 +13,25 @@ namespace Toon
 						RenderSystem class definition
 	****************************************************************************/
 	using namespace ToonResourceParser;
-
+	RenderSystem* RenderSystem::instance = nullptr;
+	
 	RenderSystem::RenderSystem()
 	{
+		assert(instance == nullptr);
 	}
 	RenderSystem::~RenderSystem()
 	{
+		assert(instance != nullptr);
+	}
+	RenderSystem const& RenderSystem::getConstInstance(void)
+	{
+		assert(instance != nullptr);
+		return *instance;
+	}
+	RenderSystem& RenderSystem::getMutableInstance(void)
+	{
+		assert(instance != nullptr);
+		return *instance;
 	}
 	void RenderSystem::preDrawScene(void) const noexcept
 	{
@@ -31,7 +45,7 @@ namespace Toon
 	{
 		auto width  = parser.getData<int>("Rendersystem.client_width");
 		auto height = parser.getData<int>("Rendersystem.client_height");
-		auto title  = parser.getData<char const*>("Rendersystem.window_title");
+		auto title  = parser.getData<std::string>("Rendersystem.window_title");
 
 		if (AnyOf(!width, !height, !title)) return false;
 

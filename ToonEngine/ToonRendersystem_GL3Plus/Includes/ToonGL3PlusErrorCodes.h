@@ -2,7 +2,6 @@
 #define TOON_GL3_PLUS_ERROR_CODES_H
 
 #include <string>
-#include <ToonObfuscator.h>
 
 namespace ToonGL3Plus
 {
@@ -22,13 +21,13 @@ namespace ToonGL3Plus
 		switch (code)
 		{
 		case RenderSystemErrorCodes::UNKNOWN_UNIFORM_VARIABLE_NAME:
-			errorString = OBFUSCATE("Unknown uniform variable name");
+			errorString = "Unknown uniform variable name";
 			break;
 		case RenderSystemErrorCodes::UNKNOWN_UNIFORM_VARIABLE_TYPE:
-			errorString = OBFUSCATE("Unknown uniform variable type");
+			errorString = "Unknown uniform variable type";
 			break;
 		default:
-			errorString = OBFUSCATE("Unknown rendering system error code");
+			errorString = "Unknown rendering system error code";
 			break;
 		}
 

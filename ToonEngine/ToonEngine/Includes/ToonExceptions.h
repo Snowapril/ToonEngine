@@ -3,6 +3,7 @@
 
 #include "ToonHeaderPrefix.h"
 #include "ToonPlatform.h"
+#include "ToonLogger.h"
 #include <cassert>
 #include <string>
 

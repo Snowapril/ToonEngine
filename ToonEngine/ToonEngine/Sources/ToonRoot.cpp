@@ -8,6 +8,7 @@
 #include "ToonRenderSystem.h"
 #include "ToonSystemMessageBus.h"
 #include "ToonSystemMessage.h"
+#include "ToonExceptions.h"
 
 #include <algorithm>
 
@@ -84,8 +85,11 @@ namespace Toon
 			systemMessageBus.reset(new SystemMessageBus());
 		}
 
-		if (!renderSystem->initWindow(parser))
-			return false;
+		if (RenderSystem::isDestroyed())
+		{
+			renderSystem.reset(new RenderSystem());
+			if (!renderSystem->initWindow(parser)) return false;
+		}
 
 		return true;
 	}
@@ -104,10 +108,12 @@ namespace Toon
 
 	void ToonRoot::preDrawScene(void) const
 	{
+		renderSystem->preDrawScene();
 	}
 
 	void ToonRoot::drawScene(void) const
 	{
+		renderSystem->drawScene();
 	}
 
 	void ToonRoot::release(void)

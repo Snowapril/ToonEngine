@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ToonGL3PlusEffect.h"
+#include <string>
 #include <GLFX/glfx.h>
 
 namespace ToonGL3Plus

@@ -6,6 +6,7 @@
 #include <string>
 #include <memory>
 #include "ToonPrerequisites.h"
+#include "ToonObfuscator.h"
 #include <INIParser.h>
 
 struct GLFWwindow;
@@ -17,7 +18,7 @@ namespace Toon
 	****************************************************************************/
 	class ToonRoot : public Singleton<ToonRoot>
 	{
-		friend class RenderSystem;
+		using super_t = Singleton<ToonRoot>;
 	protected:
 		std::unique_ptr<RenderSystem>		renderSystem;
 	private: // plugins

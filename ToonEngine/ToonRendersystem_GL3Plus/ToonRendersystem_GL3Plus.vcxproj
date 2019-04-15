@@ -87,8 +87,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +122,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,7 +133,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Includes\targetver.h" />
     <ClInclude Include="Includes\ToonGL3PlusEffect.h" />
     <ClInclude Include="Includes\ToonGL3PlusErrorCodes.h" />
     <ClInclude Include="Includes\ToonGL3PlusFramebuffer.h" />

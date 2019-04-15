@@ -3,7 +3,6 @@
 
 #include <string>
 #include <optional>
-#include <ToonEngineSystem.h>
 
 struct GLFWwindow;
 
@@ -12,17 +11,22 @@ namespace ToonGL3Plus
 	/****************************************************************************
 						GL3PlusRenderSystem class declaration
 	****************************************************************************/
-	class GL3PlusRendersystem : public Toon::EngineSystem
+	class GL3PlusRendersystem
 	{
 	public:
 		GL3PlusRendersystem() = default;
 		GL3PlusRendersystem(char const* title, int width, int height) noexcept;
+		GL3PlusRendersystem(GL3PlusRendersystem const&) = delete;
+		GL3PlusRendersystem(GL3PlusRendersystem&&) = delete;
+		GL3PlusRendersystem& operator=(GL3PlusRendersystem const&) = delete;
+		GL3PlusRendersystem& operator=(GL3PlusRendersystem&&) = delete;
+
 		virtual ~GL3PlusRendersystem() noexcept;
 
 		GLFWwindow const* getWindow(void) const noexcept;
 		double getAspectRatio(void) const noexcept; 
 
-		std::optional<std::string> initWindow(char const* title, int width, int height) noexcept;
+		std::optional<std::string> initWindow(std::string const & title, int width, int height) noexcept;
 
 		auto getVendorString(void) const noexcept;
 		auto getRendererString(void) const noexcept;
