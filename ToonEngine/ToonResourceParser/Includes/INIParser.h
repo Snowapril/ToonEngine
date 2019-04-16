@@ -76,20 +76,12 @@ namespace ToonResourceParser
 							storage[sectionName] = section;
 							section = INISection();
 						}
-						auto lastBracketLoc = line.find(']');
-
-						if (lastBracketLoc == line.size())
-						{
-							iniFile.close();
-							return false;
-						}
-
-						sectionName = line.substr(1, lastBracketLoc - 1);
+						sectionName = line.substr(1, line.length() - 1);
 					}
 					else
 					{
 						auto equalLoc = line.find('=');
-						if (equalLoc == line.size())
+						if (equalLoc == std::string::npos)
 						{
 							iniFile.close();
 							return false;
@@ -99,7 +91,7 @@ namespace ToonResourceParser
 						std::string data = line.substr(equalLoc + 1);
 						section.addData(name, data);
 					}
-				}
+				} // end of file
 
 				if (!sectionName.empty()) storage[sectionName] = section;
 				iniFile.close();
