@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -123,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(ProjectDir)Includes;$(SolutionDir)Libraries\spdlog\include;$(SolutionDir)Libraries\glm;$(SolutionDir)ToonRendersystem_GL3Plus/Includes;$(SolutionDir)ToonResourceParser/Includes</AdditionalIncludeDirectories>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -146,6 +146,7 @@
     <ClInclude Include="Includes\ToonFilesystem.h" />
     <ClInclude Include="Includes\ToonHeaderPostfix.h" />
     <ClInclude Include="Includes\ToonHeaderPrefix.h" />
+    <ClInclude Include="Includes\ToonInputSystem.h" />
     <ClInclude Include="Includes\ToonLogger.h" />
     <ClInclude Include="Includes\ToonMaterial.h" />
     <ClInclude Include="Includes\ToonMesh.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Includes\ToonTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\ToonInputSystem.cpp" />
     <ClCompile Include="Sources\main.cpp" />
     <ClCompile Include="Sources\stdafx.cpp" />
     <ClCompile Include="Sources\ToonAlignedAllocator.cpp" />

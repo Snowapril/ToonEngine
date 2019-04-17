@@ -33,6 +33,7 @@
     <ClInclude Include="Includes\ToonSystemMessageBus.h" />
     <ClInclude Include="Includes\ToonTexture.h" />
     <ClInclude Include="Includes\ToonTimer.h" />
+    <ClInclude Include="Includes\ToonInputSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\main.cpp" />
@@ -47,6 +48,7 @@
     <ClCompile Include="Sources\ToonString.cpp" />
     <ClCompile Include="Sources\ToonSystemMessageBus.cpp" />
     <ClCompile Include="Sources\ToonTimer.cpp" />
+    <ClCompile Include="Sources\ToonInputSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

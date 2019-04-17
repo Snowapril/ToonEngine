@@ -61,6 +61,7 @@ target_include_directories(ToonEngine
 PUBLIC
     ${library_dir}/spdlog/include 
 	${library_dir}/glm
+	${library_dir}/fmt/include
 	${project_dir}/ToonRendersystem_GL3Plus/Includes
 	${project_dir}/ToonResourceParser/Includes
 PRIVATE

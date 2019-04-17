@@ -15,13 +15,37 @@ namespace Toon
 	using namespace ToonResourceParser;
 	RenderSystem* RenderSystem::instance = nullptr;
 	
+	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
+	{
+
+	}
+	void mousePosCallback(GLFWwindow* window, double xpos, double ypos)
+	{
+
+	}
+	void mouseBtnCallback(GLFWwindow* window, int btn, int action, int mods)
+	{
+
+	}
+	void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+	{
+
+	}
+	void resizingCallback(GLFWwindow* window, int newWidth, int newHeight)
+	{
+
+	}
+
 	RenderSystem::RenderSystem()
 	{
 		assert(instance == nullptr);
+		instance = static_cast<RenderSystem*>(this);
 	}
 	RenderSystem::~RenderSystem()
 	{
+		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Rendersystem instance is released"), reinterpret_cast<void*>(instance));
 		assert(instance != nullptr);
+		instance = nullptr;
 	}
 	RenderSystem const& RenderSystem::getConstInstance(void)
 	{
@@ -43,14 +67,19 @@ namespace Toon
 	}
 	bool RenderSystem::initWindow(INIParser const & parser) noexcept
 	{
-		auto width  = parser.getData<int>("Rendersystem.client_width");
-		auto height = parser.getData<int>("Rendersystem.client_height");
-		auto title  = parser.getData<std::string>("Rendersystem.window_title");
+		auto width		= parser.getData<int>("Rendersystem.client_width");
+		auto height		= parser.getData<int>("Rendersystem.client_height");
+		auto title		= parser.getData<std::string>("Rendersystem.window_title");
+		auto fullscreen = parser.getData<bool>("Rendersystem.default_fullscreen");
 
-		if (AnyOf(!width, !height, !title)) return false;
+		if (AnyOf(!width, !height, !title, !fullscreen)) return false;
 
-		if (!super_t::initWindow(title.value(), width.value(), height.value()))
+		auto initResult = super_t::initWindow(title.value(), width.value(), height.value(), fullscreen.value());
+		if (initResult)
+		{
+			Logger::getConstInstance().errorMessage(OBFUSCATE("[Rendersystem] Initialization error occurred. {0}"), initResult.value());
 			return false;
+		}
 
 		return true;
 	}

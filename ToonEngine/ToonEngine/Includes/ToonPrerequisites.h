@@ -13,7 +13,8 @@ namespace Toon
 	class AlignedAllocator	;
 	class SystemMessage		;
 	class SystemMessageBus	;
-
+	class InputSystem		;
+	
 	using SystemMessageListener = std::function<void(SystemMessage const &)>;
 };
 

@@ -126,14 +126,29 @@ namespace ToonResourceParser
 			auto secondQuotesLoc = stringData.find_last_of('"');
 			return stringData.substr(firstQuotesLoc + 1, secondQuotesLoc - firstQuotesLoc - 1);
 		}
-
+		template <>
+		std::optional<double> getData(std::string const& name) const noexcept
+		{
+			auto originalData = getOriginalData(name);
+			if (!originalData) return {};
+			return std::stod(originalData.value());
+		}
+		template <>
+		std::optional<bool> getData(std::string const& name) const noexcept
+		{
+			auto originalData = getOriginalData(name);
+			if (!originalData) return {};
+			
+			std::string boolString = originalData.value();
+			return boolString == "true" || boolString == "TRUE";
+		}
 		private:
 			std::optional<std::string> getOriginalData(std::string const & name) const noexcept
 			{
 				auto offset = name.find_first_of('.');
 				std::string secName = name.substr(0, offset);  // split section  name from whole input string
 				std::string varName = name.substr(offset + 1); // split variable name from whole input string
-
+				
 				auto iter = storage.find(secName);
 				if (iter == end(storage)) return {};
 

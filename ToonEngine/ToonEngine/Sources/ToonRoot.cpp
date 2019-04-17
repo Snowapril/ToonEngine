@@ -118,6 +118,7 @@ namespace Toon
 
 	void ToonRoot::release(void)
 	{
+		renderSystem.reset();
 		systemMessageBus.reset();
 		timer.reset();
 		logger.reset();
@@ -139,10 +140,17 @@ namespace Toon
 
 			logger->infoMessage("delta time {0:01.4f} ms, total time {1:04.3f} sec", dt * 1000.0f, totalTime);
 
-			preUpdateScene(dt); // 1) pre-simulation step
-			updateScene(dt);    // 2) simulation step
-			preDrawScene();	    // 3) pre-draw step
-			drawScene();	    // 4) darw step
+			if (timer->isPaused())
+			{
+				// sleep here (cross-platform)
+			}
+			else
+			{
+				preUpdateScene(dt); // 1) pre-simulation step
+				updateScene(dt);    // 2) simulation	 step
+				preDrawScene();	    // 3) pre-draw		 step
+				drawScene();	    // 4) darw  		 step
+			}
 		}
 
 		return 0;

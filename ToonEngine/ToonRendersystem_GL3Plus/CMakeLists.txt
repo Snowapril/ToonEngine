@@ -28,6 +28,7 @@ PUBLIC
     ${library_dir}/glfw/include
 	${library_dir}/GL
 	${library_dir}/fmt/include
+	${library_dir}/NvToolsExt/include
 	${project_dir}/ToonEngine/Includes
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
