@@ -146,6 +146,7 @@
     <ClInclude Include="Includes\ToonFilesystem.h" />
     <ClInclude Include="Includes\ToonHeaderPostfix.h" />
     <ClInclude Include="Includes\ToonHeaderPrefix.h" />
+    <ClInclude Include="Includes\ToonInputSystem.h" />
     <ClInclude Include="Includes\ToonLogger.h" />
     <ClInclude Include="Includes\ToonMaterial.h" />
     <ClInclude Include="Includes\ToonMesh.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Includes\ToonTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\ToonInputSystem.cpp" />
     <ClCompile Include="Sources\main.cpp" />
     <ClCompile Include="Sources\stdafx.cpp" />
     <ClCompile Include="Sources\ToonAlignedAllocator.cpp" />

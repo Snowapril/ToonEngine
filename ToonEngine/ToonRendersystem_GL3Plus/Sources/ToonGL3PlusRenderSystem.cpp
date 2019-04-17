@@ -100,22 +100,6 @@ namespace ToonGL3Plus
 		return {};
 	}
 
-	void GL3PlusRendersystem::setCursorPosCallback(std::function<void(int, int)>) noexcept
-	{
-	}
-
-	void GL3PlusRendersystem::setWheelOffsetCallback(std::function<void(double, double)>) noexcept
-	{
-	}
-
-	void GL3PlusRendersystem::setKeyCallback(std::function<void(int, int, int, int)>) noexcept
-	{
-	}
-
-	void GL3PlusRendersystem::setResizeCallback(std::function<void(int, int)>) noexcept
-	{
-	}
-
 	auto GL3PlusRendersystem::getVendorString(void) const noexcept
 	{
 		return glGetString(GL_VENDOR);

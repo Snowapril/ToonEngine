@@ -3,11 +3,11 @@
 
 #include "ToonHeaderPrefix.h"
 #include "ToonSingleton.h"
-#include <string>
-#include <memory>
 #include "ToonPrerequisites.h"
 #include "ToonObfuscator.h"
 #include <INIParser.h>
+#include <string>
+#include <memory>
 #include <stack>
 
 struct GLFWwindow;
@@ -22,6 +22,7 @@ namespace Toon
 		using super_t = Singleton<ToonRoot>;
 	protected:
 		std::unique_ptr<RenderSystem>		renderSystem;
+		std::unique_ptr<InputSystem>		inputSystem;
 	private: // plugins
 		std::unique_ptr<Logger>				logger;
 		std::unique_ptr<SystemMessageBus>	systemMessageBus;

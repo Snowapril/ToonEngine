@@ -5,4 +5,6 @@
 
 #define TOON_FORCE_INLINE __forceinline
 
+#define TOON_KEY_COUNT 104
+
 #endif

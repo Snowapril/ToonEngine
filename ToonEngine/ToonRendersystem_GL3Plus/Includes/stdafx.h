@@ -11,7 +11,7 @@
 #pragma comment(lib, "opengl/glew32.lib")
 #pragma comment(lib, "opengl/glfw3.lib")
 #pragma comment(lib, "fmt/fmtd.lib")
-#pragma comment(lib, "nvidia/nvToolsExt64_1d.lib")
+#pragma comment(lib, "nvidia/nvToolsExt64_1.lib")
 #else
 #pragma comment(lib, "opengl/glfx.lib")
 #pragma comment(lib, "opengl32.lib")

@@ -87,7 +87,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\NvToolsExt\include;$(SolutionDir)Libraries\fmt\include;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -120,7 +120,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\fmt\include;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\NvToolsExt\include;$(SolutionDir)Libraries\fmt\include;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
