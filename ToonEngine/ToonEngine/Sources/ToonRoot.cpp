@@ -9,6 +9,7 @@
 #include "ToonSystemMessageBus.h"
 #include "ToonSystemMessage.h"
 #include "ToonExceptions.h"
+#include "ToonInputSystem.h"
 
 #include <algorithm>
 
@@ -85,6 +86,11 @@ namespace Toon
 			systemMessageBus.reset(new SystemMessageBus());
 		}
 
+		if (InputSystem::isDestroyed())
+		{
+			inputSystem.reset(new InputSystem());
+		}
+		
 		if (RenderSystem::isDestroyed())
 		{
 			renderSystem.reset(new RenderSystem());
@@ -118,7 +124,9 @@ namespace Toon
 
 	void ToonRoot::release(void)
 	{
+		// releasing order must be exactly reverse of initialization order
 		renderSystem.reset();
+		inputSystem.reset();
 		systemMessageBus.reset();
 		timer.reset();
 		logger.reset();

@@ -2,6 +2,7 @@
 #define TOON_STRING_H
 
 #include <unordered_map>
+#include "ToonPlatform.h"
 #include "ToonCRC32Hash.h"
 
 namespace Toon
@@ -20,19 +21,19 @@ namespace Toon
 		ToonString(char const * buf, unsigned long key);
 		bool operator==(char const * str) const noexcept;
 
-		inline bool operator==(unsigned long key) const noexcept
+		TOON_FORCE_INLINE bool operator==(unsigned long key) const noexcept
 		{
 			return hashKey == key;
 		}
-		inline bool operator==(ToonString const & other) const noexcept
+		TOON_FORCE_INLINE bool operator==(ToonString const & other) const noexcept
 		{
 			return hashKey == other.hashKey;
 		} 
-		inline char const* toString(void) const
+		TOON_FORCE_INLINE char const* toString(void) const
 		{
 			return stringTable[hashKey];
 		}
-		inline unsigned long toHashKey(void) const noexcept
+		TOON_FORCE_INLINE unsigned long toHashKey(void) const noexcept
 		{
 			return hashKey;
 		}

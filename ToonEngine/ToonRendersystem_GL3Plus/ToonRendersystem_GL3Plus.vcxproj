@@ -137,11 +137,15 @@
     <ClInclude Include="Includes\ToonGL3PlusErrorCodes.h" />
     <ClInclude Include="Includes\ToonGL3PlusFramebuffer.h" />
     <ClInclude Include="Includes\ToonGL3PlusGBuffer.h" />
+    <ClInclude Include="Includes\ToonGL3PlusInputSystem.h" />
+    <ClInclude Include="Includes\ToonGL3PlusPlatform.h" />
+    <ClInclude Include="Includes\ToonGL3PlusPrerequisites.h" />
     <ClInclude Include="Includes\ToonGL3PlusRendersystem.h" />
     <ClInclude Include="Includes\ToonGL3PlusUtil.h" />
     <ClInclude Include="Includes\ToonPlugGL3Plus.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\ToonGL3PlusInputSystem.cpp" />
     <ClCompile Include="Sources\stdafx.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />

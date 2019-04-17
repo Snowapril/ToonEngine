@@ -5,6 +5,8 @@
 #include <optional>
 #include <functional>
 
+#include "ToonGL3PlusPrerequisites.h"
+
 struct GLFWwindow;
 
 namespace ToonGL3Plus
@@ -15,7 +17,7 @@ namespace ToonGL3Plus
 	class GL3PlusRendersystem
 	{
 	public:
-		GL3PlusRendersystem() = default;
+		GL3PlusRendersystem() noexcept;
 		GL3PlusRendersystem(char const* title, int width, int height, bool fullscreen = false) noexcept;
 		GL3PlusRendersystem(GL3PlusRendersystem const&) = delete;
 		GL3PlusRendersystem(GL3PlusRendersystem&&) = delete;
@@ -31,11 +33,6 @@ namespace ToonGL3Plus
 		// note : if this return {}, it means initialization was successful.
 		std::optional<std::string> initWindow(std::string const & title, int width, int height, bool fullscreen = false) noexcept;
 
-		void setCursorPosCallback(std::function<void(int, int)>) noexcept;
-		void setWheelOffsetCallback(std::function<void(double, double)>) noexcept;
-		void setKeyCallback(std::function<void(int, int, int, int)>) noexcept;
-		void setResizeCallback(std::function<void(int, int)>) noexcept;
-
 		auto getVendorString(void) const noexcept;
 		auto getRendererString(void) const noexcept;
 	public:
@@ -43,7 +40,10 @@ namespace ToonGL3Plus
 		void drawScene(void) const noexcept;
 	protected:
 		std::string wndCaption{};
+		
+		GL3PlusInputSystem* inputSystem;
 		GLFWwindow* window = nullptr;
+
 		int clientWidth{ 0 };
 		int clientHeight{ 0 };
 		bool fullscreen{ false };

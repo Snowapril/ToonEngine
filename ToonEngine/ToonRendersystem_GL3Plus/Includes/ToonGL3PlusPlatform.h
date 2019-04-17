@@ -1,0 +1,6 @@
+#ifndef TOON_GL3_PLUS_PLATFORM_H
+#define TOON_GL3_PLUS_PLATFORM_H
+
+#define GL3PLUS_KEY_COUNT 349
+
+#endif

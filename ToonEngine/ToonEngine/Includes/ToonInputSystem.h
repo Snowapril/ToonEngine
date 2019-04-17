@@ -7,9 +7,13 @@
 #include "ToonString.h"
 #include "ToonPlatform.h"
 
+#include <ToonGL3PlusInputSystem.h>
+
 #include <array>
 #include <unordered_map>
 #include <functional>
+#include <vector>
+#include <optional>
 
 struct GLFWwindow;
 
@@ -18,30 +22,42 @@ namespace Toon
 	/****************************************************************************
 						Inputsystem class declaration
 	****************************************************************************/
-
-	enum class ToonKeyState : char;
-
-	class InputSystem : public Singleton<InputSystem>
+	enum ToonKeyState
 	{
-		using key_storage_t = std::array<bool, TOON_KEY_COUNT>;
-		using key_table_t	= std::unordered_map<unsigned long, char>;
-		using callback_t	= std::function<void()>;
-	public:
-		~InputSystem();
+		KEY_PRESSED		= 0,
+		KEY_RELEASED	= 1,
+		KEY_UNKNOWN		= 2,
+		KEY_NUM_STATES	= KEY_UNKNOWN
+	};
+	
+	class InputSystem : public ToonGL3Plus::GL3PlusInputSystem
+	{
+		using super_t = ToonGL3Plus::GL3PlusInputSystem;
 
-		// be cautious of this method, because it return reference of member variable.
-		// trade off for fast accessing to key inputs.
-		key_storage_t& getKeyStorage(void) noexcept; 
-
-		void addKey(ToonString const&, char) noexcept;
-		void addCallback(char, callback_t) noexcept;
-		void addCallback(ToonString const&, callback_t) noexcept;
-
-		ToonKeyState getKeyState(ToonString const&) const noexcept;
-		ToonKeyState getKeyState(char) const noexcept;
+		using callback_t		 = std::function<void()>;
+		using callback_storage_t = std::array <std::vector<callback_t>, GL3PLUS_KEY_COUNT>;
 	private:
-		key_storage_t keyStorage{ false, };
-		key_table_t keyTable{};
+		static InputSystem* instance;
+	public:
+		InputSystem() noexcept;
+		~InputSystem();
+	public:
+		static InputSystem const& getConstInstance(void);
+		static InputSystem& getMutableInstance(void);
+		static bool isDestroyed(void) { return instance == nullptr; }
+
+		void setKeyName(ToonString, char) noexcept;
+		void addCallback(char, callback_t, ToonKeyState) noexcept;
+		void addCallback(ToonString, callback_t, ToonKeyState) noexcept;
+
+		ToonKeyState getKeyState(ToonString) const noexcept;
+		ToonKeyState getKeyState(char) const noexcept;
+
+		void envokeKey(ToonString, ToonKeyState) noexcept;
+	private:
+		std::optional<char> getKeyFromID(ToonString) const noexcept;
+	private:
+		std::array<callback_storage_t, KEY_NUM_STATES> callbackStorage{};
 	};
 };
 

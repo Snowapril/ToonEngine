@@ -7,8 +7,10 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "ToonGL3PlusErrorCodes.h"
 
+
 namespace ToonGL3Plus
 {
+
 	template < typename Type >
 	std::optional<std::string> sendUniform( int program, char const* name, Type && value ) noexcept
 	{

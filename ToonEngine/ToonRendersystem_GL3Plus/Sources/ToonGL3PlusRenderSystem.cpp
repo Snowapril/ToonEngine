@@ -8,14 +8,32 @@
 #endif
 #include <fmt/format.h>
 
+
 namespace ToonGL3Plus
 {
+	void keyCallback		(GLFWwindow* window, int key, int scancode, int action, int mode);
+	void mousePosCallback	(GLFWwindow* window, double xpos, double ypos					);
+	void mouseBtnCallback	(GLFWwindow* window, int btn, int action, int mods				);
+	void scrollCallback		(GLFWwindow* window, double xoffset, double yoffset				);
+	void resizingCallback	(GLFWwindow* window, int newWidth, int newHeight				);
+
+	namespace
+	{
+		GL3PlusRendersystem* gInstance = nullptr;
+	};
+
 	/****************************************************************************
 						GL3PlusRenderSystem class definition
 	****************************************************************************/
 
+	GL3PlusRendersystem::GL3PlusRendersystem() noexcept
+	{
+		gInstance = this;
+	}
+
 	GL3PlusRendersystem::GL3PlusRendersystem(char const* title, int width, int height, bool fullscreen) noexcept
 	{
+		gInstance = this;
 		assert(!initWindow(title, width, height, fullscreen));
 	}
 	GL3PlusRendersystem::~GL3PlusRendersystem() noexcept
@@ -117,4 +135,26 @@ namespace ToonGL3Plus
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
+
+	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
+	{
+		if (key == GLFW_KEY_UNKNOWN) return;
+	}
+	void mousePosCallback(GLFWwindow* window, double xpos, double ypos)
+	{
+
+	}
+	void mouseBtnCallback(GLFWwindow* window, int btn, int action, int mods)
+	{
+
+	}
+	void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+	{
+
+	}
+	void resizingCallback(GLFWwindow* window, int newWidth, int newHeight)
+	{
+
+	}
+#define GL3PLUS_KEY_CODE(key) (GLFW_KEY#key)
 };

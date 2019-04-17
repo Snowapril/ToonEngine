@@ -14,29 +14,9 @@ namespace Toon
 	****************************************************************************/
 	using namespace ToonResourceParser;
 	RenderSystem* RenderSystem::instance = nullptr;
-	
-	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
-	{
-
-	}
-	void mousePosCallback(GLFWwindow* window, double xpos, double ypos)
-	{
-
-	}
-	void mouseBtnCallback(GLFWwindow* window, int btn, int action, int mods)
-	{
-
-	}
-	void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
-	{
-
-	}
-	void resizingCallback(GLFWwindow* window, int newWidth, int newHeight)
-	{
-
-	}
 
 	RenderSystem::RenderSystem()
+		: super_t()
 	{
 		assert(instance == nullptr);
 		instance = static_cast<RenderSystem*>(this);
