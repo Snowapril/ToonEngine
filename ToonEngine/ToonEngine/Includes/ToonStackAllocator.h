@@ -44,7 +44,6 @@ namespace Toon
 
 	StackAllocator::~StackAllocator() noexcept
 	{
-		size_type numBytes = endPtr - beginPtr;
 		free(beginPtr);
 	}
 

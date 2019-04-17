@@ -8,6 +8,7 @@
 #include "ToonPrerequisites.h"
 #include "ToonObfuscator.h"
 #include <INIParser.h>
+#include <stack>
 
 struct GLFWwindow;
 

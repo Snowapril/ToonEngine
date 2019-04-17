@@ -3,7 +3,9 @@
 #include <glew/glew.h>
 #include <GLFW/glfw3.h>
 
+#ifndef FMT_HEADER_ONLY
 #define FMT_HEADER_ONLY
+#endif
 #include <fmt/format.h>
 
 namespace ToonGL3Plus
@@ -12,9 +14,9 @@ namespace ToonGL3Plus
 						GL3PlusRenderSystem class definition
 	****************************************************************************/
 
-	GL3PlusRendersystem::GL3PlusRendersystem(char const* title, int width, int height) noexcept
+	GL3PlusRendersystem::GL3PlusRendersystem(char const* title, int width, int height, bool fullscreen) noexcept
 	{
-		assert(!initWindow(title, width, height));
+		assert(!initWindow(title, width, height, fullscreen));
 	}
 	GL3PlusRendersystem::~GL3PlusRendersystem() noexcept
 	{
@@ -28,10 +30,11 @@ namespace ToonGL3Plus
 	{
 		return static_cast<double>(clientWidth) / clientHeight;
 	}
-	std::optional<std::string> GL3PlusRendersystem::initWindow(std::string const& title, int width, int height) noexcept
+	std::optional<std::string> GL3PlusRendersystem::initWindow(std::string const& title, int width, int height, bool fullscreen) noexcept
 	{
 		if (!glfwInit())	
 		{
+			glfwTerminate();
 			return "GLFW initialization failed.";
 		}
 
@@ -72,6 +75,7 @@ namespace ToonGL3Plus
 
 		if (!window)
 		{
+			glfwTerminate();
 			return "GLFW Window Creating failed.";
 		}
 
@@ -81,10 +85,11 @@ namespace ToonGL3Plus
 		int e = glewInit();
 		if (e != GLEW_OK)
 		{
+			glfwTerminate();
 			return fmt::format("GLEW Error occurred {}", glewGetErrorString(e));
 		}
 
-#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ return fmt::format( "GLEW: GL_ARB_{} not supported.\n", #ext ); }
+#define CHECK_EXTENSION(ext) if(!glewGetExtension("GL_ARB_"#ext)){ glfwTerminate();return fmt::format( "GLEW: GL_ARB_{} not supported.\n", #ext ); }
 		CHECK_EXTENSION(shading_language_100);	// check your platform supports GLSL
 		CHECK_EXTENSION(vertex_buffer_object);	// BindBuffers, DeleteBuffers, GenBuffers, IsBuffer, BufferData, BufferSubData, GenBufferSubData, ...
 		CHECK_EXTENSION(vertex_shader);			// functions related to vertex shaders
@@ -93,6 +98,22 @@ namespace ToonGL3Plus
 #undef CHECK_EXTENSION
 
 		return {};
+	}
+
+	void GL3PlusRendersystem::setCursorPosCallback(std::function<void(int, int)>) noexcept
+	{
+	}
+
+	void GL3PlusRendersystem::setWheelOffsetCallback(std::function<void(double, double)>) noexcept
+	{
+	}
+
+	void GL3PlusRendersystem::setKeyCallback(std::function<void(int, int, int, int)>) noexcept
+	{
+	}
+
+	void GL3PlusRendersystem::setResizeCallback(std::function<void(int, int)>) noexcept
+	{
 	}
 
 	auto GL3PlusRendersystem::getVendorString(void) const noexcept
@@ -105,8 +126,11 @@ namespace ToonGL3Plus
 	}
 	void GL3PlusRendersystem::preDrawScene(void) const noexcept
 	{
+		glClearColor(1.0, 0.0, 0.0, 1.0);
 	}
 	void GL3PlusRendersystem::drawScene(void) const noexcept
 	{
+		glfwSwapBuffers(window);
+		glfwPollEvents();
 	}
 };

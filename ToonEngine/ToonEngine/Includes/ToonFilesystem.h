@@ -5,6 +5,7 @@
 #include "ToonSingleton.h"
 #include <string>
 #include <unordered_map>
+#include <filesystem>
 
 namespace Toon
 {
@@ -20,11 +21,11 @@ namespace Toon
 		Filesystem( std::string const & rootPath );
 		~Filesystem();
 
-		void		setDirectory	( const std::string& label, const std::string& directory );
+		void		setDirectory	( std::string const & label, std::string const & directory );
 		std::string getRootPath		( void ) const;
-		std::string getRelativePath	( const std::string& label, const std::string& filename ) const;
+		std::string getAbsolutePath	( std::string const & filename ) const;
 	public:
-		bool isExists		(std::string const & relativePath) const; 
+		bool isExists(std::string const& relativePath, std::filesystem::file_status s = std::filesystem::file_status{}) const;
 		void createDirectory(std::string const & relativePath) const;
 	};
 };

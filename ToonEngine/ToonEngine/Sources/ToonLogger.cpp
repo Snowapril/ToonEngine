@@ -25,10 +25,10 @@ namespace Toon
 		spdlog::init_thread_pool(8192, 2);
 #ifdef _DEBUG
 		auto stdoutSink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-		auto fileSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(logDirectory + std::string(OBFUSCATE("engine.log")), 1048576 * 3, 2); // TODO : will be replaced to filesystem related string 
+		auto fileSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(fs.getAbsolutePath(logDirectory) + std::string(OBFUSCATE("/engine.log")), 1048576 * 3, 2);
 		std::vector<spdlog::sink_ptr> sinks{ stdoutSink, fileSink };
 #else
-		auto fileSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(logDirectory + std::string(OBFUSCATE("engine.log")), 1048576 * 3, 2); // TODO : will be replaced to filesystem related string 
+		auto fileSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(fs.getAbsolutePath(logDirectory) + std::string(OBFUSCATE("/engine.log")), 1048576 * 3, 2);
 		std::vector<spdlog::sink_ptr> sinks{ fileSink };
 #endif
 		logger = std::make_shared<spdlog::async_logger>(OBFUSCATE("toonLogger"), begin(sinks), end(sinks), spdlog::thread_pool(), spdlog::async_overflow_policy::overrun_oldest);
