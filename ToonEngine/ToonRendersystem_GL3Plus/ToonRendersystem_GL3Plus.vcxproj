@@ -145,7 +145,6 @@
     <ClInclude Include="Includes\ToonPlugGL3Plus.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\ToonGL3PlusInputSystem.cpp" />
     <ClCompile Include="Sources\stdafx.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />
