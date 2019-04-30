@@ -6,7 +6,6 @@ set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonGL3PlusFramebuffer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonGL3PlusGBuffer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonGL3PlusRenderSystem.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonGL3PlusInputSystem.cpp
 )
 
 set(INCLUDES

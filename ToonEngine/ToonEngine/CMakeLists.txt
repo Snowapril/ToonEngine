@@ -1,6 +1,11 @@
 # Target name
 set(target ToonEngine)
 
+set(config_gen_py ${project_dir}/Scripts/ConfigGen.py)
+add_custom_command(
+    COMMAND python ${config_gen_py}
+)
+
 # Define
 
 set(SOURCES
@@ -54,6 +59,8 @@ set(INCLUDES
 	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonTexture.h
 	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonTimer.h
 )
+
+set(ENV{PATH} ${library_dir}/dll)
 
 add_executable(ToonEngine ${SOURCES} ${INCLUDES})
 

@@ -14,6 +14,8 @@ set(INCLUDES
 	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonRoot.h
 )
 
+set(ENV{PATH} ${library_dir}/dll)
+
 add_executable(ToonEditor ${SOURCES} ${INCLUDES})
 
 target_include_directories(ToonEditor
