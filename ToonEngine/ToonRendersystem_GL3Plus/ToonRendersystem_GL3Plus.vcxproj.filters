@@ -19,7 +19,6 @@
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusGBuffer.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusRendersystem.cpp" />
-    <ClCompile Include="Sources\ToonGL3PlusInputSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
