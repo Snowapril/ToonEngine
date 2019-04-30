@@ -8,13 +8,16 @@
 ### Clone
 ```
 git clone https://github.com/Snowapril/ToonEngine.git --recursive
+git lfs pull
 ```
 
 ### Build 
 ```
 mkdir Build
 cd Build
-cmake ../ToonEngine -G "Visual Studio 16 2019 Win64"
+cmake ../ToonEngine -G "<Enter the IDE what you want>"
+
+example ) cmake ../ToonEngine -G "Visual Studio 16 2019"
 ```
 
 ## Plan Ahead
@@ -22,7 +25,7 @@ cmake ../ToonEngine -G "Visual Studio 16 2019 Win64"
 ![Plan_ahead](./plan_ahead.jpg)
 
 * Core Systems
-	- module start-up and shut-down
+	- ~~module start-up and shut-down~~
 	- ~~assertions~~
 	- unit testing
 	- ~~memory allocation~~
