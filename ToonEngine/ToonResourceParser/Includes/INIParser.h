@@ -6,7 +6,6 @@
 #include <string>
 #include <cassert>
 #include <fstream>
-#include <sstream>
 #include <filesystem>
 #include <iostream>
 
@@ -53,54 +52,44 @@ namespace ToonResourceParser
 		bool open(std::string const& path) noexcept
 		{
 			std::ifstream iniFile(path);
+			if (iniFile.is_open() == false) return false;
 
-			auto isSectionName = [](std::string const& line)
+			INISection section;
+			std::string sectionName{};
+			std::string line{};
+
+			while (std::getline(iniFile, line))
 			{
-				return line.find('[') == 0;
-			};
+				if (line.empty()) continue;
 
-			if (iniFile.is_open())
-			{
-				INISection section;
-				std::string sectionName{};
-				std::string line{};
-
-				while (iniFile >> line)
+				if (line.find('[') == 0) // check whether if the given line is section name or not.
 				{
-					bool bSection = isSectionName(line);
-
-					if (bSection)
+					if (!sectionName.empty())
 					{
-						if (!sectionName.empty())
-						{
-							storage[sectionName] = section;
-							section = INISection();
-						}
-						sectionName = line.substr(1, line.length() - 1);
+						storage[sectionName] = section;
+						section = INISection();
 					}
-					else
+					sectionName = line.substr(1, line.length() - 2);
+				}
+				else // otherwise, given line will be variable name and value enclosed to section name.
+				{
+					auto equalLoc = line.find('=');
+					if (equalLoc == std::string::npos)
 					{
-						auto equalLoc = line.find('=');
-						if (equalLoc == std::string::npos)
-						{
-							iniFile.close();
-							return false;
-						}
-
-						std::string name = line.substr(0, equalLoc);
-						std::string data = line.substr(equalLoc + 1);
-						section.addData(name, data);
+						iniFile.close();
+						return false;
 					}
-				} // end of file
+					std::string name = line.substr(0, equalLoc);
+					std::string data = line.substr(equalLoc + 1);
 
-				if (!sectionName.empty()) storage[sectionName] = section;
-				iniFile.close();
-			}
-			else
-			{
-				return false;
-			}
+					name.erase(std::remove_if(begin(name), end(name), ::isspace), end(name)); // remove blank space in the name.
 
+					section.addData(name, data);
+				}
+			} // end of file
+
+			if (!sectionName.empty()) storage[sectionName] = section;
+			iniFile.close();
 			return true;
 		}
 
@@ -114,7 +103,9 @@ namespace ToonResourceParser
 		{
 			auto originalData = getOriginalData(name);
 			if (!originalData) return {};
-			return std::stoi(originalData.value());
+			std::string strData = originalData.value();
+			strData.erase(std::remove_if(begin(strData), end(strData), ::isspace), end(strData)); // remove blank space in the name.
+			return std::stoi(strData);
 		}
 		template <>
 		std::optional<std::string> getData(std::string const& name) const noexcept
@@ -131,15 +122,17 @@ namespace ToonResourceParser
 		{
 			auto originalData = getOriginalData(name);
 			if (!originalData) return {};
-			return std::stod(originalData.value());
+			std::string strData = originalData.value();
+			strData.erase(std::remove_if(begin(strData), end(strData), ::isspace), end(strData)); // remove blank space in the name.
+			return std::stod(strData);
 		}
 		template <>
 		std::optional<bool> getData(std::string const& name) const noexcept
 		{
 			auto originalData = getOriginalData(name);
 			if (!originalData) return {};
-			
 			std::string boolString = originalData.value();
+			boolString.erase(std::remove_if(begin(boolString), end(boolString), ::isspace), end(boolString)); // remove blank space in the name.
 			return boolString == "true" || boolString == "TRUE";
 		}
 		private:
