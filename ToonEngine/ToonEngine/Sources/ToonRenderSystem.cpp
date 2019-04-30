@@ -47,17 +47,21 @@ namespace Toon
 	}
 	bool RenderSystem::initWindow(INIParser const & parser) noexcept
 	{
-		auto width		= parser.getData<int>("Rendersystem.client_width");
-		auto height		= parser.getData<int>("Rendersystem.client_height");
-		auto title		= parser.getData<std::string>("Rendersystem.window_title");
-		auto fullscreen = parser.getData<bool>("Rendersystem.default_fullscreen");
+		auto width		= parser.getData<int>("RenderSystem.client_width");
+		auto height		= parser.getData<int>("RenderSystem.client_height");
+		auto title		= parser.getData<std::string>("RenderSystem.window_title");
+		auto fullscreen = parser.getData<bool>("RenderSystem.default_fullscreen");
 
-		if (AnyOf(!width, !height, !title, !fullscreen)) return false;
+		if (AnyOf(!width, !height, !title, !fullscreen))
+		{
+			Logger::getConstInstance().errorMessage(OBFUSCATE("[RenderSystem] Resource Parsing Error Occurred."));
+			return false;
+		}
 
 		auto initResult = super_t::initWindow(title.value(), width.value(), height.value(), fullscreen.value());
 		if (initResult)
 		{
-			Logger::getConstInstance().errorMessage(OBFUSCATE("[Rendersystem] Initialization error occurred. {0}"), initResult.value());
+			Logger::getConstInstance().errorMessage(OBFUSCATE("[RenderSystem] Initialization error occurred. {0}"), initResult.value());
 			return false;
 		}
 
