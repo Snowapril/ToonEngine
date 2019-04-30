@@ -13,6 +13,7 @@ def main() :
 
 	with open(target_config_file, 'w') as ini :
 		config.write(ini)
+		
 
 if __name__ == "__main__" :
 	main()
