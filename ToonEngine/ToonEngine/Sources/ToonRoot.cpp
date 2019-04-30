@@ -86,16 +86,20 @@ namespace Toon
 			systemMessageBus.reset(new SystemMessageBus());
 		}
 
-		if (InputSystem::isDestroyed())
-		{
-			inputSystem.reset(new InputSystem());
-		}
-		
 		if (RenderSystem::isDestroyed())
 		{
 			renderSystem.reset(new RenderSystem());
 			if (!renderSystem->initWindow(parser)) return false;
 		}
+
+		if (InputSystem::isDestroyed())
+		{
+			inputSystem.reset(new InputSystem());
+		}
+		
+		ToonGL3Plus::GL3PlusInputSystem* inputSystemPtr = inputSystem.get();
+		assert(inputSystemPtr != nullptr);
+		renderSystem->connectInputSystem(inputSystemPtr);
 
 		return true;
 	}
@@ -140,17 +144,15 @@ namespace Toon
 		
 		initialUpdate();
 
-		while (true)
+		while (!renderSystem->getWindowShouldClose())
 		{
 			timer->tick();
 			float dt		= timer->getDeltaTime();
 			float totalTime = timer->getTotalTime();
 
-			logger->infoMessage("delta time {0:01.4f} ms, total time {1:04.3f} sec", dt * 1000.0f, totalTime);
-
 			if (timer->isPaused())
-			{
-				// sleep here (cross-platform)
+			{	
+				SleepCrossPlatform(100U);
 			}
 			else
 			{
