@@ -3,6 +3,8 @@
 #include <glew/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "ToonGL3PlusInputSystem.h"
+
 #ifndef FMT_HEADER_ONLY
 #define FMT_HEADER_ONLY
 #endif
@@ -118,6 +120,13 @@ namespace ToonGL3Plus
 		return {};
 	}
 
+	void GL3PlusRendersystem::connectInputSystem(GL3PlusInputSystem* inputSystem) noexcept
+	{
+		this->inputSystem = inputSystem;
+
+		glfwSetKeyCallback(this->window, keyCallback);
+	}
+
 	auto GL3PlusRendersystem::getVendorString(void) const noexcept
 	{
 		return glGetString(GL_VENDOR);
@@ -128,6 +137,7 @@ namespace ToonGL3Plus
 	}
 	void GL3PlusRendersystem::preDrawScene(void) const noexcept
 	{
+		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(1.0, 0.0, 0.0, 1.0);
 	}
 	void GL3PlusRendersystem::drawScene(void) const noexcept
@@ -136,9 +146,18 @@ namespace ToonGL3Plus
 		glfwPollEvents();
 	}
 
+	bool GL3PlusRendersystem::getWindowShouldClose(void) const noexcept
+	{
+		return glfwWindowShouldClose(window);
+	}
+
 	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 	{
-		if (key == GLFW_KEY_UNKNOWN) return;
+		if (key == GLFW_KEY_UNKNOWN || !GL3PlusInputSystem::isCorrectKey(key)) return;
+		/*
+		if (action == GLFW_PRESS) keyStorage[key] = true;
+		else if (action == GLFW_RELEASE) keyStorage[key] = false;
+		*/
 	}
 	void mousePosCallback(GLFWwindow* window, double xpos, double ypos)
 	{

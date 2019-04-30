@@ -32,16 +32,18 @@ namespace ToonGL3Plus
 		// Opengl window and context initialization.
 		// note : if this return {}, it means initialization was successful.
 		std::optional<std::string> initWindow(std::string const & title, int width, int height, bool fullscreen = false) noexcept;
+		void connectInputSystem(GL3PlusInputSystem* inputSystem) noexcept;
 
 		auto getVendorString(void) const noexcept;
 		auto getRendererString(void) const noexcept;
 	public:
 		void preDrawScene(void) const noexcept;		
 		void drawScene(void) const noexcept;
+		bool getWindowShouldClose(void) const noexcept;
 	protected:
 		std::string wndCaption{};
 		
-		GL3PlusInputSystem* inputSystem;
+		GL3PlusInputSystem* inputSystem = nullptr; // must be manually deallocated at engine system.
 		GLFWwindow* window = nullptr;
 
 		int clientWidth{ 0 };

@@ -19,19 +19,29 @@ namespace ToonGL3Plus
 		using key_storage_t		 = std::array<bool, GL3PLUS_KEY_COUNT>;
 	public:
 		GL3PlusInputSystem() = default;
-		~GL3PlusInputSystem();
-
+		
 		// be cautious of this method, because it return reference of member variable.
 		// trade off for fast accessing to key inputs.
-		key_storage_t& getKeyStorage(void) noexcept;
+		inline key_storage_t& getKeyStorage(void) noexcept 
+		{
+			return keyStorage;
+		}
 		// be cautious of this method, because it return reference of member variable.
 		// trade off for fast accessing to key inputs.
-		key_storage_t const& getKeyStorage(void) const noexcept;
-
-	private:
+		inline key_storage_t const& getKeyStorage(void) const noexcept
+		{
+			return keyStorage;
+		}
+		// if given key has correct key value, return whether it's key pressed or not.
+		// otherwise, always return false.
+		inline bool isKeyPressed(char key) const noexcept
+		{
+			return isCorrectKey(key) ? keyStorage[key] : false;
+		}
+		
 		inline static bool isCorrectKey(char key) noexcept
 		{
-			return 0 >= key && key < 104;
+			return 0 <= key && key < 104;
 		}
 	protected:
 		key_storage_t keyStorage{ false, };
