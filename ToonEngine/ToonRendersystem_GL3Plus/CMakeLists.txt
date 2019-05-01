@@ -1,4 +1,4 @@
-set(target ToonRendersystem_GL3Plus)
+set(target ToonRenderSystem_GL3Plus)
 
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/stdafx.cpp
@@ -22,9 +22,9 @@ set(INCLUDES
 	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonGL3PlusInputSystem.h
 )
 
-add_library(ToonRendersystem_GL3Plus ${SOURCES} ${INCLUDES})
+add_library(ToonRenderSystem_GL3Plus ${SOURCES} ${INCLUDES})
 
-target_include_directories(ToonRendersystem_GL3Plus
+target_include_directories(ToonRenderSystem_GL3Plus
 PUBLIC
     ${library_dir}/glfw/include
 	${library_dir}/GL
@@ -36,10 +36,10 @@ PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
 )
 
-target_link_libraries(ToonRendersystem_GL3Plus
+target_link_libraries(ToonRenderSystem_GL3Plus
 PRIVATE
     glfw3 opengl32     
 )
 
-set_target_properties(ToonRendersystem_GL3Plus PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${CMAKE_CURRENT_SOURCE_DIR}/Includes/stdafx.h)
-cotire(ToonRendersystem_GL3Plus)
+set_target_properties(ToonRenderSystem_GL3Plus PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${CMAKE_CURRENT_SOURCE_DIR}/Includes/stdafx.h)
+cotire(ToonRenderSystem_GL3Plus)
