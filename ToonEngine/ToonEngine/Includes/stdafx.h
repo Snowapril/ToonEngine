@@ -10,7 +10,7 @@
 #pragma comment(lib, "opengl/glew32.lib")
 #pragma comment(lib, "opengl/glfw3.lib")
 #pragma comment(lib, "fmt/fmtd.lib")
-#pragma comment(lib, "ToonRendersystem_GL3Plus.lib")
+//#pragma comment(lib, "ToonRendersystem_GL3Plus.lib")
 #else
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "opengl/glfx.lib")
