@@ -68,7 +68,7 @@ namespace Toon
 
 		if (Filesystem::isDestroyed())
 		{
-			filesystem.reset(new Filesystem(rootPath.value())); 
+			filesystem.reset(new Filesystem(rootPath.value()));
 		}
 
 		if (Logger::isDestroyed())
@@ -133,8 +133,10 @@ namespace Toon
 		inputSystem.reset();
 		systemMessageBus.reset();
 		timer.reset();
-		logger.reset();
+
+		//except these
 		filesystem.reset();
+		logger.reset();
 	}
 
 	int ToonRoot::runMainLoop(void)
