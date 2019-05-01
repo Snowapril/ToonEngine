@@ -5,6 +5,7 @@
 #include <optional>
 #include <functional>
 
+#include "ToonGL3PlusPlugin.h"
 #include "ToonGL3PlusPrerequisites.h"
 
 struct GLFWwindow;
@@ -14,7 +15,7 @@ namespace ToonGL3Plus
 	/****************************************************************************
 						GL3PlusRenderSystem class declaration
 	****************************************************************************/
-	class GL3PlusRendersystem
+	class _ToonExport GL3PlusRendersystem
 	{
 	public:
 		GL3PlusRendersystem() noexcept;
@@ -46,9 +47,9 @@ namespace ToonGL3Plus
 		GL3PlusInputSystem* inputSystem = nullptr; // must be manually deallocated at engine system.
 		GLFWwindow* window = nullptr;
 
-		int clientWidth{ 0 };
-		int clientHeight{ 0 };
-		bool fullscreen{ false };
+		int clientWidth { 0 };
+		int clientHeight { 0 };
+		bool fullscreen { false };
 	};
 };
 #endif

@@ -6,6 +6,7 @@
 #include <vector>
 #include <array>
 
+#include "ToonGL3PlusPlugin.h"
 #include "ToonGL3PlusPlatform.h"
 
 namespace ToonGL3Plus
@@ -13,7 +14,7 @@ namespace ToonGL3Plus
 	/****************************************************************************
 				GL3Plus InputSystem class declaration here
 	****************************************************************************/
-	class GL3PlusInputSystem 
+	class _ToonExport GL3PlusInputSystem
 	{
 		using key_table_t		 = std::unordered_map<unsigned long, char>;
 		using key_storage_t		 = std::array<bool, GL3PLUS_KEY_COUNT>;
@@ -39,13 +40,13 @@ namespace ToonGL3Plus
 			return isCorrectKey(key) ? keyStorage[key] : false;
 		}
 		
-		inline static bool isCorrectKey(char key) noexcept
+		inline constexpr static bool isCorrectKey(char key) noexcept
 		{
 			return 0 <= key && key < 104;
 		}
 	protected:
-		key_storage_t keyStorage{ false, };
-		key_table_t keyTable{};
+		key_storage_t keyStorage { false, };
+		key_table_t keyTable { };
 	};
 };
 
