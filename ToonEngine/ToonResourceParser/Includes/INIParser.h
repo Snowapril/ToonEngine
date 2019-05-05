@@ -39,7 +39,7 @@ namespace ToonResourceParser
 		using storage_t = std::unordered_map<std::string, INISection>;
 
 		INIParser() = default;
-		INIParser(std::string const& path) noexcept
+		INIParser(std::string const& path)
 		{
 			namespace fs = std::filesystem;
 
