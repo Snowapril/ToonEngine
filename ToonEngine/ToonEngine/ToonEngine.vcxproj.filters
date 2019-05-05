@@ -1,13 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Includes\ToonAlignedAllocator.h" />
     <ClInclude Include="Includes\ToonBitwise.h" />
-    <ClInclude Include="Includes\ToonBufferedAllocator.h" />
     <ClInclude Include="Includes\ToonCamera.h" />
     <ClInclude Include="Includes\ToonCRC32Hash.h" />
-    <ClInclude Include="Includes\ToonDoubleEndedStackAllocator.h" />
     <ClInclude Include="Includes\ToonExceptions.h" />
     <ClInclude Include="Includes\ToonFilesystem.h" />
     <ClInclude Include="Includes\ToonHeaderPostfix.h" />
@@ -15,30 +11,25 @@
     <ClInclude Include="Includes\ToonLogger.h" />
     <ClInclude Include="Includes\ToonMaterial.h" />
     <ClInclude Include="Includes\ToonMesh.h" />
-    <ClInclude Include="Includes\ToonNoncopyable.h" />
     <ClInclude Include="Includes\ToonObfuscator.h" />
     <ClInclude Include="Includes\ToonObject.h" />
     <ClInclude Include="Includes\ToonPlatform.h" />
-    <ClInclude Include="Includes\ToonPlugEngine.h" />
     <ClInclude Include="Includes\ToonPoolAllocator.h" />
     <ClInclude Include="Includes\ToonPrerequisites.h" />
     <ClInclude Include="Includes\ToonReflection.h" />
     <ClInclude Include="Includes\ToonRenderSystem.h" />
     <ClInclude Include="Includes\ToonRoot.h" />
-    <ClInclude Include="Includes\ToonSingleton.h" />
-    <ClInclude Include="Includes\ToonStackAllocator.h" />
-    <ClInclude Include="Includes\ToonSTLAllocator.h" />
     <ClInclude Include="Includes\ToonString.h" />
     <ClInclude Include="Includes\ToonSystemMessage.h" />
     <ClInclude Include="Includes\ToonSystemMessageBus.h" />
     <ClInclude Include="Includes\ToonTexture.h" />
     <ClInclude Include="Includes\ToonTimer.h" />
     <ClInclude Include="Includes\ToonInputSystem.h" />
+    <ClInclude Include="Precompiled\stdafx.h" />
+    <ClInclude Include="Includes\ToonAlignedAllocator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\main.cpp" />
-    <ClCompile Include="Sources\stdafx.cpp" />
-    <ClCompile Include="Sources\ToonAlignedAllocator.cpp" />
     <ClCompile Include="Sources\ToonCamera.cpp" />
     <ClCompile Include="Sources\ToonFilesystem.cpp" />
     <ClCompile Include="Sources\ToonLogger.cpp" />
@@ -49,6 +40,8 @@
     <ClCompile Include="Sources\ToonSystemMessageBus.cpp" />
     <ClCompile Include="Sources\ToonTimer.cpp" />
     <ClCompile Include="Sources\ToonInputSystem.cpp" />
+    <ClCompile Include="Precompiled\stdafx.cpp" />
+    <ClCompile Include="Sources\ToonAlignedAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
