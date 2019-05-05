@@ -20,9 +20,13 @@ add_executable(ToonEditor ${SOURCES} ${INCLUDES})
 
 target_include_directories(ToonEditor
 PUBLIC
-    # ${CMAKE_SOURCE_DIR}/
+	${project_dir}/ToonEngine/Includes
+	${project_dir}/ToonResourceParser/Includes
+	${project_dir}/Common/Includes
+	${library_dir}/imgui
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
+	${CMAKE_CURRENT_SOURCE_DIR}/Precompiled
 )
 
 target_link_libraries(ToonEditor

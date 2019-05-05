@@ -71,8 +71,10 @@ PUBLIC
 	${library_dir}/fmt/include
 	${project_dir}/ToonRenderSystem_GL3Plus/Includes
 	${project_dir}/ToonResourceParser/Includes
+	${project_dir}/Common/Includes
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
+	${CMAKE_CURRENT_SOURCE_DIR}/Precompiled
 )
 
 target_link_libraries(ToonEngine

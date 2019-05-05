@@ -12,6 +12,7 @@ PUBLIC
     # ${CMAKE_SOURCE_DIR}/
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
+	${CMAKE_CURRENT_SOURCE_DIR}/Precompiled
 )
 
 target_link_libraries(Common

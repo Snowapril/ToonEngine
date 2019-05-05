@@ -32,8 +32,11 @@ PUBLIC
 	${library_dir}/glm/include
 	${library_dir}/NvToolsExt/include
 	${project_dir}/ToonEngine/Includes
+	${project_dir}/Common/Includes
+	${project_dir}/ToonResourceParser/Includes
 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Includes
+	${CMAKE_CURRENT_SOURCE_DIR}/Precompiled
 )
 
 target_link_libraries(ToonRenderSystem_GL3Plus
