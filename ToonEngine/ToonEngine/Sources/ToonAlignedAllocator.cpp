@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "ToonAlignedAllocator.h"
-#include "ToonPlatform.h"
 #include <cassert>
 #include "ToonBitwise.h"
+#include "ToonPlatform.h"
 
 namespace Toon
 {

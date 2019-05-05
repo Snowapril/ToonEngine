@@ -13,12 +13,16 @@
 
 #include <algorithm>
 
+namespace Common
+{
+	template <> Toon::ToonRoot* Singleton<Toon::ToonRoot>::instance = nullptr;
+}
+
 namespace Toon
 {
 	/****************************************************************************
 				ToonRoot class definition
 	****************************************************************************/
-	template <> ToonRoot* Singleton<ToonRoot>::instance = nullptr;
 	using namespace ToonResourceParser;
 
 	// local callback functions declaration
@@ -139,7 +143,7 @@ namespace Toon
 		logger.reset();
 	}
 
-	int ToonRoot::runMainLoop(void)
+	int ToonRoot::runMainLoop(void) noexcept
 	{
 		//timer reset
 		timer->reset();
