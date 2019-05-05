@@ -2,14 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="Includes\LuaEngine.h" />
-    <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Includes\ToonRoot.h" />
+    <ClInclude Include="Precompiled\stdafx.h" />
+    <ClInclude Include="Includes\ToonEditorRoot.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\LuaEngine.cpp" />
     <ClCompile Include="Sources\main.cpp" />
-    <ClCompile Include="Sources\stdafx.cpp" />
-    <ClCompile Include="Sources\ToonRoot.cpp" />
+    <ClCompile Include="Precompiled\stdafx.cpp" />
+    <ClCompile Include="Sources\ToonEditorRoot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

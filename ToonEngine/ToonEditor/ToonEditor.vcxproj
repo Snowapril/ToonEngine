@@ -93,7 +93,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries;$(ProjectDir)Includes;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ToonRendersystem_GL3Plus\Includes;$(ProjectDir)Precompiled;$(SolutionDir)Libraries\imgui;$(ProjectDir)Includes;$(SolutionDir)Common\Includes;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)ToonResourceParser\Includes</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,7 +125,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries;$(ProjectDir)Includes;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ToonRendersystem_GL3Plus\Includes;$(ProjectDir)Precompiled;$(SolutionDir)Libraries\imgui;$(ProjectDir)Includes;$(SolutionDir)Common\Includes;$(SolutionDir)ToonEngine\Includes;$(SolutionDir)ToonResourceParser\Includes</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,14 +137,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Includes\LuaEngine.h" />
-    <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Includes\ToonRoot.h" />
+    <ClInclude Include="Includes\ToonEditorRoot.h" />
+    <ClInclude Include="Precompiled\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Precompiled\stdafx.cpp" />
     <ClCompile Include="Sources\LuaEngine.cpp" />
     <ClCompile Include="Sources\main.cpp" />
-    <ClCompile Include="Sources\stdafx.cpp" />
-    <ClCompile Include="Sources\ToonRoot.cpp" />
+    <ClCompile Include="Sources\ToonEditorRoot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
