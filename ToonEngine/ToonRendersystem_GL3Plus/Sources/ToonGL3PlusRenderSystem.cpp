@@ -10,47 +10,46 @@
 #endif
 #include <fmt/format.h>
 
+namespace Common
+{
+	template <> ToonGL3Plus::GL3PlusRenderSystem* Singleton<ToonGL3Plus::GL3PlusRenderSystem>::instance = nullptr;
+}
 
 namespace ToonGL3Plus
 {
-	void keyCallback		(GLFWwindow* window, int key, int scancode, int action, int mode);
-	void mousePosCallback	(GLFWwindow* window, double xpos, double ypos					);
-	void mouseBtnCallback	(GLFWwindow* window, int btn, int action, int mods				);
-	void scrollCallback		(GLFWwindow* window, double xoffset, double yoffset				);
-	void resizingCallback	(GLFWwindow* window, int newWidth, int newHeight				);
-
-	namespace
-	{
-		GL3PlusRendersystem* gInstance = nullptr;
-	};
+	using namespace Common;
 
 	/****************************************************************************
 						GL3PlusRenderSystem class definition
 	****************************************************************************/
+	namespace {
+		ToonGL3Plus::GL3PlusRenderSystem* gInstance = nullptr;
+	}
 
-	GL3PlusRendersystem::GL3PlusRendersystem() noexcept
+	GL3PlusRenderSystem::GL3PlusRenderSystem()
 	{
 		gInstance = this;
 	}
 
-	GL3PlusRendersystem::GL3PlusRendersystem(char const* title, int width, int height, bool fullscreen) noexcept
+	GL3PlusRenderSystem::GL3PlusRenderSystem(std::string const &title, int width, int height, bool fullscreen) noexcept
 	{
-		gInstance = this;
 		assert(!initWindow(title, width, height, fullscreen));
+		gInstance = this;
 	}
-	GL3PlusRendersystem::~GL3PlusRendersystem() noexcept
+	GL3PlusRenderSystem::~GL3PlusRenderSystem() noexcept
 	{
 		glfwTerminate();
+		gInstance = nullptr;
 	}
-	GLFWwindow const* GL3PlusRendersystem::getWindow(void) const noexcept
+	GLFWwindow const* GL3PlusRenderSystem::getWindow(void) const noexcept
 	{
 		return window;
 	}
-	double GL3PlusRendersystem::getAspectRatio(void) const noexcept
+	double GL3PlusRenderSystem::getAspectRatio(void) const noexcept
 	{
 		return static_cast<double>(clientWidth) / clientHeight;
 	}
-	std::optional<std::string> GL3PlusRendersystem::initWindow(std::string const& title, int width, int height, bool fullscreen) noexcept
+	std::optional<std::string> GL3PlusRenderSystem::initWindow(std::string const &title, int width, int height, bool fullscreen) noexcept
 	{
 		if (!glfwInit())	
 		{
@@ -58,10 +57,10 @@ namespace ToonGL3Plus
 			return "GLFW initialization failed.";
 		}
 
-		this->wndCaption = title;
-		this->clientWidth = width;
-		this->clientHeight = height;
-		this->fullscreen = fullscreen;
+		this->wndCaption	= title;
+		this->clientWidth	= width;
+		this->clientHeight	= height;
+		this->fullscreen	= fullscreen;
 
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -120,33 +119,45 @@ namespace ToonGL3Plus
 		return {};
 	}
 
-	void GL3PlusRendersystem::connectInputSystem(GL3PlusInputSystem* inputSystem) noexcept
+	void GL3PlusRenderSystem::connectInputSystem(GL3PlusInputSystem* inputSystem, ToonResourceParser::INIParser const* inputInfo) noexcept
 	{
 		this->inputSystem = inputSystem;
 
-		glfwSetKeyCallback(this->window, keyCallback);
+		if (inputInfo)
+		{
+			// set input callbacks according to given input information ini file.
+		}
+		else
+		{
+			glfwSetKeyCallback(this->window, keyCallback);
+			glfwSetCursorPosCallback(this->window, mousePosCallback);
+			glfwSetMouseButtonCallback(this->window, mouseBtnCallback);
+			glfwSetScrollCallback(this->window, scrollCallback);
+			glfwSetFramebufferSizeCallback(this->window, resizingCallback);
+			glfwSetInputMode(this->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		}
 	}
 
-	auto GL3PlusRendersystem::getVendorString(void) const noexcept
+	auto GL3PlusRenderSystem::getVendorString(void) const noexcept
 	{
 		return glGetString(GL_VENDOR);
 	}
-	auto GL3PlusRendersystem::getRendererString(void) const noexcept
+	auto GL3PlusRenderSystem::getRendererString(void) const noexcept
 	{
 		return glGetString(GL_RENDERER);
 	}
-	void GL3PlusRendersystem::preDrawScene(void) const noexcept
+	void GL3PlusRenderSystem::preDrawScene(void) const noexcept
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		glClearColor(1.0, 0.0, 0.0, 1.0);
 	}
-	void GL3PlusRendersystem::drawScene(void) const noexcept
+	void GL3PlusRenderSystem::drawScene(void) const noexcept
 	{
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
-	bool GL3PlusRendersystem::getWindowShouldClose(void) const noexcept
+	bool GL3PlusRenderSystem::getWindowShouldClose(void) const noexcept
 	{
 		return glfwWindowShouldClose(window);
 	}
@@ -154,10 +165,12 @@ namespace ToonGL3Plus
 	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 	{
 		if (key == GLFW_KEY_UNKNOWN || !GL3PlusInputSystem::isCorrectKey(key)) return;
-		/*
+		
+		auto inputSystem = gInstance->inputSystem;
+		auto& keyStorage = inputSystem->getKeyStorage();
+
 		if (action == GLFW_PRESS) keyStorage[key] = true;
 		else if (action == GLFW_RELEASE) keyStorage[key] = false;
-		*/
 	}
 	void mousePosCallback(GLFWwindow* window, double xpos, double ypos)
 	{

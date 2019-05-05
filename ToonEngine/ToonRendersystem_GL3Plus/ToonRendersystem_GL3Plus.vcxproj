@@ -39,7 +39,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -87,7 +87,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\NvToolsExt\include;$(SolutionDir)Libraries\fmt\include;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ToonResourceParser\Includes;$(ProjectDir)Precompiled;$(SolutionDir)Common\Includes;$(SolutionDir)Libraries\NvToolsExt\include;$(SolutionDir)Libraries\fmt\include;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -120,9 +120,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\NvToolsExt\include;$(SolutionDir)Libraries\fmt\include;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ToonResourceParser\Includes;$(ProjectDir)Precompiled;$(SolutionDir)Common\Includes;$(SolutionDir)Libraries\NvToolsExt\include;$(SolutionDir)Libraries\fmt\include;$(SolutionDir)Libraries\glfw\include;$(SolutionDir)Libraries\GL;$(ProjectDir)Includes;$(SolutionDir)Libraries\glm</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,7 +133,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Includes\ToonGL3PlusEffect.h" />
     <ClInclude Include="Includes\ToonGL3PlusErrorCodes.h" />
     <ClInclude Include="Includes\ToonGL3PlusFramebuffer.h" />
@@ -142,14 +142,14 @@
     <ClInclude Include="Includes\ToonGL3PlusPrerequisites.h" />
     <ClInclude Include="Includes\ToonGL3PlusRendersystem.h" />
     <ClInclude Include="Includes\ToonGL3PlusUtil.h" />
-    <ClInclude Include="Includes\ToonGL3PlusPlugin.h" />
+    <ClInclude Include="Precompiled\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\dllmain.cpp" />
-    <ClCompile Include="Sources\stdafx.cpp" />
+    <ClCompile Include="Precompiled\stdafx.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusGBuffer.cpp" />
+    <ClCompile Include="Sources\ToonGL3PlusInputSystem.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusRendersystem.cpp" />
   </ItemGroup>
   <ItemGroup>

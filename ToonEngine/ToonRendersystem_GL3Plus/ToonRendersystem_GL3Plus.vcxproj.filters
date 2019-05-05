@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Includes\ToonGL3PlusEffect.h" />
     <ClInclude Include="Includes\ToonGL3PlusErrorCodes.h" />
     <ClInclude Include="Includes\ToonGL3PlusFramebuffer.h" />
@@ -11,15 +10,15 @@
     <ClInclude Include="Includes\ToonGL3PlusInputSystem.h" />
     <ClInclude Include="Includes\ToonGL3PlusPlatform.h" />
     <ClInclude Include="Includes\ToonGL3PlusPrerequisites.h" />
-    <ClInclude Include="Includes\ToonGL3PlusPlugin.h" />
+    <ClInclude Include="Precompiled\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\stdafx.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusFramebuffer.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusGBuffer.cpp" />
     <ClCompile Include="Sources\ToonGL3PlusRendersystem.cpp" />
-    <ClCompile Include="Sources\dllmain.cpp" />
+    <ClCompile Include="Precompiled\stdafx.cpp" />
+    <ClCompile Include="Sources\ToonGL3PlusInputSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
