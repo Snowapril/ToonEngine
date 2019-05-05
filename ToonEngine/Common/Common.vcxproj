@@ -25,6 +25,9 @@
     <ClCompile Include="Sources\dllmain.cpp" />
     <ClCompile Include="Sources\stdafx.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{55DF8305-C7C2-458E-A27C-A6E5CA79C932}</ProjectGuid>

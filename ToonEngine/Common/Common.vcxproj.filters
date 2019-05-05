@@ -7,4 +7,7 @@
     <ClCompile Include="Sources\stdafx.cpp" />
     <ClCompile Include="Sources\dllmain.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
 </Project>
