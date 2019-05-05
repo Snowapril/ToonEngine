@@ -7,35 +7,25 @@
 #include "ToonFileSystem.h"
 #include "ToonExceptions.h"
 
+namespace Common
+{
+	template <> Toon::RenderSystem* Singleton<Toon::RenderSystem>::instance = nullptr;
+}
+
 namespace Toon
 {
 	/****************************************************************************
 						RenderSystem class definition
 	****************************************************************************/
 	using namespace ToonResourceParser;
-	RenderSystem* RenderSystem::instance = nullptr;
 
-	RenderSystem::RenderSystem()
+	RenderSystem::RenderSystem() noexcept
 		: super_t()
 	{
-		assert(instance == nullptr);
-		instance = static_cast<RenderSystem*>(this);
 	}
-	RenderSystem::~RenderSystem()
+	RenderSystem::~RenderSystem() noexcept
 	{
 		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Rendersystem instance is released"), reinterpret_cast<void*>(instance));
-		assert(instance != nullptr);
-		instance = nullptr;
-	}
-	RenderSystem const& RenderSystem::getConstInstance(void)
-	{
-		assert(instance != nullptr);
-		return *instance;
-	}
-	RenderSystem& RenderSystem::getMutableInstance(void)
-	{
-		assert(instance != nullptr);
-		return *instance;
 	}
 	void RenderSystem::preDrawScene(void) const noexcept
 	{

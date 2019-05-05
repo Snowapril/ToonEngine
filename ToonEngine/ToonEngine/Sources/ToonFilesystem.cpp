@@ -9,12 +9,16 @@
 #endif
 #include <fmt/format.h>
 
+namespace Common
+{
+	template <> Toon::Filesystem* Singleton<Toon::Filesystem>::instance = nullptr;
+}
+
 namespace Toon
 {
 	/****************************************************************************
 						Filesystem class definition
 	****************************************************************************/
-	template <> Filesystem* Singleton< Filesystem >::instance = nullptr;
 	namespace fs = std::filesystem;
 
 	Filesystem::Filesystem( std::string const & rootPath )

@@ -3,12 +3,16 @@
 #include "ToonLogger.h"
 #include "ToonObfuscator.h"
 
+namespace Common
+{
+	template <> Toon::SystemMessageBus* Singleton<Toon::SystemMessageBus>::instance = nullptr;
+}
+
 namespace Toon
 {
 	/****************************************************************************
 						SystemMessageBus class definition
 	****************************************************************************/
-	template <> SystemMessageBus* Singleton< SystemMessageBus >::instance = nullptr;
 
 	SystemMessageBus::SystemMessageBus() noexcept
 	{

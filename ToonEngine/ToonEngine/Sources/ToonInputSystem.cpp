@@ -3,33 +3,22 @@
 #include "ToonLogger.h"
 #include "ToonObfuscator.h"
 
+namespace Common
+{
+	template <> Toon::InputSystem* Singleton<Toon::InputSystem>::instance = nullptr;
+}
+
 namespace Toon
 {
-	InputSystem* InputSystem::instance = nullptr;
-
 	InputSystem::InputSystem() noexcept
 		: super_t()
 	{
-		assert(instance == nullptr);
-		instance = static_cast<InputSystem*>(this);
 	}
-	InputSystem::~InputSystem()
+	InputSystem::~InputSystem() noexcept
 	{
 		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Rendersystem instance is released"), reinterpret_cast<void*>(instance));
-		assert(instance != nullptr);
-		instance = nullptr;
 	}
-	InputSystem const& InputSystem::getConstInstance(void)
-	{
-		assert(instance != nullptr);
-		return *instance;
-	}
-	InputSystem& InputSystem::getMutableInstance(void)
-	{
-		assert(instance != nullptr);
-		return *instance;
-	}
-	void InputSystem::setKeyName(ToonString keyMacro, char key) noexcept
+	void InputSystem::setKeyName(ToonString keyMacro, short key) noexcept
 	{
 		if (super_t::isCorrectKey(key))
 		{
@@ -37,7 +26,7 @@ namespace Toon
 			keyTable.insert(std::make_pair(hashKey, key));
 		}
 	}
-	void InputSystem::addCallback(char key, callback_t callback, ToonKeyState keyState) noexcept
+	void InputSystem::addCallback(short key, callback_t callback, ToonKeyState keyState) noexcept
 	{
 		if (super_t::isCorrectKey(key))
 		{
@@ -59,10 +48,10 @@ namespace Toon
 		auto keyOption = getKeyFromID(keyID);
 		if (keyOption.has_value()) return ToonKeyState::KEY_UNKNOWN;
 
-		char key = keyOption.value();
+		short key = keyOption.value();
 		return keyStorage[key] ? ToonKeyState::KEY_PRESSED : ToonKeyState::KEY_RELEASED;
 	}
-	ToonKeyState InputSystem::getKeyState(char key) const noexcept
+	ToonKeyState InputSystem::getKeyState(short key) const noexcept
 	{
 		if (super_t::isCorrectKey(key))		return ToonKeyState::KEY_UNKNOWN; // when unknown key is given (is not in range of ASCII Code)
 		else								return keyStorage[key] ? ToonKeyState::KEY_PRESSED : ToonKeyState::KEY_RELEASED; 
@@ -74,7 +63,7 @@ namespace Toon
 
 		if (keyOption.has_value())
 		{
-			char key = keyOption.value();
+			short key = keyOption.value();
 			callback_storage_t& storageOnPress = callbackStorage[keyState];
 			for (auto callback : storageOnPress[key])
 			{
@@ -82,7 +71,7 @@ namespace Toon
 			}
 		}
 	}
-	std::optional<char> InputSystem::getKeyFromID(ToonString keyID) const noexcept
+	std::optional<short> InputSystem::getKeyFromID(ToonString keyID) const noexcept
 	{
 		auto hashKey = keyID.toHashKey();
 		auto iter = keyTable.find(hashKey);

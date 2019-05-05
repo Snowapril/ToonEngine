@@ -3,23 +3,20 @@
 #include "ToonLogger.h"
 #include "ToonObfuscator.h"
 
+namespace Common
+{
+	template <> Toon::Timer* Singleton<Toon::Timer>::instance = nullptr;
+}
+
 namespace Toon
 {
 	/****************************************************************************
 						Timer class definition
-	****************************************************************************/
-	template <> Timer* Singleton<Timer>::instance = nullptr;
-
-	Timer::Timer()
-		: startTime(), currentTime(), pausedTime(), deltaTime(), bPaused(false)
-	{
-	}
-
+	*********************************************************************** *****/
 	Timer::~Timer()
 	{
 		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Timer instance is released"), reinterpret_cast<void*>(instance));
 	}
-
 	void Timer::tick(void) noexcept
 	{
 		using namespace std::chrono;

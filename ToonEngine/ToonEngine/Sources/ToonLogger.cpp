@@ -7,12 +7,16 @@
 #include "ToonFilesystem.h"
 #include "ToonObfuscator.h"
 
+namespace Common
+{
+	template <> Toon::Logger* Singleton<Toon::Logger>::instance = nullptr;
+}
+
 namespace Toon
 {
 	/****************************************************************************
 						Logger class definition
 	****************************************************************************/
-	template <> Logger* Singleton<Logger>::instance = nullptr;
 
 	Logger::Logger(std::string const& logDirectory)
 	{
