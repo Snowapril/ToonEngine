@@ -2,7 +2,6 @@
 #define TOON_LOGGER_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonSingleton.h"
 
 #pragma warning(push)
 #pragma warning( disable :  4244 )
@@ -10,6 +9,7 @@
 #include <spdlog/async.h>
 #pragma warning (pop)
 
+#include <ToonSingleton.h>
 #include <string>
 #include <memory>
 
@@ -18,7 +18,7 @@ namespace Toon
 	/****************************************************************************
 						Logger class declaration
 	****************************************************************************/
-	class Logger : public Singleton<Logger>
+	class Logger : public Common::Singleton<Logger>
 	{
 	private:
 		std::shared_ptr<spdlog::async_logger> logger;

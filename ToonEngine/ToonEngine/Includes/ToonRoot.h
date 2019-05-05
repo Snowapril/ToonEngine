@@ -2,9 +2,10 @@
 #define TOON_ROOT_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonSingleton.h"
 #include "ToonPrerequisites.h"
 #include "ToonObfuscator.h"
+
+#include <ToonSingleton.h>
 #include <INIParser.h>
 #include <string>
 #include <memory>
@@ -17,13 +18,12 @@ namespace Toon
 	/****************************************************************************
 				ToonRoot class declaration
 	****************************************************************************/
-	class ToonRoot : public Singleton<ToonRoot>
+	class ToonRoot : public Common::Singleton<ToonRoot>
 	{
-		using super_t = Singleton<ToonRoot>;
+		using super_t = Common::Singleton<ToonRoot>;
 	protected:
 		std::unique_ptr<RenderSystem>		renderSystem;
 		std::unique_ptr<InputSystem>		inputSystem;
-	private: // plugins
 		std::unique_ptr<Logger>				logger;
 		std::unique_ptr<SystemMessageBus>	systemMessageBus;
 		std::unique_ptr<Filesystem>			filesystem;
@@ -42,7 +42,7 @@ namespace Toon
 		virtual ~ToonRoot();
 
 		bool initialize(bool autoCreateWindow = true, std::string const & windowTitle = OBFUSCATE("ToonEngine"), std::string const & configFilePath = "");
-		int  runMainLoop(void);
+		int  runMainLoop(void) noexcept; // this is only for testing ToonEngine. will be remove at later.
 	};
 };
 

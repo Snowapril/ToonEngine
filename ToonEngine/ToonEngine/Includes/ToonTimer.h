@@ -2,7 +2,8 @@
 #define TOON_TIMER_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonSingleton.h"
+
+#include <ToonSingleton.h>
 #include <chrono>
 
 namespace Toon
@@ -12,16 +13,16 @@ namespace Toon
 	****************************************************************************/
 	using time_point_t = std::chrono::time_point< std::chrono::high_resolution_clock >;
 
-	class Timer : public Singleton< Timer >
+	class Timer : public Common::Singleton< Timer >
 	{
 	private:
-		time_point_t	startTime	;
-		time_point_t	currentTime	;
-		double			pausedTime	;  // represent elapsed time as state "pause"
-		double			deltaTime	;
-		bool			bPaused		;
+		time_point_t	startTime	{};
+		time_point_t	currentTime {};
+		double			pausedTime	= 0.0;  // represent elapsed time as state "pause"
+		double			deltaTime	= 0.0;
+		bool			bPaused		= false;
 	public:
-		Timer();
+		Timer() = default;
 		~Timer();
 
 		void tick	(void) noexcept;

@@ -2,7 +2,8 @@
 #define TOON_FILESYSTEM_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonSingleton.h"
+
+#include <ToonSingleton.h>
 #include <string>
 #include <unordered_map>
 #include <filesystem>
@@ -12,7 +13,7 @@ namespace Toon
 	/****************************************************************************
 						Filesystem class declaration
 	****************************************************************************/
-	class Filesystem : public Singleton<Filesystem>
+	class Filesystem : public Common::Singleton<Filesystem>
 	{
 	private:
 		std::unordered_map< std::string, std::string > dirTable;

@@ -1,7 +1,6 @@
 #ifndef TOON_ALIGNED_ALLOCATOR_H
 #define TOON_ALIGNED_ALLOCATOR_H
 
-#include "ToonHeaderPrefix.h"
 #include <cstddef>
 #include "ToonNoncopyable.h"
 #include <memory>
@@ -23,9 +22,5 @@ namespace Toon
 	};
 
 };
-
-
-
-#include "ToonHeaderPostfix.h"
 
 #endif

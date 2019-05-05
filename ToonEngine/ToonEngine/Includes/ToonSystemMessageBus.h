@@ -2,7 +2,7 @@
 #define TOON_SYSTEM_MESSAGE_BUS_H
 
 #include "ToonHeaderPrefix.h"
-#include "ToonSingleton.h"
+#include <ToonSingleton.h>
 #include "ToonPrerequisites.h"
 #include <functional>
 #include <queue>
@@ -14,7 +14,7 @@ namespace Toon
 	/****************************************************************************
 						SystemMessageBus class declaration
 	****************************************************************************/
-	class SystemMessageBus : public Singleton<SystemMessageBus>
+	class SystemMessageBus : public Common::Singleton<SystemMessageBus>
 	{
 	private:
 		std::queue<SystemMessage> msgQueue;
