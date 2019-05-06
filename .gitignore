@@ -448,3 +448,7 @@ Build/
 .history
 
 # End of https://www.gitignore.io/api/visualstudiocode
+
+# Begin engine specific config files.
+*.ini
+# End of engine specific config files.
