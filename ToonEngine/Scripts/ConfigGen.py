@@ -26,7 +26,7 @@ def main():
     config_file_path = os.path.join(resource_path, "engine_config.ini")
     with open(config_file_path, 'w') as ini:
         config.write(ini)
-
+    print("Generate Engine Config file Complete!")
 
 if __name__ == "__main__" :
     main()
