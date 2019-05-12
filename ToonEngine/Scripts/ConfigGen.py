@@ -1,7 +1,7 @@
 import inspect
 import os
 import configparser
-
+import pprint
 
 def main():
     current_path = os.path.dirname(os.path.abspath(
@@ -27,6 +27,7 @@ def main():
     with open(config_file_path, 'w') as ini:
         config.write(ini)
     print("Generate Engine Config file Complete!")
+    pprint.pprint({section : dict(config[section]) for section in config.sections()})
 
 if __name__ == "__main__" :
     main()
