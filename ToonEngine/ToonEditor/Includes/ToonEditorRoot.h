@@ -20,7 +20,7 @@ namespace ToonEditor
 		void drawToolbar(void) noexcept;
 		void drawToolbox(void) noexcept;
 		void drawPreview(void) noexcept;
-		void drawFooter(void) noexcept;
+		void drawFooter (void) noexcept;
 		void drawMenubar(void) noexcept;
 	};
 };

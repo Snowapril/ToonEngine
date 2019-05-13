@@ -4,12 +4,22 @@
     <ClInclude Include="Includes\LuaEngine.h" />
     <ClInclude Include="Precompiled\stdafx.h" />
     <ClInclude Include="Includes\ToonEditorRoot.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\LuaEngine.cpp" />
     <ClCompile Include="Sources\main.cpp" />
     <ClCompile Include="Precompiled\stdafx.cpp" />
     <ClCompile Include="Sources\ToonEditorRoot.cpp" />
+    <ClCompile Include="imgui\imgui.cpp" />
+    <ClCompile Include="imgui\imgui_demo.cpp" />
+    <ClCompile Include="imgui\imgui_draw.cpp" />
+    <ClCompile Include="imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

@@ -1,6 +1,5 @@
-#pragma once
-
-#include <sol/sol.hpp>
+#ifndef LUAENGINE_H
+#define LUAENGINE_H
 
 namespace ToonEditor
 {
@@ -13,3 +12,5 @@ namespace ToonEditor
 	public:
 	};
 };
+
+#endif
