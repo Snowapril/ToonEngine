@@ -84,5 +84,5 @@ PRIVATE
     glfw3 opengl32     
 )
 
-set_target_properties(ToonEngine PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${CMAKE_CURRENT_SOURCE_DIR}/Includes/stdafx.h)
+set_target_properties(ToonEngine PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${CMAKE_CURRENT_SOURCE_DIR}/Precompiled/stdafx.h)
 cotire(ToonEngine)

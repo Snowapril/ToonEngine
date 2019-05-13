@@ -25,3 +25,6 @@
 [submodule "ToonEngine/Libraries/fmt"]
 	path = ToonEngine/Libraries/fmt
 	url = https://github.com/fmtlib/fmt
+[submodule "ToonEngine/Libraries/luajit"]
+	path = ToonEngine/Libraries/luajit
+	url = http://luajit.org/git/luajit-2.0.git
