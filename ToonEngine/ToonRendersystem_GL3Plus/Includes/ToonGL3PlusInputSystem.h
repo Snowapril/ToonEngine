@@ -1,3 +1,13 @@
+/**
+ * @file ToonGL3PlusInputSystem.h
+ * @author snowapril (https://github.com/Snowapril)
+ * @brief Provide useful input system methods which controlled by OpenGL3 Callback system.
+ * @version 0.1
+ * @date 2019-05-14
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #ifndef TOON_GL3_PLUS_INPUTSYSTEM_H
 #define TOON_GL3_PLUS_INPUTSYSTEM_H
 

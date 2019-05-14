@@ -1,3 +1,13 @@
+/**
+ * @file ToonGL3PlusPlatform.h
+ * @author snowapril (https://github.com/Snowapril)
+ * @brief provide macros which represent user's keyboard. the values below are exactly same as GLFW key input macro values.
+ * @version 0.1
+ * @date 2019-05-14
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #ifndef TOON_GL3_PLUS_PLATFORM_H
 #define TOON_GL3_PLUS_PLATFORM_H
 
@@ -124,6 +134,6 @@
 #define 	TOON_KEY_RIGHT_ALT   346
 #define 	TOON_KEY_RIGHT_SUPER   347
 #define 	TOON_KEY_MENU   348
-#define 	TOON_KEY_LAST   GLFW_KEY_MENU
+#define 	TOON_KEY_LAST   TOON_KEY_MENU
 
 #endif

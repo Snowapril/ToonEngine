@@ -1,3 +1,17 @@
+/**
+ * @file ToonGL3PlusRenderSystem.h
+ * @author snowapril (https://github.com/Snowapril)
+ * @brief Provide abstraction of whole OpenGL related features.
+ * 
+ * GL3PlusRenderSystem class is the heart of this project. Provide abstraction of whole OpenGL related features. At Engine code, which is separated with graphics library, 
+ * do not need to know about opengl functions. As inherit this class to Engine rendersystem, can control graphics related features.
+ * 
+ * @version 0.1
+ * @date 2019-05-14
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
 #ifndef TOON_GL3_PLUS_RENDERSYSTEM_H
 #define TOON_GL3_PLUS_RENDERSYSTEM_H
 
@@ -48,14 +62,13 @@ namespace ToonGL3Plus
 		void drawScene(void) const noexcept;
 		bool getWindowShouldClose(void) const noexcept;
 	protected:
-		std::string wndCaption {};
-		
+		std::string wndCaption {};		
 		GL3PlusInputSystem* inputSystem = nullptr; // must be manually deallocated at engine system.
-		GLFWwindow* window = nullptr;
-
 		int clientWidth { 0 };
 		int clientHeight { 0 };
 		bool fullscreen { false };
+	private:
+		GLFWwindow* window = nullptr;
 	};
 };
 #endif
