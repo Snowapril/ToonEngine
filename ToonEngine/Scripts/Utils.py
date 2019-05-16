@@ -1,3 +1,5 @@
+import os
+
 def get_extension(abs_path):
     if os.path.isfile(abs_path):
         dot_pos = abs_path.rfind(".")
@@ -16,3 +18,6 @@ def get_all_files(dir, filter_extensions):
         return files
     else:
         raise ValueError("Given argument is a incorrect directory path")
+
+def pickout_list_with_keyword(element_list, keyword):
+    return [e for e in element_list if keyword in e]
