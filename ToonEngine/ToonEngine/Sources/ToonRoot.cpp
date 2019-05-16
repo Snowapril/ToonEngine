@@ -39,7 +39,7 @@ namespace Toon
 
 	ToonRoot::~ToonRoot()
 	{
-		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("ToonRoot instance is released"), reinterpret_cast<void*>(instance) );
+		Logger::getConstInstance().infoMessage( OBFUSCATE("[Singleton] {0:>40} ({1:p})"), OBFUSCATE("ToonRoot instance is released"), reinterpret_cast<void*>(instance) );
 		release();
 	}	
 

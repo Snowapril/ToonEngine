@@ -25,7 +25,7 @@ namespace Toon
 	}
 	RenderSystem::~RenderSystem() noexcept
 	{
-		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Rendersystem instance is released"), reinterpret_cast<void*>(instance));
+		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:>40} ({1:p})"), OBFUSCATE("Rendersystem instance is released"), reinterpret_cast<void*>(instance));
 	}
 	void RenderSystem::preDrawScene(void) const noexcept
 	{

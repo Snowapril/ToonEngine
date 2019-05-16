@@ -35,7 +35,7 @@ namespace Toon
 		auto fileSink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(fs.getAbsolutePath(logDirectory) + std::string(OBFUSCATE("/engine.log")), 1048576 * 3, 2);
 		std::vector<spdlog::sink_ptr> sinks{ fileSink };
 #endif
-		logger = std::make_shared<spdlog::async_logger>(OBFUSCATE("toonLogger"), begin(sinks), end(sinks), spdlog::thread_pool(), spdlog::async_overflow_policy::overrun_oldest);
+		logger = std::make_shared<spdlog::async_logger>(OBFUSCATE("logger"), begin(sinks), end(sinks), spdlog::thread_pool(), spdlog::async_overflow_policy::overrun_oldest);
 		logger->set_level(spdlog::level::trace);
 
 		using namespace std::chrono_literals;
@@ -44,7 +44,7 @@ namespace Toon
 
 	Logger::~Logger()
 	{
-		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Logger instance is released"), reinterpret_cast<void*>(instance));
+		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:>40} ({1:p})"), OBFUSCATE("Logger instance is released"), reinterpret_cast<void*>(instance));
 		spdlog::shutdown();
 		logger.reset();
 	}

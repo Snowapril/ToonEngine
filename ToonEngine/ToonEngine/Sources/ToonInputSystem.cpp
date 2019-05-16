@@ -16,7 +16,7 @@ namespace Toon
 	}
 	InputSystem::~InputSystem() noexcept
 	{
-		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("Rendersystem instance is released"), reinterpret_cast<void*>(instance));
+		Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:>40} ({1:p})"), OBFUSCATE("Rendersystem instance is released"), reinterpret_cast<void*>(instance));
 	}
 	void InputSystem::setKeyName(ToonString keyMacro, short key) noexcept
 	{

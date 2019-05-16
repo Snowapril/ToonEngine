@@ -30,12 +30,12 @@ namespace Toon
 	{
 		if (Logger::isDestroyed())
 		{
-			auto releaseInfo = fmt::format(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("FileSystem instance is released"), reinterpret_cast<void*>(instance));
+			auto releaseInfo = fmt::format(OBFUSCATE("[Singleton] {0:>40} ({1:p})"), OBFUSCATE("FileSystem instance is released"), reinterpret_cast<void*>(instance));
 			std::clog << releaseInfo << std::endl;
 		}
 		else
 		{
-			Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:<40} ({1:p})"), OBFUSCATE("FileSystem instance is released"), reinterpret_cast<void*>(instance));
+			Logger::getConstInstance().infoMessage(OBFUSCATE("[Singleton] {0:>40} ({1:p})"), OBFUSCATE("FileSystem instance is released"), reinterpret_cast<void*>(instance));
 		}
 	}
 
