@@ -64,10 +64,12 @@ namespace ToonGL3Plus
 	protected:
 		std::string wndCaption {};		
 		GL3PlusInputSystem* inputSystem = nullptr; // must be manually deallocated at engine system.
+		GL3PlusGraphicUserInterface* guiSystem = nullptr;
+
 		int clientWidth { 0 };
 		int clientHeight { 0 };
-		bool fullscreen { false };
-	private:
+		bool bFullscreen { false };
+		bool bUseGUI { false };
 		GLFWwindow* window = nullptr;
 	};
 };

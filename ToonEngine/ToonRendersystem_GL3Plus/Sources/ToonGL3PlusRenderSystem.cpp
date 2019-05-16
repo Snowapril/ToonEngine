@@ -60,7 +60,7 @@ namespace ToonGL3Plus
 		this->wndCaption	= title;
 		this->clientWidth	= width;
 		this->clientHeight	= height;
-		this->fullscreen	= fullscreen;
+		this->bFullscreen	= fullscreen;
 
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);

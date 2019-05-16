@@ -4,6 +4,7 @@
 namespace ToonGL3Plus
 {
 	class GL3PlusInputSystem;
+	class GL3PlusGraphicUserInterface;
 }
 
 #endif
