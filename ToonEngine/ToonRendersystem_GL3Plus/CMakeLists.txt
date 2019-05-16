@@ -1,5 +1,10 @@
 set(target ToonRenderSystem_GL3Plus)
 
+set(project_include_py ${project_dir}/Scripts/ProjectInclude.py)
+add_custom_command(
+    COMMAND python ${project_include_py} ToonRendersystem_GL3Plus glfw
+)
+
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/stdafx.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/ToonGL3PlusEffect.cpp
@@ -22,7 +27,11 @@ set(INCLUDES
 	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonGL3PlusInputSystem.h
 )
 
-add_library(ToonRenderSystem_GL3Plus ${SOURCES} ${INCLUDES})
+file(GLOB IMGUI_SRC
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/*
+)
+
+add_library(ToonRenderSystem_GL3Plus ${SOURCES} ${INCLUDES} ${IMGUI_SRC})
 
 target_include_directories(ToonRenderSystem_GL3Plus
 PUBLIC

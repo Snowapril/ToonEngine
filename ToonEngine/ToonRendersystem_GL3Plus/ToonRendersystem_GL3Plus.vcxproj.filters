@@ -11,6 +11,7 @@
     <ClInclude Include="Includes\ToonGL3PlusPlatform.h" />
     <ClInclude Include="Includes\ToonGL3PlusPrerequisites.h" />
     <ClInclude Include="Precompiled\stdafx.h" />
+    <ClInclude Include="Includes\ToonGL3PlusGraphicUserInterface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\ToonGL3PlusEffect.cpp" />
