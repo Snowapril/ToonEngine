@@ -1,11 +1,6 @@
 # Target name
 set(target ToonEditor)
 
-set(project_include_py ${project_dir}/Scripts/ProjectInclude.py)
-add_custom_command(
-    COMMAND python ${project_include_py}
-)
-
 set(SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/Sources/LuaEngine.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp
@@ -19,13 +14,9 @@ set(INCLUDES
 	${CMAKE_CURRENT_SOURCE_DIR}/Includes/ToonRoot.h
 )
 
-file(GLOB IMGUI_SRC
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/*
-)
-
 set(ENV{PATH} ${library_dir}/dll)
 
-add_executable(ToonEditor ${SOURCES} ${INCLUDES} ${IMGUI_SRC})
+add_executable(ToonEditor ${SOURCES} ${INCLUDES})
 
 target_include_directories(ToonEditor
 PUBLIC

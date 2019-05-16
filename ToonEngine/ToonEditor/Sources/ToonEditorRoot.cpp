@@ -12,6 +12,8 @@
 #include <ToonInputSystem.h>
 
 #include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_internal.h>
 
 namespace Common
 {
@@ -26,9 +28,12 @@ namespace ToonEditor
 	ToonEditorRoot::ToonEditorRoot()
 		: super_t()
 	{
+		ImGui_ImplGlfwGL3_Init(window, true);
+
 	}
 	ToonEditorRoot::~ToonEditorRoot()
 	{
+		ImGui_ImplGlfwGL3_NewFrame();
 	}
 
 	void ToonEditorRoot::drawToolbar(void) noexcept
@@ -76,6 +81,7 @@ namespace ToonEditor
 				ImGui::EndMenu();
 			}
 		}
+		ImGui::EndMainMenuBar();
 	}
 	int ToonEditorRoot::runMainLoop(void) noexcept
 	{
@@ -96,6 +102,7 @@ namespace ToonEditor
 			}
 			else
 			{
+				drawMenubar();
 				preUpdateScene(dt); // 1) pre-simulation step
 				updateScene(dt);    // 2) simulation	 step
 				preDrawScene();	    // 3) pre-draw		 step
