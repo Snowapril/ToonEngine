@@ -1,3 +1,14 @@
+/**
+ * @file ToonCRC32Hash.h
+ * @author snowapril (https://github.com/Snowapril)
+ * @brief provide macro for hashing string at compile time using CRC32 hash function.
+ * @version 0.1
+ * @date 2019-05-16
+ * 
+ * @copyright Copyright (c) 2019
+ * 
+ */
+
 #ifndef TOON_CRC32_HASH_H
 #define TOON_CRC32_HASH_H
 
@@ -62,6 +73,17 @@ namespace Toon
 	/****************************************************************************
 						CRC32Hasher class declaration
 	****************************************************************************/
+
+	/**
+	 * @brief constexpr only class for hashing string at compile time.
+	 * 
+	 * \code{.cpp}
+	 * constexpr unsigned long stringID = CRC32Hasher::hashConstexpr(std::string_view("some string")); 
+	 * // above code can be shortend by provided macro.
+	 * constexpr auto stringID = CRC32_STRING_HASH("some string");
+	 * \endcode
+	 * 
+	 */
 	class CRC32Hasher
 	{
 	private:
@@ -71,11 +93,25 @@ namespace Toon
 		static constexpr unsigned long hashConstexpr(String const& str);
 	};
 	
+	/**
+	 * @brief CRC32 Hashing function (Copyright (C) 1986 Gary S. Brown)
+	 * 
+	 * @param octet 
+	 * @param crc 
+	 * @return constexpr unsigned long 
+	 */
 	constexpr unsigned long CRC32Hasher::UPDC32(char octet, unsigned long crc)
 	{
 		return (crc32Table[((crc) ^ ((unsigned char)octet)) & 0xff] ^ ((crc) >> 8));
 	}
 
+	/**
+	 * @brief return hash value of given string with crc32 hashing function.
+	 * 
+	 * @tparam String template parameter type must be string type such as std::string_view, std::string which can be iterated by range-based-for loop.
+	 * @param str the string will be hashed
+	 * @return constexpr unsigned long hashed value of given string.
+	 */
 	template <typename String>
 	constexpr unsigned long CRC32Hasher::hashConstexpr(String const& str)
 	{
