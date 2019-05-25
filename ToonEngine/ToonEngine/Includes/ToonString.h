@@ -3,8 +3,8 @@
  * @author snowapril (https://github.com/Snowapril)
  * @brief the string class of the toon engine. 
  * 
- * because compare whole characters in the manual string will be highly computative, hashing the string into the integer value in advance.
- * compare the single integer values will be absolutely more time efficient than comparing the whole characeters
+ * because comparing whole characters in the manual string will be highly computative, hashing the string into the integer value in advance.
+ * comparing the single integer values will be absolutely more time efficient than comparing the whole characters
  * 
  * @version 0.1
  * @date 2019-05-25
@@ -25,6 +25,10 @@ namespace Toon
 						ToonString class declaration
 	****************************************************************************/
 
+	/**
+	 * @brief string class of the toon engine.
+	 * 
+	 */
 	class ToonString
 	{
 	private:
