@@ -48,20 +48,4 @@ namespace Toon
 		spdlog::shutdown();
 		logger.reset();
 	}
-
-	void Logger::infoMessage(char const* msg) const noexcept
-	{
-		logger->info(msg);
-	}
-
-	void Logger::warnMessage(char const* msg) const noexcept
-	{
-		logger->warn(msg);
-	}
-
-	void Logger::errorMessage(char const* msg) const noexcept
-	{
-		logger->error(msg);
-	}
-
 };

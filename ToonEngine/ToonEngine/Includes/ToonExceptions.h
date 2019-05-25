@@ -22,6 +22,15 @@
 ****************************************************************************/
 namespace Toon
 {
+	/**
+	 * @brief upgrade version of assert macro function.
+	 * 
+	 * @tparam Bits variadic template parameter for boolean parameter.
+	 * @param msg  when assertion failed, this message will be printed.
+	 * @param file file name where assertion failed.
+	 * @param line source code line number where assertion failed.
+	 * @param conditions variadic boolean parameters
+	 */
 	template <typename... Bits>
 	TOON_FORCE_INLINE void _ToonAssert(char const* msg, char const* file, int line, Bits... conditions)
 	{
@@ -34,12 +43,26 @@ namespace Toon
 		}
 	}
 
+	/**
+	 * @brief when any of variadic boolean parameters true, this function will return true.
+	 * 
+	 * @tparam Logics template variadic parameter of variadic boolean parameters.
+	 * @param conditions variadic parameter for several boolean arguments. 
+	 * @return any of boolean parameters is true, return true.
+	 */
 	template < typename... Logics >
 	TOON_FORCE_INLINE bool AnyOf(Logics... conditions)
 	{
 		return ((conditions) || ...);
 	}
 
+	/**
+	 * @brief when any of variadic boolean parameters false, this function will return false.
+	 * 
+	 * @tparam Logics template variadic parameter of variadic boolean parameters.
+	 * @param conditions variadic parameter for several boolean arguments. 
+	 * @return any of boolean parameters is false, return false.
+	 */
 	template < typename... Logics >
 	TOON_FORCE_INLINE bool AllOf(Logics... conditions)
 	{

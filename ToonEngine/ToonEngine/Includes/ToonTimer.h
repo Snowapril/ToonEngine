@@ -18,7 +18,7 @@ namespace Toon
 	private:
 		time_point_t	startTime	{};
 		time_point_t	currentTime {};
-		double			pausedTime	= 0.0;  // represent elapsed time as state "pause"
+		double			pausedTime	= 0.0;  // represent elapsed time with state "pause"
 		double			deltaTime	= 0.0;
 		bool			bPaused		= false;
 	public:

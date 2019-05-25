@@ -1,3 +1,12 @@
+/**
+ * @file ToonObfuscator.h
+ * @author snowapril (https://github.com/Snowapril)
+ * @brief provide obfuscating macro using template meta programming.
+ * @version 0.1
+ * @date 2019-05-25
+ * 
+ * @copyright Copyright (c) 2019
+ */
 #ifndef TOON_OBFUSCATOR_H
 #define TOON_OBFUSCATOR_H
 
