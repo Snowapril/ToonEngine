@@ -52,7 +52,7 @@ namespace Toon
 		 */
 		virtual void initialUpdate	(  void	 );
 		/**
-		 * @brief 
+		 * @brief This step is for the preparing engine update and rendering, not for initialization of Engine.
 		 * 
 		 */
 		virtual void preUpdateScene	(float dt);
@@ -72,7 +72,7 @@ namespace Toon
 		 */
 		virtual void drawScene		(  void  ) const;
 		/**
-		 * @brief 
+		 * @brief This step is for releasing whole plugins of the engine root.
 		 * 
 		 */
 		virtual void release		(  void  );

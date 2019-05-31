@@ -35,7 +35,7 @@ namespace Toon
 			return freeList.empty();
 		}
 	private:
-		std::list<Type*> freeList; // STL set is impledmented with red black tree. O(logN)
+		std::list<Type*> freeList; // STL set is implemented with red black tree. O(logN)
 		char* beginPtr;
 		char* endPtr;
 	};
