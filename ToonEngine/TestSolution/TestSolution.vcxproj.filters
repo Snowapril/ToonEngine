@@ -6,4 +6,8 @@
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sources\meta_random.hpp" />
+    <ClInclude Include="Sources\obfuscator.hpp" />
+  </ItemGroup>
 </Project>
