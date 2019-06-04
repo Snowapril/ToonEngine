@@ -10,7 +10,7 @@ def main(target_project_name, keyword):
     root_path = os.path.join(current_path, "..")
     imgui_path = os.path.join(root_path, "Libraries/imgui")
     imgui_impl_path = os.path.join(imgui_path, "examples")
-    target_path = os.path.join(root_path, target_project_name + "/imgui")
+    target_path = os.path.join(root_path, target_project_name + "/Includes/imgui")
 	
 	# Check resource dir exists, if doesnt exists create one.
     if not os.path.exists(target_path) : os.makedirs(target_path)

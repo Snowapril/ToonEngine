@@ -1,6 +1,11 @@
 # Target name
 set(target ToonEditor)
 
+set(project_include_py ${project_dir}/Scripts/ProjectInclude.py)
+add_custom_command(
+    COMMAND python ${project_include_py} ${target} glfw
+)
+
 set(SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/Sources/LuaEngine.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Sources/main.cpp

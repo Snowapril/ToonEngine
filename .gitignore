@@ -470,4 +470,4 @@ Build/
 
 # End of https://www.gitignore.io/api/visualstudiocode
 
-*/imgui/*
+ToonEngine/*/imgui/*
